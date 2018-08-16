@@ -1,0 +1,6 @@
+framework module Pods_ShareURL {
+  umbrella header "Pods-ShareURL-umbrella.h"
+
+  export *
+  module * { export * }
+}

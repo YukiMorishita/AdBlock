@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ShareURL.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>adblock.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>6</integer>
+		</dict>
+		<key>blockList.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 	</dict>
 </dict>

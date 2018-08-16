@@ -1,24 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rU7-Xk-h4I">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Left Menu VIew Controller-->
+        <scene sceneID="xQU-4Z-5bf">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="Left" title="Left Menu VIew Controller" id="Uw4-eP-Uri" customClass="LeftMenuViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WOx-QQ-cK1">
+                        <rect key="frame" x="0.0" y="0.0" width="270" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmN-4s-N7H">
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                                <color key="barTintColor" red="0.60784313725490191" green="0.10588235294117647" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Menu" id="KOr-Ae-K1V">
+                                        <barButtonItem key="leftBarButtonItem" image="menu-20px" id="6sz-yT-wUw">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pw3-cw-edd">
+                                <rect key="frame" x="0.0" y="82" width="270" height="585"/>
+                                <color key="backgroundColor" red="0.74901960779999999" green="0.098039215690000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.74901960779999999" green="0.098039215690000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" id="Lyl-z6-2kp">
+                                        <rect key="frame" x="0.0" y="28" width="270" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lyl-z6-2kp" id="jhn-GY-1P9">
+                                            <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.74901960779999999" green="0.098039215690000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Uw4-eP-Uri" id="bnj-8C-5Fe"/>
+                                    <outlet property="delegate" destination="Uw4-eP-Uri" id="Pyq-Me-e2I"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blockList : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IO7-DV-sBC">
+                                <rect key="frame" x="16" y="53" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.74901960784313726" green="0.098039215686274508" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pw3-cw-edd" firstAttribute="leading" secondItem="RmN-4s-N7H" secondAttribute="leading" id="2RL-YO-FX4"/>
+                            <constraint firstItem="Pw3-cw-edd" firstAttribute="trailing" secondItem="RmN-4s-N7H" secondAttribute="trailing" id="6D9-6b-UNI"/>
+                            <constraint firstItem="aCC-3c-vxf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IO7-DV-sBC" secondAttribute="trailing" symbolic="YES" id="B9g-yk-SsZ"/>
+                            <constraint firstItem="IO7-DV-sBC" firstAttribute="top" secondItem="WOx-QQ-cK1" secondAttribute="top" constant="53" id="IoQ-eL-4if"/>
+                            <constraint firstAttribute="trailing" secondItem="Pw3-cw-edd" secondAttribute="trailing" id="SCF-py-RtG"/>
+                            <constraint firstItem="Pw3-cw-edd" firstAttribute="top" secondItem="IO7-DV-sBC" secondAttribute="bottom" constant="8" id="Vao-Rm-ylz"/>
+                            <constraint firstItem="Pw3-cw-edd" firstAttribute="bottom" secondItem="aCC-3c-vxf" secondAttribute="bottom" id="Xjg-qZ-VGh"/>
+                            <constraint firstItem="IO7-DV-sBC" firstAttribute="top" secondItem="RmN-4s-N7H" secondAttribute="bottom" constant="9" id="aOy-7t-b6q"/>
+                            <constraint firstItem="Pw3-cw-edd" firstAttribute="leading" secondItem="WOx-QQ-cK1" secondAttribute="leading" id="kNh-p8-yjz"/>
+                            <constraint firstItem="IO7-DV-sBC" firstAttribute="leading" secondItem="WOx-QQ-cK1" secondAttribute="leadingMargin" id="wCE-SI-PH3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aCC-3c-vxf"/>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="270" height="667"/>
+                    <connections>
+                        <outlet property="label" destination="IO7-DV-sBC" id="11U-aL-sxA"/>
+                        <outlet property="tableView" destination="Pw3-cw-edd" id="ogE-1o-573"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jA-zv-Hjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1179.2" y="-233.43328335832086"/>
+        </scene>
+        <!--Ad List View Controller-->
+        <scene sceneID="mjG-KY-k5u">
+            <objects>
+                <viewController storyboardIdentifier="Main" id="rU7-Xk-h4I" customClass="adListViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AHJ-Aj-jDF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nc4-Xu-Sa2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.60784313729999995" green="0.1058823529" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="AdBlock" id="bUJ-Wc-XOC">
+                                        <barButtonItem key="leftBarButtonItem" title="menu Button" image="menu-20px" id="dPK-tg-yzw">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="menuButton:" destination="rU7-Xk-h4I" id="yBl-wH-FaC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSU-JA-ztL">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="t0M-2E-ui6" customClass="CustomCell" customModule="adblock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t0M-2E-ui6" id="W3f-Cn-d4B">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rU7-Xk-h4I" id="BMB-2y-xRx"/>
+                                    <outlet property="delegate" destination="rU7-Xk-h4I" id="Mxt-pV-wXh"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="BLH-Cs-rq4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.60784313729999995" green="0.1058823529" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rU7-Xk-h4I" id="dKF-st-I1f"/>
+                                </connections>
+                            </searchBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ljZ-C4-pcQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.1058823529" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HtO-xQ-1wb"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="bUJ-Wc-XOC" id="gOM-oq-wxB"/>
+                        <outlet property="searchBar" destination="BLH-Cs-rq4" id="QoK-A6-YFt"/>
+                        <outlet property="tableView" destination="JSU-JA-ztL" id="eqQ-xQ-x5X"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFc-bx-fXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-479.19999999999999" y="-233.43328335832086"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu-20px" width="30" height="30"/>
+    </resources>
 </document>

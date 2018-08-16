@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "Main")
+        let leftVC = storyboard.instantiateViewController(withIdentifier: "Left")
+        let navigationController = UINavigationController(rootViewController: mainVC)
+        // ナビゲーションバーを非表示に設定
+        navigationController.navigationBar.isHidden = true
+        let slideMenuController = SlideMenuController(mainViewController: navigationController, leftMenuViewController: leftVC)
+    
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

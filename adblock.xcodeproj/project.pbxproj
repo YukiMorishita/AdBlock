@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		368B5C5B309334CEB2E83EF0 /* Pods_adblock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3983F734801036DA8580EDF4 /* Pods_adblock.framework */; };
+		4B92E2FFA6FFDBC0C0FC7AC4 /* Pods_adblockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31EBAE8600062C4E2EA9005 /* Pods_adblockUITests.framework */; };
+		82046CBBC9CD3E2AD35D9F81 /* Pods_adblockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712646C45AA3C3045350BB59 /* Pods_adblockTests.framework */; };
 		844315D62109B045000D41B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844315D52109B045000D41B8 /* AppDelegate.swift */; };
-		844315D82109B045000D41B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844315D72109B045000D41B8 /* ViewController.swift */; };
 		844315DB2109B045000D41B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844315D92109B045000D41B8 /* Main.storyboard */; };
-		844315DD2109B047000D41B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844315DC2109B047000D41B8 /* Assets.xcassets */; };
 		844315E02109B047000D41B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844315DE2109B047000D41B8 /* LaunchScreen.storyboard */; };
 		844315EB2109B047000D41B8 /* adblockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844315EA2109B047000D41B8 /* adblockTests.swift */; };
 		844315F62109B047000D41B8 /* adblockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844315F52109B047000D41B8 /* adblockUITests.swift */; };
+		844316082109ED66000D41B8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844316072109ED66000D41B8 /* SwiftyJSON.swift */; };
+		844316102109EE5D000D41B8 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8443160F2109EE5D000D41B8 /* blockerList.json */; };
+		844316122109EE5D000D41B8 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844316112109EE5D000D41B8 /* ContentBlockerRequestHandler.swift */; };
+		844316162109EE5D000D41B8 /* blockList.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8443160D2109EE5D000D41B8 /* blockList.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8443161B210A0BF9000D41B8 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8443160F2109EE5D000D41B8 /* blockerList.json */; };
+		848FCD3B211CDBC800B12A40 /* adListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844316032109B7F4000D41B8 /* adListViewController.swift */; };
+		84B14D9B211CD0A80030BC28 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B14D9A211CD0A80030BC28 /* LeftMenuViewController.swift */; };
+		84B14D9D211CD5660030BC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B14D9C211CD5660030BC28 /* Assets.xcassets */; };
+		84B4215C21141D7C0023B69D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4215B21141D7C0023B69D /* ShareViewController.swift */; };
+		84B4215F21141D7C0023B69D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B4215D21141D7C0023B69D /* MainInterface.storyboard */; };
+		84B4216321141D7C0023B69D /* ShareURL.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84B4215921141D7C0023B69D /* ShareURL.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B26FCA0C1D10108F6F3D7697 /* Pods_blockList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FFD028555019C21B9F11EC /* Pods_blockList.framework */; };
+		E3AA38DBBA8EC0BB24001CF6 /* Pods_ShareURL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F83029B1470F7B921D1FBA /* Pods_ShareURL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,14 +45,47 @@
 			remoteGlobalIDString = 844315D12109B045000D41B8;
 			remoteInfo = adblock;
 		};
+		844316142109EE5D000D41B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844315CA2109B045000D41B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8443160C2109EE5D000D41B8;
+			remoteInfo = blockList;
+		};
+		84B4216121141D7C0023B69D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844315CA2109B045000D41B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84B4215821141D7C0023B69D;
+			remoteInfo = ShareURL;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8443161A2109EE5D000D41B8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				84B4216321141D7C0023B69D /* ShareURL.appex in Embed App Extensions */,
+				844316162109EE5D000D41B8 /* blockList.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		075FC84B8DB82BDDA6DF19E8 /* Pods-adblockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3983F734801036DA8580EDF4 /* Pods_adblock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DD7FC7845CDC07E42B4B0C1 /* Pods-adblockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.debug.xcconfig"; sourceTree = "<group>"; };
+		40CD82FFF58DA6B96F3B5906 /* Pods-adblock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.release.xcconfig"; sourceTree = "<group>"; };
+		68951A0BABE350320EB5C595 /* Pods-adblock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.debug.xcconfig"; sourceTree = "<group>"; };
+		712646C45AA3C3045350BB59 /* Pods_adblockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844315D22109B045000D41B8 /* adblock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adblock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844315D52109B045000D41B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		844315D72109B045000D41B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		844315DA2109B045000D41B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		844315DC2109B047000D41B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844315DF2109B047000D41B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844315E12109B047000D41B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844315E62109B047000D41B8 /* adblockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = adblockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +94,30 @@
 		844315F12109B047000D41B8 /* adblockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = adblockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		844315F52109B047000D41B8 /* adblockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adblockUITests.swift; sourceTree = "<group>"; };
 		844315F72109B047000D41B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844316032109B7F4000D41B8 /* adListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adListViewController.swift; sourceTree = "<group>"; };
+		844316072109ED66000D41B8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		8443160D2109EE5D000D41B8 /* blockList.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = blockList.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8443160F2109EE5D000D41B8 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		844316112109EE5D000D41B8 /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
+		844316132109EE5D000D41B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B14D9A211CD0A80030BC28 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		84B14D9C211CD5660030BC28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84B4215921141D7C0023B69D /* ShareURL.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareURL.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B4215B21141D7C0023B69D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		84B4215E21141D7C0023B69D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		84B4216021141D7C0023B69D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B4216721141DB70023B69D /* adblock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = adblock.entitlements; sourceTree = "<group>"; };
+		84B4216821141E580023B69D /* ShareURL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareURL.entitlements; sourceTree = "<group>"; };
+		84BF7E4E2124EF9200BEFB3F /* blockList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = blockList.entitlements; sourceTree = "<group>"; };
+		85F83029B1470F7B921D1FBA /* Pods_ShareURL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareURL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		934B627C2EDC7AEEEEA7E0C9 /* Pods-ShareURL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareURL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareURL/Pods-ShareURL.debug.xcconfig"; sourceTree = "<group>"; };
+		A480F2F48E6D5E7D0D28725D /* Pods-blockList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blockList/Pods-blockList.debug.xcconfig"; sourceTree = "<group>"; };
+		B31EBAE8600062C4E2EA9005 /* Pods_adblockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9FFD028555019C21B9F11EC /* Pods_blockList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blockList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCDD58D9B0C87A51F10201EC /* Pods-adblockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D1D4CEA4F07BFE3CF216FBAA /* Pods-adblockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.release.xcconfig"; sourceTree = "<group>"; };
+		E520739597F3377529FEF49F /* Pods-blockList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockList.release.xcconfig"; path = "Pods/Target Support Files/Pods-blockList/Pods-blockList.release.xcconfig"; sourceTree = "<group>"; };
+		FA25835F7CF7595C8ADD9015 /* Pods-ShareURL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareURL.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareURL/Pods-ShareURL.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368B5C5B309334CEB2E83EF0 /* Pods_adblock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82046CBBC9CD3E2AD35D9F81 /* Pods_adblockTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +141,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B92E2FFA6FFDBC0C0FC7AC4 /* Pods_adblockUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8443160A2109EE5D000D41B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B26FCA0C1D10108F6F3D7697 /* Pods_blockList.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84B4215621141D7C0023B69D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3AA38DBBA8EC0BB24001CF6 /* Pods_ShareURL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15CA04E0FFAD039F7557AD73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85F83029B1470F7B921D1FBA /* Pods_ShareURL.framework */,
+				3983F734801036DA8580EDF4 /* Pods_adblock.framework */,
+				712646C45AA3C3045350BB59 /* Pods_adblockTests.framework */,
+				B31EBAE8600062C4E2EA9005 /* Pods_adblockUITests.framework */,
+				B9FFD028555019C21B9F11EC /* Pods_blockList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		844315C92109B045000D41B8 = {
 			isa = PBXGroup;
 			children = (
 				844315D42109B045000D41B8 /* adblock */,
 				844315E92109B047000D41B8 /* adblockTests */,
 				844315F42109B047000D41B8 /* adblockUITests */,
+				8443160E2109EE5D000D41B8 /* blockList */,
+				84B4215A21141D7C0023B69D /* ShareURL */,
 				844315D32109B045000D41B8 /* Products */,
+				D878E8F1121AF3F28F177ABA /* Pods */,
+				15CA04E0FFAD039F7557AD73 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +196,8 @@
 				844315D22109B045000D41B8 /* adblock.app */,
 				844315E62109B047000D41B8 /* adblockTests.xctest */,
 				844315F12109B047000D41B8 /* adblockUITests.xctest */,
+				8443160D2109EE5D000D41B8 /* blockList.appex */,
+				84B4215921141D7C0023B69D /* ShareURL.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,10 +205,13 @@
 		844315D42109B045000D41B8 /* adblock */ = {
 			isa = PBXGroup;
 			children = (
+				84B4216721141DB70023B69D /* adblock.entitlements */,
 				844315D52109B045000D41B8 /* AppDelegate.swift */,
-				844315D72109B045000D41B8 /* ViewController.swift */,
+				844316032109B7F4000D41B8 /* adListViewController.swift */,
+				84B14D9A211CD0A80030BC28 /* LeftMenuViewController.swift */,
+				844316072109ED66000D41B8 /* SwiftyJSON.swift */,
 				844315D92109B045000D41B8 /* Main.storyboard */,
-				844315DC2109B047000D41B8 /* Assets.xcassets */,
+				84B14D9C211CD5660030BC28 /* Assets.xcassets */,
 				844315DE2109B047000D41B8 /* LaunchScreen.storyboard */,
 				844315E12109B047000D41B8 /* Info.plist */,
 			);
@@ -125,6 +236,45 @@
 			path = adblockUITests;
 			sourceTree = "<group>";
 		};
+		8443160E2109EE5D000D41B8 /* blockList */ = {
+			isa = PBXGroup;
+			children = (
+				84BF7E4E2124EF9200BEFB3F /* blockList.entitlements */,
+				8443160F2109EE5D000D41B8 /* blockerList.json */,
+				844316112109EE5D000D41B8 /* ContentBlockerRequestHandler.swift */,
+				844316132109EE5D000D41B8 /* Info.plist */,
+			);
+			path = blockList;
+			sourceTree = "<group>";
+		};
+		84B4215A21141D7C0023B69D /* ShareURL */ = {
+			isa = PBXGroup;
+			children = (
+				84B4216821141E580023B69D /* ShareURL.entitlements */,
+				84B4215B21141D7C0023B69D /* ShareViewController.swift */,
+				84B4215D21141D7C0023B69D /* MainInterface.storyboard */,
+				84B4216021141D7C0023B69D /* Info.plist */,
+			);
+			path = ShareURL;
+			sourceTree = "<group>";
+		};
+		D878E8F1121AF3F28F177ABA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				934B627C2EDC7AEEEEA7E0C9 /* Pods-ShareURL.debug.xcconfig */,
+				FA25835F7CF7595C8ADD9015 /* Pods-ShareURL.release.xcconfig */,
+				68951A0BABE350320EB5C595 /* Pods-adblock.debug.xcconfig */,
+				40CD82FFF58DA6B96F3B5906 /* Pods-adblock.release.xcconfig */,
+				3DD7FC7845CDC07E42B4B0C1 /* Pods-adblockTests.debug.xcconfig */,
+				D1D4CEA4F07BFE3CF216FBAA /* Pods-adblockTests.release.xcconfig */,
+				BCDD58D9B0C87A51F10201EC /* Pods-adblockUITests.debug.xcconfig */,
+				075FC84B8DB82BDDA6DF19E8 /* Pods-adblockUITests.release.xcconfig */,
+				A480F2F48E6D5E7D0D28725D /* Pods-blockList.debug.xcconfig */,
+				E520739597F3377529FEF49F /* Pods-blockList.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,13 +282,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844315FA2109B047000D41B8 /* Build configuration list for PBXNativeTarget "adblock" */;
 			buildPhases = (
+				C76058A7B7B6D8FE6F7DDD1F /* [CP] Check Pods Manifest.lock */,
 				844315CE2109B045000D41B8 /* Sources */,
 				844315CF2109B045000D41B8 /* Frameworks */,
 				844315D02109B045000D41B8 /* Resources */,
+				8443161A2109EE5D000D41B8 /* Embed App Extensions */,
+				58E2C855B2E3F7844D06D428 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				844316152109EE5D000D41B8 /* PBXTargetDependency */,
+				84B4216221141D7C0023B69D /* PBXTargetDependency */,
 			);
 			name = adblock;
 			productName = adblock;
@@ -149,6 +304,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844315FD2109B047000D41B8 /* Build configuration list for PBXNativeTarget "adblockTests" */;
 			buildPhases = (
+				C6508EC06CBAA9C7BE6D7909 /* [CP] Check Pods Manifest.lock */,
 				844315E22109B047000D41B8 /* Sources */,
 				844315E32109B047000D41B8 /* Frameworks */,
 				844315E42109B047000D41B8 /* Resources */,
@@ -167,6 +323,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844316002109B047000D41B8 /* Build configuration list for PBXNativeTarget "adblockUITests" */;
 			buildPhases = (
+				A1B21277C922C8057BB964AF /* [CP] Check Pods Manifest.lock */,
 				844315ED2109B047000D41B8 /* Sources */,
 				844315EE2109B047000D41B8 /* Frameworks */,
 				844315EF2109B047000D41B8 /* Resources */,
@@ -181,26 +338,96 @@
 			productReference = 844315F12109B047000D41B8 /* adblockUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8443160C2109EE5D000D41B8 /* blockList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844316172109EE5D000D41B8 /* Build configuration list for PBXNativeTarget "blockList" */;
+			buildPhases = (
+				E0A0031088046BA8D95B8A52 /* [CP] Check Pods Manifest.lock */,
+				844316092109EE5D000D41B8 /* Sources */,
+				8443160A2109EE5D000D41B8 /* Frameworks */,
+				8443160B2109EE5D000D41B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = blockList;
+			productName = blockList;
+			productReference = 8443160D2109EE5D000D41B8 /* blockList.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		84B4215821141D7C0023B69D /* ShareURL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84B4216621141D7C0023B69D /* Build configuration list for PBXNativeTarget "ShareURL" */;
+			buildPhases = (
+				61257701C7AF5754832377E8 /* [CP] Check Pods Manifest.lock */,
+				84B4215521141D7C0023B69D /* Sources */,
+				84B4215621141D7C0023B69D /* Frameworks */,
+				84B4215721141D7C0023B69D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareURL;
+			productName = ShareURL;
+			productReference = 84B4215921141D7C0023B69D /* ShareURL.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		844315CA2109B045000D41B8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = admin;
 				TargetAttributes = {
 					844315D12109B045000D41B8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					844315E52109B047000D41B8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 844315D12109B045000D41B8;
 					};
 					844315F02109B047000D41B8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 844315D12109B045000D41B8;
+					};
+					8443160C2109EE5D000D41B8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					84B4215821141D7C0023B69D = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -220,6 +447,8 @@
 				844315D12109B045000D41B8 /* adblock */,
 				844315E52109B047000D41B8 /* adblockTests */,
 				844315F02109B047000D41B8 /* adblockUITests */,
+				8443160C2109EE5D000D41B8 /* blockList */,
+				84B4215821141D7C0023B69D /* ShareURL */,
 			);
 		};
 /* End PBXProject section */
@@ -229,8 +458,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8443161B210A0BF9000D41B8 /* blockerList.json in Resources */,
 				844315E02109B047000D41B8 /* LaunchScreen.storyboard in Resources */,
-				844315DD2109B047000D41B8 /* Assets.xcassets in Resources */,
+				84B14D9D211CD5660030BC28 /* Assets.xcassets in Resources */,
 				844315DB2109B045000D41B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,15 +479,144 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8443160B2109EE5D000D41B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844316102109EE5D000D41B8 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84B4215721141D7C0023B69D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B4215F21141D7C0023B69D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58E2C855B2E3F7844D06D428 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-adblock/Pods-adblock-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-adblock/Pods-adblock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61257701C7AF5754832377E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShareURL-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1B21277C922C8057BB964AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adblockUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6508EC06CBAA9C7BE6D7909 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adblockTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C76058A7B7B6D8FE6F7DDD1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adblock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0A0031088046BA8D95B8A52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-blockList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		844315CE2109B045000D41B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844315D82109B045000D41B8 /* ViewController.swift in Sources */,
+				844316082109ED66000D41B8 /* SwiftyJSON.swift in Sources */,
+				848FCD3B211CDBC800B12A40 /* adListViewController.swift in Sources */,
 				844315D62109B045000D41B8 /* AppDelegate.swift in Sources */,
+				84B14D9B211CD0A80030BC28 /* LeftMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +636,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		844316092109EE5D000D41B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844316122109EE5D000D41B8 /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84B4215521141D7C0023B69D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B4215C21141D7C0023B69D /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +664,16 @@
 			isa = PBXTargetDependency;
 			target = 844315D12109B045000D41B8 /* adblock */;
 			targetProxy = 844315F22109B047000D41B8 /* PBXContainerItemProxy */;
+		};
+		844316152109EE5D000D41B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8443160C2109EE5D000D41B8 /* blockList */;
+			targetProxy = 844316142109EE5D000D41B8 /* PBXContainerItemProxy */;
+		};
+		84B4216221141D7C0023B69D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84B4215821141D7C0023B69D /* ShareURL */;
+			targetProxy = 84B4216121141D7C0023B69D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -307,6 +692,14 @@
 				844315DF2109B047000D41B8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		84B4215D21141D7C0023B69D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B4215E21141D7C0023B69D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -428,42 +821,51 @@
 		};
 		844315FB2109B047000D41B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68951A0BABE350320EB5C595 /* Pods-adblock.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = adblock/adblock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF4TM3GVMC;
 				INFOPLIST_FILE = adblock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = admin.adblock;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		844315FC2109B047000D41B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40CD82FFF58DA6B96F3B5906 /* Pods-adblock.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = adblock/adblock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF4TM3GVMC;
 				INFOPLIST_FILE = adblock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = admin.adblock;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		844315FE2109B047000D41B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DD7FC7845CDC07E42B4B0C1 /* Pods-adblockTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -477,7 +879,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = admin.adblockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/adblock.app/adblock";
 			};
@@ -485,6 +887,7 @@
 		};
 		844315FF2109B047000D41B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1D4CEA4F07BFE3CF216FBAA /* Pods-adblockTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,7 +901,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = admin.adblockTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/adblock.app/adblock";
 			};
@@ -506,6 +909,7 @@
 		};
 		844316012109B047000D41B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCDD58D9B0C87A51F10201EC /* Pods-adblockUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -518,7 +922,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = admin.adblockUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = adblock;
 			};
@@ -526,6 +930,7 @@
 		};
 		844316022109B047000D41B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 075FC84B8DB82BDDA6DF19E8 /* Pods-adblockUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -538,9 +943,98 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = admin.adblockUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = adblock;
+			};
+			name = Release;
+		};
+		844316182109EE5D000D41B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A480F2F48E6D5E7D0D28725D /* Pods-blockList.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = blockList/blockList.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DF4TM3GVMC;
+				INFOPLIST_FILE = blockList/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.blockList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		844316192109EE5D000D41B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E520739597F3377529FEF49F /* Pods-blockList.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = blockList/blockList.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DF4TM3GVMC;
+				INFOPLIST_FILE = blockList/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.blockList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		84B4216421141D7C0023B69D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 934B627C2EDC7AEEEEA7E0C9 /* Pods-ShareURL.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareURL/ShareURL.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DF4TM3GVMC;
+				INFOPLIST_FILE = ShareURL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.ShareURL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		84B4216521141D7C0023B69D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA25835F7CF7595C8ADD9015 /* Pods-ShareURL.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareURL/ShareURL.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DF4TM3GVMC;
+				INFOPLIST_FILE = ShareURL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.ShareURL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -579,6 +1073,24 @@
 			buildConfigurations = (
 				844316012109B047000D41B8 /* Debug */,
 				844316022109B047000D41B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		844316172109EE5D000D41B8 /* Build configuration list for PBXNativeTarget "blockList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844316182109EE5D000D41B8 /* Debug */,
+				844316192109EE5D000D41B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84B4216621141D7C0023B69D /* Build configuration list for PBXNativeTarget "ShareURL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B4216421141D7C0023B69D /* Debug */,
+				84B4216521141D7C0023B69D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

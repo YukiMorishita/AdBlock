@@ -1,2 +1,2 @@
 # AdBlock
-AdBlock: Swift4
+A Safari Content Blocker for iOS

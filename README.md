@@ -30,6 +30,11 @@ pod setup
 ```
 以上で設定は完了
 
+### Library
+
+#### SwiftyJSON
+#### SlideMenuControllerSwift
+
 ## How to Build
 0. install Xcode9.3 以上
 1. clone this repository and move to project root directory

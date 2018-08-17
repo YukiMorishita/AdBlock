@@ -1,4 +1,5 @@
-# AdBlock
+AdBlock
+=======
 A Safari Content Blocker for iOS
 
 ## Description
@@ -11,5 +12,7 @@ A Safari Content Blocker for iOS
 * Cocoa Pods
 
 ## How to Build
-
+0. install Xcode9.3
+1. clone this repository and move to project root directory
+2. Open .xcodeproj
 

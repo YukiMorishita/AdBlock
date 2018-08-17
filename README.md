@@ -15,11 +15,19 @@ A Safari Content Blocker for iOS
 
 ### Cocoa Pods
 
-```bush
-var str = 'stressed'
-str.split('').reverse().join('')
+```terminal
+sudo gem install cocoapods
 ```
-
+注意点※ OSXがEl Capitanの場合、Terminalで以下のコマンドを入力
+```terminal
+sudo gem install cocoapods
+```
+理由：以下参照
+<<参考URL>>  https://qiita.com/AcaiBowl/items/4bb4708de03e6ee14a4a
+```terminal
+pod setup
+```
+以上で設定は完了
 
 ## How to Build
 0. install Xcode9.3 以上

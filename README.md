@@ -11,6 +11,11 @@ A Safari Content Blocker for iOS
 ## Requirement
 * Cocoa Pods
 
+## Install
+
+* Cocoa Pods
+
+
 ## How to Build
 0. install Xcode9.3 以上
 1. clone this repository and move to project root directory

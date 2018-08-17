@@ -32,8 +32,10 @@ pod setup
 
 ### Library
 
-#### SwiftyJSON
-#### SlideMenuControllerSwift
+* SwiftyJSON
+https://github.com/SwiftyJSON/SwiftyJSON
+* SlideMenuControllerSwift
+https://github.com/dekatotoro/SlideMenuControllerSwift
 
 ## How to Build
 0. install Xcode9.3 以上

@@ -13,7 +13,12 @@ A Safari Content Blocker for iOS
 
 ## Install
 
-* Cocoa Pods
+### Cocoa Pods
+
+```javascript
+var str = 'stressed'
+str.split('').reverse().join('')
+```
 
 
 ## How to Build

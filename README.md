@@ -10,6 +10,7 @@ A Safari Content Blocker for iOS
 
 ## Requirement
 * Cocoa Pods
+* ライブラリの導入に必要となる。
 
 ## Install
 

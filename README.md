@@ -15,7 +15,7 @@ A Safari Content Blocker for iOS
 
 ### Cocoa Pods
 
-```terminal
+```bush
 var str = 'stressed'
 str.split('').reverse().join('')
 ```

@@ -11,8 +11,6 @@ import SlideMenuControllerSwift
 
 class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var EXTRA_COUNT: Int? // 送られてきたブロックリストの数
-    
     // UITabelView
     @IBOutlet weak var tableView: UITableView!
     // UILabel
@@ -30,14 +28,6 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 受け取る値があれば
-        if EXTRA_COUNT != nil {
-            // アンラップ
-            guard let adCount = EXTRA_COUNT else { return }
-            // 端末の言語に応じて文字列をラベルに設定
-            label?.text = (firstLang().hasPrefix("ja")) ? "ブロックリスト : \(adCount)" : "blockList : \(adCount)"
-        }
         
         // 端末の言語に応じてmenuListを設定
         menuList = (firstLang().hasPrefix("ja")) ? menuListJA : menuListEN

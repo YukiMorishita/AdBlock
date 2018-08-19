@@ -129,6 +129,7 @@
 		84BF7E7D2127AFA500BEFB3F /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		84BF7E802127AFA500BEFB3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		84BF7E822127AFA500BEFB3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BF7EC32129E38F00BEFB3F /* SafariAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SafariAction.entitlements; sourceTree = "<group>"; };
 		85F83029B1470F7B921D1FBA /* Pods_ShareURL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareURL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934B627C2EDC7AEEEEA7E0C9 /* Pods-ShareURL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareURL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareURL/Pods-ShareURL.debug.xcconfig"; sourceTree = "<group>"; };
 		A480F2F48E6D5E7D0D28725D /* Pods-blockList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blockList/Pods-blockList.debug.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +295,7 @@
 		84BF7E7C2127AFA500BEFB3F /* SafariAction */ = {
 			isa = PBXGroup;
 			children = (
+				84BF7EC32129E38F00BEFB3F /* SafariAction.entitlements */,
 				84BF7E7D2127AFA500BEFB3F /* ActionViewController.swift */,
 				84BF7E7F2127AFA500BEFB3F /* MainInterface.storyboard */,
 				84BF7E822127AFA500BEFB3F /* Info.plist */,
@@ -495,6 +497,14 @@
 					};
 					84BF7E7A2127AFA500BEFB3F = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1158,6 +1168,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA50EE1C09F1BC736DEFB059 /* Pods-SafariAction.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SafariAction/SafariAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF4TM3GVMC;
 				INFOPLIST_FILE = SafariAction/Info.plist;
@@ -1181,6 +1192,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3196F242138F84E3321BEA2A /* Pods-SafariAction.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SafariAction/SafariAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF4TM3GVMC;
 				INFOPLIST_FILE = SafariAction/Info.plist;

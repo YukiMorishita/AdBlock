@@ -3,6 +3,10 @@ import SafariServices
 
 class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    // 予定
+    class AdList {
+    }
+    
     /* App Groups */
     // Group ID
     let suiteName = "group.jp.ac.osakac.cs.hisalab.adblock"
@@ -31,11 +35,9 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         /* ナビゲーションバーの設定 */
         // 端末に応じたタイトルの設定
         self.navigationBar.title = (firstLang().hasPrefix("ja")) ? "広告ブロック" : "Ads Block"
-        
         
         /* スイッチ操作ボタンの設定 */
         let switchsStateButton = UIBarButtonItem()
@@ -110,8 +112,9 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             print("Shared data does not exist")
         }
         
-        // adListの重複を削除(既存のブロックリストが追加された場合)
-    
+        // 保存された値を追加した時、保存された値を削除
+        let sharedDefaults = UserDefaults(suiteName: self.suiteName)
+        sharedDefaults?.removeObject(forKey: self.keyName)
         
         // データの保存
         let saveData: [[String: Any]] = self.adList.map { ["text": $0.text, "switchs": $0.switchs] }
@@ -181,7 +184,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         if self.searchAdList[tableSwitch.tag].switchs == true {
             // ONに設定
             tableSwitch.isOn = true
-            // それ以外の場合
+        // それ以外の場合
         } else {
             // OFFに設定
             tableSwitch.isOn = false
@@ -331,7 +334,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             // JSONデータをパース（解析）
             json = JSON(parseJSON: jsonData!).rawString()!
             
-            // JSONファイルのフルパスが存在しない場合
+        // JSONファイルのフルパスが存在しない場合
         } else {
             // リソースのJSONファイルのパスを設定
             let resourcePath = Bundle.main.path(forResource: jsonFileName, ofType: nil)
@@ -393,11 +396,12 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             /* 書き込みの設定 */
             do {
                 try jsonRule.write(toFile: containerURL, atomically: true, encoding: String.Encoding.utf8)
+            // 書き込みに失敗した場合
             } catch let error as NSError {
                 print("failed to write: \(error)")
             }
             
-            // 共有ファイルが存在し、書き込む文字列がない場合
+        // 共有ファイルが存在し、書き込む文字列がない場合
         } else if fileExists && writeURL.isEmpty == true {
             print("not data")
             //　書き込むJSON文字列
@@ -415,16 +419,16 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                     }
                 ]
             """
-
+            
             // ファイルの書き込み(空白)
             do {
                 try jsonText.write(toFile: containerURL, atomically: true, encoding: String.Encoding.utf8)
-                // 書き込みに失敗した場合
+            // 書き込みに失敗した場合
             } catch let error as NSError {
                 print("failed to write: \(error)")
             }
             
-            // 共有ファイルを作らない
+        // 共有ファイルを作らない
         } else {
             print("not create shared file")
         }

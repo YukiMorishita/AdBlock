@@ -1,16 +1,20 @@
 PODS:
+  - PageMenu (2.0.0)
   - SlideMenuControllerSwift (4.0.0)
 
 DEPENDENCIES:
+  - PageMenu
   - SlideMenuControllerSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - PageMenu
     - SlideMenuControllerSwift
 
 SPEC CHECKSUMS:
+  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
 
-PODFILE CHECKSUM: e631d519e01970b2d459deb35270af2ad1218b10
+PODFILE CHECKSUM: 27c2fcb7dc8b7c4f1e9ea62c3c9aca7fc46efc0f
 
 COCOAPODS: 1.5.3

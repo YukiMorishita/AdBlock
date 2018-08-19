@@ -7,6 +7,7 @@ target 'adblock' do
 
   # Pods for adblock
   pod 'SlideMenuControllerSwift'
+  pod 'PageMenu'
 
   target 'adblockTests' do
     inherit! :search_paths

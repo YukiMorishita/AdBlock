@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D90E0AD06654C02C85614D631B4B5EC"
+               BlueprintIdentifier = "47DC7E6B2B1AB95C2C6D21A5671B497A"
                BuildableName = "Pods_adblock.framework"
                BlueprintName = "Pods-adblock"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6D90E0AD06654C02C85614D631B4B5EC"
+            BlueprintIdentifier = "47DC7E6B2B1AB95C2C6D21A5671B497A"
             BuildableName = "Pods_adblock.framework"
             BlueprintName = "Pods-adblock"
             ReferencedContainer = "container:Pods.xcodeproj">

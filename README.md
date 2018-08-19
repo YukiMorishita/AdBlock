@@ -21,7 +21,7 @@ sudo gem install cocoapods
 ```
 注意点※ OSXがEl Capitanの場合、Terminalで以下のコマンドを入力
 ```terminal
-sudo gem install cocoapods
+sudo gem install -n /usr/local/bin cocoapods
 ```
 理由：以下参照
 <<参考URL>>  https://qiita.com/AcaiBowl/items/4bb4708de03e6ee14a4a

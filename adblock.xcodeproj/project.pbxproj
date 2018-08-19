@@ -26,7 +26,12 @@
 		84B4215C21141D7C0023B69D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4215B21141D7C0023B69D /* ShareViewController.swift */; };
 		84B4215F21141D7C0023B69D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B4215D21141D7C0023B69D /* MainInterface.storyboard */; };
 		84B4216321141D7C0023B69D /* ShareURL.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84B4215921141D7C0023B69D /* ShareURL.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84BF7E5121275C5600BEFB3F /* AppGroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF7E5021275C5600BEFB3F /* AppGroupsManager.swift */; };
+		84BF7E7E2127AFA500BEFB3F /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF7E7D2127AFA500BEFB3F /* ActionViewController.swift */; };
+		84BF7E812127AFA500BEFB3F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BF7E7F2127AFA500BEFB3F /* MainInterface.storyboard */; };
+		84BF7E852127AFA500BEFB3F /* SafariAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84BF7E7B2127AFA500BEFB3F /* SafariAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B26FCA0C1D10108F6F3D7697 /* Pods_blockList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FFD028555019C21B9F11EC /* Pods_blockList.framework */; };
+		CC8FA221A53556D66ECA2297 /* Pods_SafariAction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682389D8A99B501791A65610 /* Pods_SafariAction.framework */; };
 		E3AA38DBBA8EC0BB24001CF6 /* Pods_ShareURL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F83029B1470F7B921D1FBA /* Pods_ShareURL.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +64,13 @@
 			remoteGlobalIDString = 84B4215821141D7C0023B69D;
 			remoteInfo = ShareURL;
 		};
+		84BF7E832127AFA500BEFB3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844315CA2109B045000D41B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84BF7E7A2127AFA500BEFB3F;
+			remoteInfo = SafariAction;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +80,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				84BF7E852127AFA500BEFB3F /* SafariAction.appex in Embed App Extensions */,
 				84B4216321141D7C0023B69D /* ShareURL.appex in Embed App Extensions */,
 				844316162109EE5D000D41B8 /* blockList.appex in Embed App Extensions */,
 			);
@@ -78,9 +91,11 @@
 
 /* Begin PBXFileReference section */
 		075FC84B8DB82BDDA6DF19E8 /* Pods-adblockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3196F242138F84E3321BEA2A /* Pods-SafariAction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafariAction.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafariAction/Pods-SafariAction.release.xcconfig"; sourceTree = "<group>"; };
 		3983F734801036DA8580EDF4 /* Pods_adblock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD7FC7845CDC07E42B4B0C1 /* Pods-adblockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40CD82FFF58DA6B96F3B5906 /* Pods-adblock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.release.xcconfig"; sourceTree = "<group>"; };
+		682389D8A99B501791A65610 /* Pods_SafariAction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafariAction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68951A0BABE350320EB5C595 /* Pods-adblock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.debug.xcconfig"; sourceTree = "<group>"; };
 		712646C45AA3C3045350BB59 /* Pods_adblockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844315D22109B045000D41B8 /* adblock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adblock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +124,11 @@
 		84B4216721141DB70023B69D /* adblock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = adblock.entitlements; sourceTree = "<group>"; };
 		84B4216821141E580023B69D /* ShareURL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareURL.entitlements; sourceTree = "<group>"; };
 		84BF7E4E2124EF9200BEFB3F /* blockList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = blockList.entitlements; sourceTree = "<group>"; };
+		84BF7E5021275C5600BEFB3F /* AppGroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupsManager.swift; sourceTree = "<group>"; };
+		84BF7E7B2127AFA500BEFB3F /* SafariAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SafariAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84BF7E7D2127AFA500BEFB3F /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		84BF7E802127AFA500BEFB3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		84BF7E822127AFA500BEFB3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85F83029B1470F7B921D1FBA /* Pods_ShareURL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareURL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934B627C2EDC7AEEEEA7E0C9 /* Pods-ShareURL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareURL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareURL/Pods-ShareURL.debug.xcconfig"; sourceTree = "<group>"; };
 		A480F2F48E6D5E7D0D28725D /* Pods-blockList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blockList/Pods-blockList.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +137,7 @@
 		BCDD58D9B0C87A51F10201EC /* Pods-adblockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1D4CEA4F07BFE3CF216FBAA /* Pods-adblockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.release.xcconfig"; sourceTree = "<group>"; };
 		E520739597F3377529FEF49F /* Pods-blockList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockList.release.xcconfig"; path = "Pods/Target Support Files/Pods-blockList/Pods-blockList.release.xcconfig"; sourceTree = "<group>"; };
+		EA50EE1C09F1BC736DEFB059 /* Pods-SafariAction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafariAction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafariAction/Pods-SafariAction.debug.xcconfig"; sourceTree = "<group>"; };
 		FA25835F7CF7595C8ADD9015 /* Pods-ShareURL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareURL.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareURL/Pods-ShareURL.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +182,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84BF7E782127AFA500BEFB3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC8FA221A53556D66ECA2297 /* Pods_SafariAction.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -172,6 +201,7 @@
 				712646C45AA3C3045350BB59 /* Pods_adblockTests.framework */,
 				B31EBAE8600062C4E2EA9005 /* Pods_adblockUITests.framework */,
 				B9FFD028555019C21B9F11EC /* Pods_blockList.framework */,
+				682389D8A99B501791A65610 /* Pods_SafariAction.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,6 +214,7 @@
 				844315F42109B047000D41B8 /* adblockUITests */,
 				8443160E2109EE5D000D41B8 /* blockList */,
 				84B4215A21141D7C0023B69D /* ShareURL */,
+				84BF7E7C2127AFA500BEFB3F /* SafariAction */,
 				844315D32109B045000D41B8 /* Products */,
 				D878E8F1121AF3F28F177ABA /* Pods */,
 				15CA04E0FFAD039F7557AD73 /* Frameworks */,
@@ -198,6 +229,7 @@
 				844315F12109B047000D41B8 /* adblockUITests.xctest */,
 				8443160D2109EE5D000D41B8 /* blockList.appex */,
 				84B4215921141D7C0023B69D /* ShareURL.appex */,
+				84BF7E7B2127AFA500BEFB3F /* SafariAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +240,7 @@
 				84B4216721141DB70023B69D /* adblock.entitlements */,
 				844315D52109B045000D41B8 /* AppDelegate.swift */,
 				844316032109B7F4000D41B8 /* adListViewController.swift */,
+				84BF7E5021275C5600BEFB3F /* AppGroupsManager.swift */,
 				84B14D9A211CD0A80030BC28 /* LeftMenuViewController.swift */,
 				844316072109ED66000D41B8 /* SwiftyJSON.swift */,
 				844315D92109B045000D41B8 /* Main.storyboard */,
@@ -258,6 +291,16 @@
 			path = ShareURL;
 			sourceTree = "<group>";
 		};
+		84BF7E7C2127AFA500BEFB3F /* SafariAction */ = {
+			isa = PBXGroup;
+			children = (
+				84BF7E7D2127AFA500BEFB3F /* ActionViewController.swift */,
+				84BF7E7F2127AFA500BEFB3F /* MainInterface.storyboard */,
+				84BF7E822127AFA500BEFB3F /* Info.plist */,
+			);
+			path = SafariAction;
+			sourceTree = "<group>";
+		};
 		D878E8F1121AF3F28F177ABA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +314,8 @@
 				075FC84B8DB82BDDA6DF19E8 /* Pods-adblockUITests.release.xcconfig */,
 				A480F2F48E6D5E7D0D28725D /* Pods-blockList.debug.xcconfig */,
 				E520739597F3377529FEF49F /* Pods-blockList.release.xcconfig */,
+				EA50EE1C09F1BC736DEFB059 /* Pods-SafariAction.debug.xcconfig */,
+				3196F242138F84E3321BEA2A /* Pods-SafariAction.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -287,13 +332,14 @@
 				844315CF2109B045000D41B8 /* Frameworks */,
 				844315D02109B045000D41B8 /* Resources */,
 				8443161A2109EE5D000D41B8 /* Embed App Extensions */,
-				58E2C855B2E3F7844D06D428 /* [CP] Embed Pods Frameworks */,
+				272D80BD735C89D2605A58AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				844316152109EE5D000D41B8 /* PBXTargetDependency */,
 				84B4216221141D7C0023B69D /* PBXTargetDependency */,
+				84BF7E842127AFA500BEFB3F /* PBXTargetDependency */,
 			);
 			name = adblock;
 			productName = adblock;
@@ -374,6 +420,24 @@
 			productReference = 84B4215921141D7C0023B69D /* ShareURL.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		84BF7E7A2127AFA500BEFB3F /* SafariAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84BF7E862127AFA500BEFB3F /* Build configuration list for PBXNativeTarget "SafariAction" */;
+			buildPhases = (
+				C65981E0E99CD1DBC502C5F9 /* [CP] Check Pods Manifest.lock */,
+				84BF7E772127AFA500BEFB3F /* Sources */,
+				84BF7E782127AFA500BEFB3F /* Frameworks */,
+				84BF7E792127AFA500BEFB3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SafariAction;
+			productName = SafariAction;
+			productReference = 84BF7E7B2127AFA500BEFB3F /* SafariAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -429,6 +493,9 @@
 							};
 						};
 					};
+					84BF7E7A2127AFA500BEFB3F = {
+						CreatedOnToolsVersion = 10.0;
+					};
 				};
 			};
 			buildConfigurationList = 844315CD2109B045000D41B8 /* Build configuration list for PBXProject "adblock" */;
@@ -449,6 +516,7 @@
 				844315F02109B047000D41B8 /* adblockUITests */,
 				8443160C2109EE5D000D41B8 /* blockList */,
 				84B4215821141D7C0023B69D /* ShareURL */,
+				84BF7E7A2127AFA500BEFB3F /* SafariAction */,
 			);
 		};
 /* End PBXProject section */
@@ -495,10 +563,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84BF7E792127AFA500BEFB3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BF7E812127AFA500BEFB3F /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		58E2C855B2E3F7844D06D428 /* [CP] Embed Pods Frameworks */ = {
+		272D80BD735C89D2605A58AC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -570,6 +646,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C65981E0E99CD1DBC502C5F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafariAction-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C76058A7B7B6D8FE6F7DDD1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -616,6 +710,7 @@
 				844316082109ED66000D41B8 /* SwiftyJSON.swift in Sources */,
 				848FCD3B211CDBC800B12A40 /* adListViewController.swift in Sources */,
 				844315D62109B045000D41B8 /* AppDelegate.swift in Sources */,
+				84BF7E5121275C5600BEFB3F /* AppGroupsManager.swift in Sources */,
 				84B14D9B211CD0A80030BC28 /* LeftMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +747,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84BF7E772127AFA500BEFB3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BF7E7E2127AFA500BEFB3F /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -674,6 +777,11 @@
 			isa = PBXTargetDependency;
 			target = 84B4215821141D7C0023B69D /* ShareURL */;
 			targetProxy = 84B4216121141D7C0023B69D /* PBXContainerItemProxy */;
+		};
+		84BF7E842127AFA500BEFB3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84BF7E7A2127AFA500BEFB3F /* SafariAction */;
+			targetProxy = 84BF7E832127AFA500BEFB3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -698,6 +806,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				84B4215E21141D7C0023B69D /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		84BF7E7F2127AFA500BEFB3F /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84BF7E802127AFA500BEFB3F /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1038,6 +1154,51 @@
 			};
 			name = Release;
 		};
+		84BF7E872127AFA500BEFB3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA50EE1C09F1BC736DEFB059 /* Pods-SafariAction.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DF4TM3GVMC;
+				INFOPLIST_FILE = SafariAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.SafariAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		84BF7E882127AFA500BEFB3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3196F242138F84E3321BEA2A /* Pods-SafariAction.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DF4TM3GVMC;
+				INFOPLIST_FILE = SafariAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.SafariAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1091,6 +1252,15 @@
 			buildConfigurations = (
 				84B4216421141D7C0023B69D /* Debug */,
 				84B4216521141D7C0023B69D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84BF7E862127AFA500BEFB3F /* Build configuration list for PBXNativeTarget "SafariAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84BF7E872127AFA500BEFB3F /* Debug */,
+				84BF7E882127AFA500BEFB3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

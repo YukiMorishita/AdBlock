@@ -28,6 +28,14 @@ target 'blockList' do
 
 end
 
+target 'SafariAction' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SafariAction
+
+end
+
 target 'ShareURL' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!

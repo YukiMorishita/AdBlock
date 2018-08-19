@@ -75,6 +75,7 @@ class ShareViewController: SLComposeServiceViewController {
                     let sharedDefaults: UserDefaults = UserDefaults(suiteName: self.suiteName)!
                     // ドメインを保存
                     sharedDefaults.set(self.domain, forKey: self.keyName)
+                    
                 }
             })
             

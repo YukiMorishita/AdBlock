@@ -5,11 +5,11 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     /* App Groups */
     // Group ID
-    let suiteName: String = "group.jp.ac.osakac.cs.hisalab.adblock"
+    let suiteName = "group.jp.ac.osakac.cs.hisalab.adblock"
     // Share Key
-    let keyName: String = "shareData"
+    let keyName = "shareData"
     
-    // ブロックリストとスイッチを設定
+    // ブロックリストとスイッチのON・OFFを設定
     var adList = [(text: String, switchs: Bool)]()
     // 検索結果を設定
     var searchAdList = [(text: String, switchs: Bool)]()
@@ -34,82 +34,37 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         
         /* ナビゲーションバーの設定 */
         // 端末に応じたタイトルの設定
-        navigationBar.title = (firstLang().hasPrefix("ja")) ? "広告ブロック" : "Ads Block"
+        self.navigationBar.title = (firstLang().hasPrefix("ja")) ? "広告ブロック" : "Ads Block"
+        
         
         /* スイッチ操作ボタンの設定 */
         let switchsStateButton = UIBarButtonItem()
         // イメージの設定
-        //let swichsStateButtonImage = UIImage(named: "<#T##String#>")
-        //switchsStateButton.image = switchsStateButtonImage
-        // タイトルの設定
-        switchsStateButton.title = "ON:OFF"
+        let swichsStateButtonImage = UIImage(named: "switch-icon")
+        switchsStateButton.image = swichsStateButtonImage
         // カラーの設定
         switchsStateButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         // タップ時の処理設定
         switchsStateButton.action = #selector(switchsStateButtonTriggerd)
         // ナビゲーションバーの右側に設定
-        navigationBar.rightBarButtonItem = switchsStateButton
+        self.navigationBar.rightBarButtonItem = switchsStateButton
         
         /* サーチバーの設定 */
         // キーボードタイプの設定
-        searchBar.keyboardType = UIKeyboardType.URL
+        self.searchBar.keyboardType = UIKeyboardType.URL
         
         /* テーブルビューの設定 */
         // タップの設定
         tableView.allowsSelection = false
         
-        /* ユーザデフォルトの設定 */
-        // ユーザデフォルト
-        let defaults = UserDefaults.standard
-        // データがある場合
-        if let loadData = defaults.object(forKey: "adList") as? [[String: Any]] {
-            // 辞書の配列をタプルの配列へ変換
-            adList = loadData.map { (text: $0["text"] as! String, switchs: $0["switchs"] as! Bool) }
-            
-            // adListの重複を削除(既存のブロックリストが追加された場合)
-            
-            
-            /* JSON */
-            // 共有フォルダに書き込み
-            createJSONFile()
-            
-            // データがない場合
-        } else {
-            /* JSON */
-            // 共有フォルダに書き込み
-            createJSONFile()
-            //　読み込んだJSONからurlのみを取得
-            for url in createURLFilterArray() {
-                // 要素を追加
-                adList.append((text: url, switchs: false))
-            }
-        }
+        /* リフレッシュコントローラーの設定 */
+        let refreshControler = UIRefreshControl()
+        self.tableView.refreshControl = refreshControler
+        refreshControler.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         
-        /* シェアデフォルトの設定 */
-        // シェアデフォルトの読み込み
-        let sharedDefaults = UserDefaults(suiteName: self.suiteName)!
-        // 共有データがある場合
-        if sharedDefaults.object(forKey: self.keyName) != nil {
-            // 共有データを取得
-            let getShareData = sharedDefaults.object(forKey: self.keyName) as! (String)
-            // 共有データを追加
-            adList.append((text: getShareData, switchs: false))
-            
-            // 共有データを取得後, 共有データを削除（データの重複を避けるため）
-            sharedDefaults.removeObject(forKey: self.keyName)
-            
-            // 共有データがない場合
-        } else {
-            print("Shared data dose not exist")
-        }
-        
-        //検索結果配列にデータをコピー
-        searchAdList = adList
-        
-        // タプルの配列を辞書の配列へ変換
-        let saveData: [[String: Any]] = adList.map { ["text": $0.text, "switchs": $0.switchs] }
-        // 変更を保存
-        defaults.set(saveData, forKey: "adList")
+        /* ブロックリストの設定 */
+        // 検索結果配列にデータをコピー
+        self.searchAdList = self.createBlockList()
         
         /* デリゲートの設定 */
         searchBar.delegate = self
@@ -123,12 +78,46 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // ブロックリストの数を設定
-        let adCount = adList.count
-        // 別ビューのdataプロパティに値を設定
-        let leftMenuC = segue.destination as! LeftMenuViewController
-        leftMenuC.EXTRA_COUNT = adCount
+    // ブロックリストを管理するメソッド
+    func createBlockList() -> [(text: String, switchs: Bool)] {
+        // データの取得
+        if let loadData = AppGroupsManager.loadData(key: "adList") {
+            self.adList = loadData.map { (text: $0["text"], switchs: $0["switchs"]) } as! [(text: String, switchs: Bool)]
+            
+            /* JSON */
+            // 共有フォルダに書き込み
+            self.createJSONFile()
+            
+            // 保存されたデータがない場合
+        } else {
+            /* JSON */
+            // 共有フォルダに書き込み
+            self.createJSONFile()
+            //　読み込んだJSONからurlのみを取得
+            for url in self.createURLFilterArray() {
+                // 要素を追加
+                self.adList.append((text: url, switchs: false))
+            }
+        }
+        
+        /* シェアデータの設定 */
+        // 保存されたシェアデータがある場合
+        if let sharedLoadData: String = AppGroupsManager.sharedLoadData(key: self.keyName) {
+            self.adList.append((text: sharedLoadData, switchs: false))
+            
+            // 保存されたシェアデータがない場合
+        } else {
+            print("Shared data does not exist")
+        }
+        
+        // adListの重複を削除(既存のブロックリストが追加された場合)
+    
+        
+        // データの保存
+        let saveData: [[String: Any]] = self.adList.map { ["text": $0.text, "switchs": $0.switchs] }
+        AppGroupsManager.saveData(data: saveData, key: "adList")
+        
+        return self.adList
     }
     
     // MARK - Language
@@ -150,18 +139,18 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     // 検索するメソッド
     func searchItems(searchText: String) {
         // 検索結果を格納した配列を空にする
-        searchAdList.removeAll()
+        self.searchAdList.removeAll()
         
         // 文字列が入力された場合
         if searchText != "" {
             // 大文字・小文字を区別しない
-            searchAdList = adList.filter { $0.text.lowercased().contains(searchBar.text!.lowercased()) }
+            self.searchAdList = self.adList.filter { $0.text.lowercased().contains(self.searchBar.text!.lowercased()) }
         } else {
             // 文字列が空の場合は全てを表示
-            searchAdList = adList
+            self.searchAdList = adList
         }
         // テーブルを更新
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     // テキスト変更時に呼ばれるメソッド
@@ -176,7 +165,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         // 参照
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath)
         // 値を設定
-        cell.textLabel?.text = searchAdList[indexPath.row].text
+        cell.textLabel?.text = self.searchAdList[indexPath.row].text
         
         /* スイッチの設定 */
         let tableSwitch = UISwitch()
@@ -186,10 +175,10 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         tableSwitch.addTarget(self, action: #selector(switchTriggered), for: .valueChanged)
         
         // スイッチデータを共通(再描画時のバグ解消)
-        searchAdList[tableSwitch.tag].switchs = adList[tableSwitch.tag].switchs
+        self.searchAdList[tableSwitch.tag].switchs = self.adList[tableSwitch.tag].switchs
         
         // tag番目の要素がtrueの場合
-        if searchAdList[tableSwitch.tag].switchs == true {
+        if self.searchAdList[tableSwitch.tag].switchs == true {
             // ONに設定
             tableSwitch.isOn = true
             // それ以外の場合
@@ -207,28 +196,37 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @objc private func switchTriggered(sender: UISwitch) {
         /* スイッチの設定 */
         // 状態が変化した要素番号(adList内)を取得
-        let searchIndex = adList.findIndex(includeElement: { $0 == (text:searchAdList[sender.tag].text,switchs:!sender.isOn)} )
+        let searchIndex = self.adList.findIndex(includeElement: { $0 == (text: self.searchAdList[sender.tag].text,switchs:!sender.isOn)} )
         // 状態が変化した要素番号が取得できた場合
         if searchIndex.isEmpty == false {
             // tag番目の要素に状態を設定
-            adList[searchIndex[0]].switchs = sender.isOn
+            self.adList[searchIndex[0]].switchs = sender.isOn
         } else {
             print("error")
         }
         
-        /* ユーザデフォルトの設定 */
-        let defaults = UserDefaults.standard
-        // タプルの配列を辞書の配列へ変換
-        let saveData: [[String: Any]] = adList.map { ["text": $0.text, "switchs": $0.switchs] }
-        // 変更を保存
-        defaults.set(saveData, forKey: "adList")
+        // データの保存
+        let saveData: [[String: Any]] = self.adList.map { ["text": $0.text, "switchs": $0.switchs] }
+        AppGroupsManager.saveData(data: saveData, key: "adList")
         
         /* JSON */
         // 共有ファイルにJSON文字列を書き込む
-        createJSONFile()
+        self.createJSONFile()
         
         // コンテンツブロッカーを更新
-        reloadContentBlocker()
+        self.reloadContentBlocker()
+    }
+    
+    // テーブルビューを更新するメソッド
+    @objc private func refresh(sender: UIRefreshControl) {
+        // 検索結果配列にデータをコピー
+        self.searchAdList = self.createBlockList()
+        // テーブルビューを更新
+        self.tableView.reloadData()
+        
+        // 更新表示を非表示に設定
+        sender.endRefreshing()
+        print("reload finished")
     }
     
     // スイッチの状態変更ボタンをタップした時のコールバック
@@ -250,12 +248,9 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 self.adList.append( (text: text, switchs: true) )
             }
             
-            /* ユーザデフォルトの設定 */
-            let defaults = UserDefaults.standard
-            // タプルの配列を辞書の配列へ変換
+            // データの保存
             let saveData: [[String: Any]] = self.adList.map { ["text": $0.text, "switchs": $0.switchs] }
-            // 変更を保存
-            defaults.set(saveData, forKey: "adList")
+            AppGroupsManager.saveData(data: saveData, key: "adList")
             
             /* JSON */
             // 共有ファイルにJSON文字列を書き込む
@@ -282,12 +277,9 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 self.adList.append( (text: text, switchs: false) )
             }
             
-            /* ユーザデフォルトの設定 */
-            let defaults = UserDefaults.standard
-            // タプルの配列を辞書の配列へ変換
+            // データの保存
             let saveData: [[String: Any]] = self.adList.map { ["text": $0.text, "switchs": $0.switchs] }
-            // 変更を保存
-            defaults.set(saveData, forKey: "adList")
+            AppGroupsManager.saveData(data: saveData, key: "adList")
             
             /* JSON */
             // 共有ファイルにJSON文字列を書き込む
@@ -315,7 +307,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     // セルの個数を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // セルの個数を設定
-        return searchAdList.count
+        return self.searchAdList.count
     }
     
     // MARK: - JSON
@@ -444,7 +436,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         // JSONデータから取得したURLを設定
         var jsonURLArray = [String]()
         // JSONデータの文字列を設定
-        let jsonText = JSON(parseJSON: getJSONFile())
+        let jsonText = JSON(parseJSON: self.getJSONFile())
         // JSONデータの要素数を設定
         let jsonCount = jsonText[].count
         

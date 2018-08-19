@@ -9,6 +9,7 @@
 import Foundation
 
 class AppGroupsManager: NSObject {
+    // AppGroups ID
     private static let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     
     // データとキーを指定して保存

@@ -217,7 +217,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         self.createJSONFile()
         
         // コンテンツブロッカーを更新
-        self.reloadContentBlocker()
+        ContentBlockerManager.reloadContentBlocker()
     }
     
     // テーブルビューを更新するメソッド
@@ -229,7 +229,6 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         
         // 更新表示を非表示に設定
         sender.endRefreshing()
-        print("reload finished")
     }
     
     // スイッチの状態変更ボタンをタップした時のコールバック
@@ -263,7 +262,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             self.tableView.reloadData()
             
             // コンテンツブロッカーを更新
-            self.reloadContentBlocker()
+            ContentBlockerManager.reloadContentBlocker()
         }
         
         let Disable = UIAlertAction(title: "Disable All", style: .default)
@@ -292,7 +291,7 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             self.tableView.reloadData()
             
             // コンテンツブロッカーを更新
-            self.reloadContentBlocker()
+            ContentBlockerManager.reloadContentBlocker()
         }
         
         let Cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -457,22 +456,6 @@ class adListViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         // JSONデータのurl-filterを設定し,配列を戻す
         return jsonURLArray
     }
-    
-    // MARK: - ContentBlocker
-    // ContentBlockerの更新メソッド
-    func reloadContentBlocker() {
-        SFContentBlockerManager.reloadContentBlocker(withIdentifier: "jp.ac.osakac.cs.hisalab.adblock.blockList")
-        {
-            (error) in
-            
-            if let error = error {
-                print(error as NSError)
-            } else {
-                print("Content Blocker Succesfully Reloaded")
-            }
-        }
-    }
-    
     
 }
 

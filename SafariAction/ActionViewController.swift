@@ -41,19 +41,21 @@ class ActionViewController: UIViewController {
                 }
             }
         }
+        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
     
-    // Doneボタンの処理
-    @IBAction func done() {
+    // Cancelボタンの処理
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
     }
     
-    // Addボタンの処理
-    @IBAction func add(_ sender: UIBarButtonItem) {
-        addDomain()
+    // Saveボタンの処理
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        self.saveDomain()
     }
     
-    func addDomain() {
+    // ドメインの追加を行うメソッド
+    func saveDomain() {
         // 追加したドメインリスト
         var addList = [String]()
         let defaults = UserDefaults.standard
@@ -85,7 +87,7 @@ class ActionViewController: UIViewController {
         // 追加するドメインがリストにある場合
         } else {
             /* アラートシートの設定 */
-            let alertLanguage = (firstLang().hasPrefix("ja")) ? "既に登録済されています" : "That has already been recorded domain"
+            let alertLanguage = (self.firstLang().hasPrefix("ja")) ? "既に登録済されています" : "That has already been recorded domain"
             let alert = UIAlertController(title: self.getURL.text!, message: alertLanguage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in print("OK") }))
             

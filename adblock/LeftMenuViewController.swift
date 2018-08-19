@@ -13,8 +13,6 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // UITabelView
     @IBOutlet weak var tableView: UITableView!
-    // UILabel
-    @IBOutlet weak var label: UILabel!
     
     let sectionTitle = ["高度なブロック", "設定", "使い方"]
     let section0 = ["アクセス解析をブロック", "ソーシャルボタンをブロック", "セレクタをブロック", "画像をブロック"]

@@ -1,6 +1,0 @@
-framework module Pods_blockList {
-  umbrella header "Pods-blockList-umbrella.h"
-
-  export *
-  module * { export * }
-}

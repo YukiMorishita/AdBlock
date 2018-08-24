@@ -1,6 +1,0 @@
-framework module Pods_SafariAction {
-  umbrella header "Pods-SafariAction-umbrella.h"
-
-  export *
-  module * { export * }
-}

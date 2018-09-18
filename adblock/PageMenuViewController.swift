@@ -175,7 +175,6 @@ class PageMenuViewControlle: UIViewController, CAPSPageMenuDelegate {
             JSONManager.createJSONFile(adList: adList)
             
             // テーブルビューを更新
-            // テーブルビューを更新
             let notificationCenter = NotificationCenter.default
             notificationCenter.post(name: .myNotificationName, object: nil)
             
@@ -208,4 +207,5 @@ class PageMenuViewControlle: UIViewController, CAPSPageMenuDelegate {
 
 extension Notification.Name {
     static let myNotificationName = Notification.Name("TableUpdate")
+    static let myNotificationName2 = Notification.Name("LabelStateUpdate")
 }

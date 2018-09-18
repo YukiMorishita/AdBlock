@@ -2156,13 +2156,12 @@
     },
     {
         "action": {
-            "type": "css-display-none",
-            "selector": "^div[id*='google_ads_iframe_/4330625/Google_TC_0__container__'.*$]"
+            "type": "block",
+            "selector": "#image"
         },
         "trigger": {
-            "url-filter": "gigazine.net"
+            "url-filter": "192.168.1.9",
+            "resource-type": ["image"]
         }
     }
-    
-    
 ]

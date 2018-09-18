@@ -200,6 +200,40 @@
 			path = SafariActionExtension;
 			sourceTree = "<group>";
 		};
+		842249F0213364CC0006CC14 /* AppGroupsManager */ = {
+			isa = PBXGroup;
+			children = (
+				84470EBB212B70370004FD55 /* AppGroupsManager.swift */,
+			);
+			name = AppGroupsManager;
+			sourceTree = "<group>";
+		};
+		842249F2213364F80006CC14 /* JSONManager */ = {
+			isa = PBXGroup;
+			children = (
+				84470EE8212B92960004FD55 /* JSONManager.swift */,
+				84470EBD212B70370004FD55 /* SwiftyJSON.swift */,
+			);
+			name = JSONManager;
+			sourceTree = "<group>";
+		};
+		842249F3213365120006CC14 /* OSS */ = {
+			isa = PBXGroup;
+			children = (
+				848233A0212B4FA6004FA161 /* SlideMenuController.swift */,
+				84B9FCFE212B603800F17DEE /* CAPSPageMenu.swift */,
+			);
+			name = OSS;
+			sourceTree = "<group>";
+		};
+		842249F4213365270006CC14 /* ContentBlockerManager */ = {
+			isa = PBXGroup;
+			children = (
+				84470EBC212B70370004FD55 /* ContentBlockerManager.swift */,
+			);
+			name = ContentBlockerManager;
+			sourceTree = "<group>";
+		};
 		84470EC6212B708D0004FD55 /* Content Blocker */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,16 +281,14 @@
 				84823395212B4CE9004FA161 /* adListViewController.swift */,
 				84823392212B4CE9004FA161 /* AdvancedBlockViewController.swift */,
 				84823393212B4CE9004FA161 /* LeftMenuViewController.swift */,
-				84470EE8212B92960004FD55 /* JSONManager.swift */,
-				84470EBB212B70370004FD55 /* AppGroupsManager.swift */,
-				84470EBC212B70370004FD55 /* ContentBlockerManager.swift */,
-				84B9FCFE212B603800F17DEE /* CAPSPageMenu.swift */,
-				848233A0212B4FA6004FA161 /* SlideMenuController.swift */,
-				84470EBD212B70370004FD55 /* SwiftyJSON.swift */,
 				84E52F5D212B4A860090C020 /* Main.storyboard */,
 				84E52F60212B4A860090C020 /* Assets.xcassets */,
 				84E52F62212B4A860090C020 /* LaunchScreen.storyboard */,
 				84E52F65212B4A860090C020 /* Info.plist */,
+				842249F0213364CC0006CC14 /* AppGroupsManager */,
+				842249F2213364F80006CC14 /* JSONManager */,
+				842249F4213365270006CC14 /* ContentBlockerManager */,
+				842249F3213365120006CC14 /* OSS */,
 			);
 			path = adblock;
 			sourceTree = "<group>";

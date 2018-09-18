@@ -28,21 +28,22 @@ class ContentBlockerManager: NSObject {
     }
     
     // ContentBlockerの状態確認メソッド
-    class func stateContentBlocker() -> Bool {
-        var blockerState: Bool = true
+    class func stateContentBlocker() {
+        // UserDefaults
+        let defaults = UserDefaults.standard
         SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: contentBlockerID)
         {
             (state: SFContentBlockerState?, error: Error?) in
             
             if state?.isEnabled == true {
-                print("true")
-                blockerState = true
+                //print("true")
+                defaults.set(state?.isEnabled, forKey: "State")
             } else {
-                print("false")
-                blockerState = false
+                //print("false")
+                defaults.set(state?.isEnabled, forKey: "State")
             }
         }
-        return blockerState
+        
     }
     
     

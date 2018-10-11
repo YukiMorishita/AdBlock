@@ -1,0 +1,20 @@
+[
+    {
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": "a.toremanga.com",
+            "load-type": ["third-party"]
+        }
+    },
+    {
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": "a8.net",
+            "load-type": ["third-party"]
+        }
+    }
+]

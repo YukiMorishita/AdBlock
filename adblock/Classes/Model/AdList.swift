@@ -12,19 +12,19 @@ final class AdList {
     
     // プロパティ
     var domain: String
-    var switchState: Bool
+    var state: Bool
     
     // イニシャライザメソッド
-    init (domain: String, switchState: Bool) {
+    init (domain: String, state: Bool) {
         self.domain = domain
-        self.switchState = switchState
+        self.state = state
     }
     
     // 引数のdictionaryからAdListを生成するイニシャライザ
     // UserDefaultsで保存したdictionaryから生成
     init (from dictionary: [String: Any]) {
         self.domain = dictionary["domain"] as! String
-        self.switchState = dictionary["switchState"] as! Bool
+        self.state = dictionary["state"] as! Bool
     }
     
 }

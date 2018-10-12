@@ -83,9 +83,7 @@ class AdsBlockViewController: UIViewController {
             print("二回目以降の起動")
             // 最後に保存したAdListを生成
             dataSource.loadList()
-            
         } else {
-            
             print("初回起動")
             // 初期のAdListを生成
             dataSource.createDefaultAdList()
@@ -97,8 +95,9 @@ class AdsBlockViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let viewWidth = self.view.frame.size.width // 横幅 5s = 284 7 = 350
-        let viewHeight = self.view.frame.size.height // 縦幅 5s = 568 5 = 667
+        // UIViewの上下サイズ
+        let viewWidth = self.view.frame.size.width
+        let viewHeight = self.view.frame.size.height
         
         navigationBar.frame = CGRect(x: 0, y: 22, width: viewWidth, height: 40)
         
@@ -121,7 +120,7 @@ class AdsBlockViewController: UIViewController {
             (action: UIAlertAction) in
             
             for domain in domainList {
-                adList.append(AdList(domain: domain, switchState: true))
+                adList.append(AdList(domain: domain, state: true))
             }
             self.dataSource.saveList(adList: adList)
             
@@ -134,7 +133,7 @@ class AdsBlockViewController: UIViewController {
             (action: UIAlertAction) in
             
             for domain in domainList {
-                adList.append(AdList(domain: domain, switchState: false))
+                adList.append(AdList(domain: domain, state: false))
             }
             self.dataSource.saveList(adList: adList)
             
@@ -164,41 +163,20 @@ class AdsBlockViewController: UIViewController {
     
 }
 
+
+// MARK - UISearchBar
 extension AdsBlockViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         let adList = dataSource.getAdList()
-        var searchResults = [AdList]()
         
-        searchResults.removeAll()
+        dataSource.removeAdList()
         
-        //self.view.endEditing(true)
-        searchBar.showsCancelButton = true
-        
-        if searchBar.text == "" {
+        if searchText != "" {
             
-            for ad in adList {
-                searchResults.append(AdList(domain: ad.domain, switchState: ad.switchState))
-            }
             
-        } else {
-            
-            let searchFilter = adList.filter { $0.domain.lowercased().contains(self.searchBar.text!.lowercased()) }
-            
-            if searchFilter.isEmpty == false {
-                for result in searchFilter {
-                    searchResults.append(AdList(domain: result.domain, switchState: result.switchState))
-                    print(result)
-                }
-            }
-            
-            dataSource.saveSearchResults(searchResults: searchResults)
-            self.tableView.reloadData()
         }
-        
-        dataSource.saveSearchResults(searchResults: searchResults)
-        self.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -221,6 +199,7 @@ extension AdsBlockViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - UITableView
 extension AdsBlockViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -233,36 +212,22 @@ extension AdsBlockViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if searchBar.text != "" {
-            return dataSource.searchResultsCount()
-            
-        } else {
-            return dataSource.adListCount()
-        }
+        return dataSource.adListCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // 保存したAdListを取得 (スイッチの状態を更新するため)
         dataSource.loadList()
-        dataSource.loadSearchResults()
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AdListCell
-        
-        if searchBar.text != "" {
-            // 検索結果配列を表示
-            print("search")
-            cell.searchResults = dataSource.searchData(at: indexPath.row)
-            
-        } else {
-            print("default")
-            cell.adList = dataSource.data(at: indexPath.row)
-        }
+        cell.adList = dataSource.data(at: indexPath.row)
         
         return cell
     }
 }
 
+// MARK: - UITabBar
 extension AdsBlockViewController: UITabBarDelegate {
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

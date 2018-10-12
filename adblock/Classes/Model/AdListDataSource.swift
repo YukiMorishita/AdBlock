@@ -13,31 +13,8 @@ final class AdListDataSource: NSObject {
     // ブロックするAdList一覧を保持するArray
     // UITableViewに表示させるためのデータ
     private var adList = [AdList]()
-    private var searchResults = [AdList]()
+    private var searchAdList = [AdList]()
     fileprivate var jsonManager: JSONManager!
-    
-    func getDomain() -> [String] {
-        
-        var domainList = [String]()
-        
-        for ad in adList {
-            domainList.append(ad.domain)
-        }
-        
-        return domainList
-    }
-    
-    func getAdList() -> [(domain: String, switchState: Bool)] {
-        
-        var adList = [(domain: String, switchState: Bool)]()
-        
-        loadList()
-        
-        for ad in self.adList {
-            adList.append((domain: ad.domain, switchState: ad.switchState))
-        }
-        return adList
-    }
     
     func createDefaultAdList() {
         
@@ -45,9 +22,11 @@ final class AdListDataSource: NSObject {
         let jsonManager = JSONManager()
         // ドメインリストの生成
         for domain in jsonManager.createDomainArray() {
-            let ad = AdList(domain: domain, switchState: false)
+            let ad = AdList(domain: domain, state: false)
             adList.append(ad) // ドメインをadListに追加
         }
+        
+        self.searchAdList = self.adList
         saveList(adList: adList) // 保存
     }
     
@@ -60,12 +39,12 @@ final class AdListDataSource: NSObject {
         guard let ads = adListDictionaries else { return }
         
         // adListを初期化
-        adList.removeAll()
+        searchAdList.removeAll()
         
         // adListを配列にキャスト
         for dic in ads {
             let ad = AdList(from: dic)
-            adList.append(ad) // ドメインをadListに追加
+            searchAdList.append(ad) // ドメインをadListに追加
         }
     }
     
@@ -77,7 +56,7 @@ final class AdListDataSource: NSObject {
         var adListDictionaries = [[String: Any]]()
         
         // adListを辞書型にキャスト
-        adListDictionaries = adList.map { ["domain": $0.domain, "switchState": $0.switchState] }
+        adListDictionaries = searchAdList.map { ["domain": $0.domain, "state": $0.state] }
         // UserDefaultsに辞書型にキャストしたadListを保存
         defaults.set(adListDictionaries, forKey: "adList")
     }
@@ -85,86 +64,69 @@ final class AdListDataSource: NSObject {
     // adListの総数を返す
     func adListCount() -> Int {
         
-        return adList.count
+        return searchAdList.count
     }
     
     // 指定したindexに対応するadListを返す
     func data(at index: Int) -> AdList? {
         
-        if adList.count > index {
-            return adList[index]
+        if searchAdList.count > index {
+            return searchAdList[index]
         }
         return nil
+    }
+    
+    func getAdList() -> [AdList] {
+        
+        var adList = [(domain: String, state: Bool)]()
+        
+        for ad in searchAdList {
+            adList.append((domain: ad.domain, state: ad.state))
+        }
+        
+        return adList
+    }
+    
+    func getDomain() -> [String] {
+        
+        var domainList = [String]()
+        
+        for ad in self.searchAdList {
+            domainList.append(ad.domain)
+        }
+        
+        return domainList
+    }
+    
+    func RemoveAdList() {
+        
+        self.searchAdList.removeAll()
     }
     
     // タップしたスイッチのインデックスを取得し、adListにスイッチのON・OFFを保存
     func switchStateDidChangeAdList(domain: String) {
         
         // ドメイン一覧を保持
-        var domainList = [String]()
+        var adList = [String]()
         // adListを読み込む
         loadList()
         
         // domainList生成
-        for ad in adList {
-            domainList.append(ad.domain)
+        for ad in self.searchAdList {
+            adList.append(ad.domain)
         }
         
-        // domainListから引数であるドメインを検索
-        let index = domainList.findIndex(includeElement: { $0 == domain })
+        // adListから引数であるドメインを検索
+        let index = adList.findIndex(includeElement: { $0 == domain })
         // 引数のドメインがdomainListにあれば、スイッチの状態を切り替える
         if index.isEmpty == false {
-            if adList[index[0]].switchState == false {
-                adList[index[0]].switchState = true
+            if searchAdList[index[0]].state == false {
+                searchAdList[index[0]].state = true
             } else {
-                adList[index[0]].switchState = false
+                searchAdList[index[0]].state = false
             }
-            saveList(adList: adList) // 保存
+            saveList(adList: searchAdList) // 保存
         }
-    }
-    
-    func loadSearchResults() {
-        
-        let defaults = UserDefaults.standard
-        // 辞書化したsearchResultsを保持するArray
-        let searchResultsDictionaries = defaults.object(forKey: "searchResults") as? [[String: Any]]
-        print(" load: \(String(describing: searchResultsDictionaries))")
-        guard let results = searchResultsDictionaries else { return }
-        
-        // searchResultsを初期化
-        searchResults.removeAll()
-        
-        // searchResultsを配列にキャスト
-        for dic in results {
-            let result = AdList(from: dic)
-            searchResults.append(result) // 検索結果をsearchResultsに追加
-        }
-    }
-    
-    func saveSearchResults(searchResults: [AdList]) {
-        
-        let defaults = UserDefaults.standard
-        // 辞書化したsearchResultsを保持するArray
-        var searchResultsDictionaries = [[String: Any]]()
-        
-        // searchResultsを辞書型にキャスト
-        searchResultsDictionaries = searchResults.map { ["domain": $0.domain, "switchState": $0.switchState] }
-        print(" save: \(searchResultsDictionaries)")
-        // UserDefaultsに辞書型にキャストしたsearchResultsを保存
-        defaults.set(searchResultsDictionaries, forKey: "searchResults")
-    }
-    
-    func searchResultsCount() -> Int {
-        
-        return searchResults.count
-    }
-    
-    func searchData(at index: Int) -> AdList? {
-        
-        if searchResults.count > index {
-            return searchResults[index]
-        }
-        return nil
     }
     
 }

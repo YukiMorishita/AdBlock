@@ -32,19 +32,6 @@ final class AdListCell: UITableViewCell {
         }
     }
     
-    var searchResults: AdList? {
-        
-        didSet {
-            guard let ad = searchResults else { return }
-            
-            domainText = ad.domain
-            switchButton = ad.switchState
-            
-            domainLabel.text = ad.domain
-            tableSwitch.isOn = ad.switchState
-        }
-    }
-    
     override init (style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -57,7 +44,7 @@ final class AdListCell: UITableViewCell {
         // UISwitch
         tableSwitch = UISwitch()
         tableSwitch.onTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        tableSwitch.addTarget(self, action: #selector(trriger(sender:)), for: .valueChanged)
+        tableSwitch.addTarget(self, action: #selector(trigger(sender:)), for: .valueChanged)
         
         // スイッチの状態を設定
         if switchButton == true {
@@ -82,11 +69,12 @@ final class AdListCell: UITableViewCell {
         tableSwitch.frame = CGRect(x: contentView.frame.size.width - 60, y: 6, width: 49, height: 31)
     }
     
-    @objc private func trriger(sender: UISwitch) {
+    @objc private func trigger(sender: UISwitch) {
         
         dataSource = AdListDataSource()
         // AdListから引数であるドメインを検索、その後、要素番号を取得し、保存
         dataSource.switchStateDidChangeAdList(domain: domainText)
+        
     }
     
 }

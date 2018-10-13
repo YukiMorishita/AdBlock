@@ -10,150 +10,145 @@ import Foundation
 
 final class JSONManager: NSObject {
     
-    // AppGroups ID
-    private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
+    let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     
-    // JSONファイルを取得するメソッド（ 共有ファイル || リソース ）
-    func getJSONFile() -> String {
-        // JSON文字列
-        var json = ""
-        // JSONファイルの名前
-        let jsonFileName = "blockerList.json"
-        /* ファイルマネージャーの設定 */
-        let fileManager = FileManager.default
-        // 共有ファイルのパス
-        let containerURL = (fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupID)?.appendingPathComponent(jsonFileName))!.path
-        // ファイルの有無
-        let fileExists = fileManager.fileExists(atPath: containerURL)
+    // ファイル名
+    let fileName = "blockerList.json"
+    let fileManager = FileManager.default
+    
+    // 共有JSONファイルのパスを設定
+    let containerURL = (fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupID)?.appendingPathComponent(fileName))!.path
+    let fileExits = fileManager.fileExits(atPath: containerURL)
+    // リソースJSONファイルのパスを設定
+    let resourcePath = Bundle.main.path(forResource: fileName, ofType: nil)
+    
+    // ファイル取得処理
+    func getJsonFile() -> String {
         
-        // JSONファイルのフルパスが存在する場合
-        if fileExists {
-            // JSONデータを文字列で設定
-            let jsonData = try? String(contentsOfFile: containerURL, encoding: String.Encoding.utf8)
-            // JSONデータをパース（解析）
-            json = JSON(parseJSON: jsonData!).rawString()!
-            
-            // JSONファイルのフルパスが存在しない場合
-        } else {
-            // リソースのJSONファイルのパスを設定
-            let resourcePath = Bundle.main.path(forResource: jsonFileName, ofType: nil)
-            // JSONデータを文字列で設定
-            let jsonData = try? String(contentsOfFile: resourcePath!, encoding: String.Encoding.utf8)
-            // JSONデータをパース（解析）
-            json = JSON(parseJSON: jsonData!).rawString()!
+        // JSON文字列の設定
+        var jsonStr: String
+        var json: JSON
+        
+        // 共有ファイルへのパスが存在した場合
+        if fileExits {
+            jsonStr = try? String(contentsOfFile: containerURL, encoding: String.Encoding.utf8)
+            json = JSON(parseJSON: jsonStr).rawString()
         }
-        // JSON文字列を戻す
+        
+        // 共有ファイルへのパスが存在しない場合
+        if !fileExits {
+            jsonStr = try? String(contentsOfFile: resourcePath!, encoding: String.Encoding.utf8)
+            json = JSON(parseJSON: jsonStr).rawString()
+        }
         return json
     }
     
-    // 共有ファイルに書き込むメソッド
-    func createJSONFile(adList: [(text: String, switchs: Bool)]) {
-        // 書き込むファイル名
-        let jsonFileName = "blockerList.json"
-        // フラグ
-        var flag = false
-        // 書き込むJSON文字列
-        var jsonRule = ""
+    // ドメインリスト生成処理
+    func createDomainList() -> [String] {
+        // ドメインリストを保持
+        var domainList = [String]()
+        // JSON文字列を設定
+        let jsonStr = JSON(parseJSON: getJsonFile)
+        // JSONStrの要素数を設定
+        let jsonCount = jsonStr[].count
         
-        /* ファイルマネージャーの設定 */
-        let fileManager = FileManager.default
-        // 共有ファイルのパス
-        let containerURL = (fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupID)?.appendingPathComponent(jsonFileName))!.path
-        // ファイルの有無
-        let fileExists = fileManager.fileExists(atPath: containerURL)
-        
-        // ブロックリストからスイッチがONの状態のtextを取得
-        let writeURL = adList.filter { $0.switchs == true }.map { $0.text }
-        // 1回だけの処理
-        flag = (flag == false) ? true : flag
-        // 1度目の時は、カギカッコと改行, 2度目の時は、何もしない
-        jsonRule += (flag == true) ? "[\n" : ""
-        
-        // writeURLに要素がある場合
-        if writeURL.isEmpty == false {
-            // writeURLの要素数繰り返す
-            for url in writeURL {
-                jsonRule +=
-                """
-                    {
-                        "action": {
-                            "type": "block"
-                        },
-                        "trigger": {
-                            "url-filter": "\(url)",
-                            "load-type": [
-                                "third-party"
-                            ]
-                        }
-                    }
-                """
+        // json文字列がある場合
+        if jsonStr != "" {
+            
+            // json文字列からドメインを取得
+            for i in 0...jsonCount - 1 {
                 
-                // 繰り返しが途中なら改行してカンマ, 最後なら改行してカギカッコ
-                jsonRule += (url != writeURL.last!) ? ",\n" : "\n]\n"
+                // domainListに追加
+                let jsonTriggerURL - jsonStr[i]["trigger"]["url-filter"].rawString()
+                domainList.append(jsonTriggerURL!)
             }
-            
-            /* 書き込みの設定 */
-            do {
-                try jsonRule.write(toFile: containerURL, atomically: true, encoding: String.Encoding.utf8)
-                // 書き込みに失敗した場合
-            } catch let error as NSError {
-                print("failed to write: \(error)")
-            }
-            
-            // 共有ファイルが存在し、書き込む文字列がない場合
-        } else if fileExists && writeURL.isEmpty == true {
-            print("not data")
-            //　書き込むJSON文字列
-            let jsonText =
-            """
-                [
-                    {
-                        "action": {
-                            "type": "block"
-                        },
-                        "trigger": {
-                            "url-filter": ".*",
-                            "if-domain": [".*"]
-                        }
-                    }
-                ]
-            """
-            
-            // ファイルの書き込み(空白)
-            do {
-                try jsonText.write(toFile: containerURL, atomically: true, encoding: String.Encoding.utf8)
-                // 書き込みに失敗した場合
-            } catch let error as NSError {
-                print("failed to write: \(error)")
-            }
-            
-            // 共有ファイルを作らない
-        } else {
-            print("not create shared file")
         }
-        
+        return domainList
     }
     
-    // JSON文字列からurl-filterのみを取得し、配列に格納するメソッド
-    func createDomainArray() -> Array<String> {
-        // JSONデータから取得したURLを設定
-        var jsonDomainArray = [String]()
-        // JSONデータの文字列を設定
-        let jsonText = JSON(parseJSON: self.getJSONFile())
-        // JSONデータの要素数を設定
-        let jsonCount = jsonText[].count
+    // 共有ファイルに書き込む文字列を生成する処理
+    func createJsonRule(adList: [AdList]) -> String {
         
-        // jsonTextに文字列がある場合
-        if jsonText != "" {
-            // JSON要素の数繰り返す 0から始まるが、リストの数は1から始まるため-1を行う
-            for i in 0...jsonCount - 1 {
-                // jsonデータのトリガからurl-filterを取得
-                let jsonTriggerURL = jsonText[i]["trigger"]["url-filter"].rawString()
-                // 配列に取得したJSONデータのurl-filterを設定
-                jsonDomainArray.append(jsonTriggerURL!)
+        // スイッチの状態がONのドメインを保持
+        let domainList = adList.filter { $0.state == true }.map { $0.domain }
+        let writeStr: String
+        
+        // domainListに要素がある場合
+        if domainList.isEmpty == false {
+            
+            // ブロックルールの生成
+            for domain in domainList {
+                
+                // domainListが最初の場合 [ を記述する
+                writeStr += (domain != domain.first!) ? "" : "[\n"
+                
+                // ドメインごとにブロックルールを生成
+                writeStr +=
+                """
+                {
+                "action": {
+                "type": "block"
+                },
+                "trigger": {
+                "url-filter": "\(domain)",
+                "load-type": ["third-party"]
+                }
+                }
+                """
+                
+                // domainListが最後の場合 ] を記述する
+                writeStr += (domain != domainList.last!) ? ",\n" : "\n]\n"
             }
+            
+            // 共有ファイルへの書き込み
+            // 書き込みに成功した場合
+            do {
+                try writeStr.write(toFile: containerURL, atomically: true, encoding: String.Encoding.utf8)
+                // 書き込みに失敗した場合
+            } catch let error as NSError {
+                print("failed to write: \(error)")
+            }
+            
+            print("1: created shared file")
         }
-        // JSONデータのurl-filterを設定し,配列を戻す
-        return jsonDomainArray
+        
+        // 共有ファイルが存在し、domainListに要素がない場合
+        if fileExits && domainList.isEmpty == true {
+            
+            // ブロックルール生成
+            jsonStr =
+            """
+            [
+            {
+            "aciton": {
+            "type": "block"
+            },
+            "trigger": {
+            "url-filter": ".*",
+            "if-domain": [".*"]
+            }
+            }
+            ]
+            """
+            
+            // 共有ファイルへの書き込み
+            // 書き込みに成功した場合
+            do {
+                try jsonStr.write(toFile: containerURL, atomically: true, encoding: String.Encoding.utf8)
+                // 書き込みに失敗した場合
+            } catch let error as NSError {
+                print("failed to write: \(error)")
+            }
+            
+            print("2: created shared file")
+        }
+        
+        // 共有ファイルが存在せず、domainListに要素がない場合
+        if !fileExits && domainList.isEmpty == true {
+            
+            print("not created shared file")
+        }
+        
+        return writeStr
     }
 }

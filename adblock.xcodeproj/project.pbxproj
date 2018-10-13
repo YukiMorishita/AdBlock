@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841969CF2170DA79008A875F /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841969CD2170DA75008A875F /* ContentBlockerManager.swift */; };
 		846A5A7721649B83007B4231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A5A7621649B83007B4231 /* AppDelegate.swift */; };
 		846A5A7C21649B83007B4231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A5A7A21649B83007B4231 /* Main.storyboard */; };
 		846A5A7E21649B84007B4231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A5A7D21649B84007B4231 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		841969CD2170DA75008A875F /* ContentBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
 		846A5A7321649B83007B4231 /* adblock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adblock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846A5A7621649B83007B4231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846A5A7B21649B83007B4231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				849C08D62164A291005CEDD6 /* AdListDataSource.swift */,
 				849C08D82164A3B7005CEDD6 /* JSONManager.swift */,
 				849C08DD2164A3FE005CEDD6 /* SwiftyJSON.swift */,
+				841969CD2170DA75008A875F /* ContentBlockerManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				849C08E42164A628005CEDD6 /* HomeView.swift in Sources */,
 				849C08D92164A3B7005CEDD6 /* JSONManager.swift in Sources */,
 				846A5A7721649B83007B4231 /* AppDelegate.swift in Sources */,
+				841969CF2170DA79008A875F /* ContentBlockerManager.swift in Sources */,
 				849C08DE2164A47D005CEDD6 /* SwiftyJSON.swift in Sources */,
 				849C08D72164A291005CEDD6 /* AdListDataSource.swift in Sources */,
 				849C08E02164A4F2005CEDD6 /* HomeViewController.swift in Sources */,

@@ -12,6 +12,8 @@ import UIKit
 final class AdListCell: UITableViewCell {
     
     fileprivate var dataSource: AdListDataSource!
+    fileprivate var jsonManager: JSONManager!
+    fileprivate var blockerManager: ContentBlockerManager!
     
     private var domainLabel: UILabel!
     private var tableSwitch: UISwitch!
@@ -25,10 +27,10 @@ final class AdListCell: UITableViewCell {
             guard let ad = adList else { return }
             
             domainText = ad.domain
-            switchButton = ad.switchState
+            switchButton = ad.state
             
             domainLabel.text = ad.domain
-            tableSwitch.isOn = ad.switchState
+            tableSwitch.isOn = ad.state
         }
     }
     
@@ -72,9 +74,17 @@ final class AdListCell: UITableViewCell {
     @objc private func trigger(sender: UISwitch) {
         
         dataSource = AdListDataSource()
+        jsonManager = JSONManager()
+        blockerManager = ContentBlockerManager()
+        
         // AdListから引数であるドメインを検索、その後、要素番号を取得し、保存
         dataSource.switchStateDidChangeAdList(domain: domainText)
         
+        // JSONファイルを生成
+        //jsonManager.createJSONFile(adList: <#T##[(text: String, switchs: Bool)]#>)
+        
+        // Content Blockerを更新
+        blockerManager.reloadContentBlocker()
     }
     
 }

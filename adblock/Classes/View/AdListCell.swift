@@ -18,18 +18,14 @@ final class AdListCell: UITableViewCell {
     private var domainLabel: UILabel!
     private var tableSwitch: UISwitch!
     
-    var domainText: String = "" // adList内を検索する再の引数を保持
-    var switchButton: Bool = false // Switchの状態を保持
-    
     var adList: AdList? {
         
         didSet {
             guard let ad = adList else { return }
             
-            domainText = ad.domain
-            switchButton = ad.state
-            
+            // UILabelの文字列を設定
             domainLabel.text = ad.domain
+            // UISwitchの状態を設定
             tableSwitch.isOn = ad.state
         }
     }
@@ -48,14 +44,6 @@ final class AdListCell: UITableViewCell {
         tableSwitch.onTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         tableSwitch.addTarget(self, action: #selector(trigger(sender:)), for: .valueChanged)
         
-        // スイッチの状態を設定
-        if switchButton == true {
-            tableSwitch.isOn = true
-        }
-        
-        if switchButton == false {
-            tableSwitch.isOn = false
-        }
         contentView.addSubview(tableSwitch)
     }
     
@@ -64,6 +52,7 @@ final class AdListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // SunViewのレイアウトを設定
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -73,18 +62,44 @@ final class AdListCell: UITableViewCell {
     
     @objc private func trigger(sender: UISwitch) {
         
+        // インスタンス生成
         dataSource = AdListDataSource()
         jsonManager = JSONManager()
         blockerManager = ContentBlockerManager()
         
-        // AdListから引数であるドメインを検索、その後、要素番号を取得し、保存
-        dataSource.switchStateDidChangeAdList(domain: domainText)
+        // adListを読み込み
+        //dataSource.loadList()
+        // adListSrcを読み込み
+        dataSource.defaultsLoadAdList()
         
-        // JSONファイルを生成
-        //jsonManager.createJSONFile(adList: <#T##[(text: String, switchs: Bool)]#>)
+        // ドメインリスト生成
+        let domainList = dataSource.getList().map { $0.domain }
+        // domainList内から検索ドメインの要素番号を取得
+        let index = domainList.findIndex(includeElement: { $0 == domainLabel.text })
+        // スイッチの状態を変更して保存
+        dataSource.changeSwitchState(at: index[0])
+        
+        // 共有ファイルを生成
+        jsonManager.createJsonFile(adList: dataSource.getAdList())
         
         // Content Blockerを更新
         blockerManager.reloadContentBlocker()
     }
     
+}
+
+extension Array {
+    
+    // 配列内の要素番号を取得するメソッド
+    func findIndex(includeElement: (Element) -> Bool) -> [Int] {
+        
+        // 要素番号を格納する配列
+        var indexArray = [Int]()
+        for (index, element) in enumerated() {
+            if includeElement(element) {
+                indexArray.append(index)
+            }
+        }
+        return indexArray
+    }
 }

@@ -10,141 +10,148 @@ import Foundation
 
 final class AdListDataSource: NSObject {
     
-    // ブロックするAdList一覧を保持するArray
-    // UITableViewに表示させるためのデータ
-    private var adList = [AdList]()
-    //private var adList = [AdList]()
     fileprivate var jsonManager: JSONManager!
     
-    func adListUni() {
+    // AppGroups
+    private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
+    private let key1 = "adListSrc"
+    private let key2 = "adList"
+    
+    // 初期adListを保持
+    private var adListSrc = [AdList]()
+    // UITableViewに表示するadList (インスタンスサーチ用)
+    private var adList = [AdList]()
+    
+    // adListを返す
+    func getAdList() -> [AdList] {
         
-        //RemoveAdList()
-        //adList = adList
-        //saveList(adList: adList)
+        return self.adList
     }
     
-    func createDefaultAdList() {
+    // 初期のadListを生成
+    func defaultsAdList() {
         
         // インスタンスの生成
         let jsonManager = JSONManager()
-        // ドメインリストの生成
+        
+        // adList生成
         for domain in jsonManager.createDomainList() {
             let ad = AdList(domain: domain, state: false)
-            // 初期データは同期
-            adList.append(ad) // ドメインをadListに追加
-            //adList.append(ad)
+            self.adListSrc.append(ad)
         }
-        
-        saveList(adList: adList) // 保存
+        // adListSrcを保存
+        defaultsSaveAdList(adList: self.adListSrc)
     }
     
-    // UserDefaultsから保存したadListを取得
-    func loadList() {
+    // adListSrcを読み込む
+    func defaultsLoadAdList() {
         
-        let defaults = UserDefaults.standard
-        // 辞書化したadListを保持するArray
-        let adListDictionaries = defaults.object(forKey: "adList") as? [[String: Any]]
+        // 保存したadListSrcを取得
+        let defaults = UserDefaults(suiteName: groupID)
+        let adListDictionaries = defaults?.object(forKey: key1) as? [[String: Any]]
         guard let ads = adListDictionaries else { return }
-        
-        // adListを初期化
-        adList.removeAll()
-        
-        // adListを配列にキャスト
-        for dic in ads {
-            let ad = AdList(from: dic)
-            adList.append(ad) // ドメインをadListに追加
-        }
+        // 取得したadListSrcを設定
+        self.adListSrc = ads.map { AdList(domain: $0["domain"] as! String, state: $0["state"] as! Bool) }
     }
     
-    // adListをUserDefaultsに保存
-    func saveList(adList: [AdList]) {
+    // adListSrcを保存
+    func defaultsSaveAdList(adList: [AdList]) {
         
-        let defaults = UserDefaults.standard
-        // 辞書化したadListを保持するArray
+        let defaults = UserDefaults(suiteName: groupID)
         var adListDictionaries = [[String: Any]]()
         
-        // adListを辞書型にキャスト
+        // adListを保存
         adListDictionaries = adList.map { ["domain": $0.domain, "state": $0.state] }
-        // UserDefaultsに辞書型にキャストしたadListを保存
-        defaults.set(adListDictionaries, forKey: "adList")
+        defaults?.set(adListDictionaries, forKey: key1)
     }
     
-    // adListの総数を返す
+    // adListSrcとadListを統一する (インスタンスサーチ用)
+    func unionAdList() {
+        
+        // Listを統一
+        self.adList = self.adListSrc
+        // adList保存
+        saveList(adList: self.adList)
+        // adListを読み込み
+        loadList()
+    }
+    
+    // adListを空にする (UISearchBarの検索用)
+    func removeAllAdList() {
+        
+        // 全ての要素を削除
+        self.adList.removeAll()
+        // adList保存
+        saveList(adList: self.adList)
+        // adListを読み込み
+        loadList()
+    }
+    
+    // adListを読み込む
+    func loadList() {
+        
+        // 保存したadListSrcを取得
+        let defaults = UserDefaults(suiteName: groupID)
+        let adListDictionaries = defaults?.object(forKey: key2) as? [[String: Any]]
+        guard let ads = adListDictionaries else { return }
+        
+        // 取得したadListSrcを設定
+        self.adList = ads.map { AdList(domain: $0["domain"] as! String, state: $0["state"] as! Bool) }
+    }
+    
+    // adListを保存
+    func saveList(adList: [AdList]) {
+        
+        let defaults = UserDefaults(suiteName: groupID)
+        var adListDictionaries = [[String: Any]]()
+        
+        // adListを保存
+        adListDictionaries = adList.map { ["domain": $0.domain, "state": $0.state] }
+        defaults?.set(adListDictionaries, forKey: key2)
+    }
+    
+    // adListの総数を返す (UITableViewのCell数)
     func adListCount() -> Int {
         
-        return adList.count
+        return self.adList.count
     }
     
-    // 指定したindexに対応するadListを返す
+    // 指定したindexに対応するadListを返す (UITableViewに表示する値)
     func data(at index: Int) -> AdList? {
         
-        if adList.count > index {
-            return adList[index]
+        if self.adList.count > index {
+            return self.adList[index]
         }
         return nil
     }
     
-    func getAdList() -> [AdList] {
+    func changeSwitchState(at index: Int) {
         
-        return adList
-    }
-
-    
-    func getDomain() -> [String] {
+        // adListSrcを読み込み
+        defaultsLoadAdList()
         
-        var domainList = [String]()
-        
-        for ad in self.adList {
-            domainList.append(ad.domain)
+        // index番目の要素がfalseの場合
+        if self.adListSrc[index].state == false {
+            self.adListSrc[index].state = true
+            
+            // index番目の要素がtrueの場合
+        } else {
+            self.adListSrc[index].state = false
         }
         
-        return domainList
+        // adListSrcを保存
+        defaultsSaveAdList(adList: self.adListSrc)
+        // adListSrcを読み込み
+        defaultsLoadAdList()
+        // 表示用データを統一
+        unionAdList()
     }
     
-    func RemoveAdList() {
+    /// Test メソッド
+    func getList() -> [AdList] {
         
-        self.adList.removeAll()
-        saveList(adList: adList)
-    }
-    
-    // タップしたスイッチのインデックスを取得し、adListにスイッチのON・OFFを保存
-    func switchStateDidChangeAdList(domain: String) {
-        
-        // ドメイン一覧を保持
-        var adList = [String]()
-        // adListを読み込む
-        loadList()
-        
-        // domainList生成
-        for ad in self.adList {
-            adList.append(ad.domain)
-        }
-        
-        // adListから引数であるドメインを検索
-        let index = adList.findIndex(includeElement: { $0 == domain })
-        // 引数のドメインがdomainListにあれば、スイッチの状態を切り替える
-        if index.isEmpty == false {
-            if self.adList[index[0]].state == false {
-                self.adList[index[0]].state = true
-            } else {
-                self.adList[index[0]].state = false
-            }
-            saveList(adList: self.adList) // 保存
-        }
+        return self.adListSrc
     }
     
 }
 
-extension Array {
-    // 配列内の要素番号を取得するメソッド
-    func findIndex(includeElement: (Element) -> Bool) -> [Int] {
-        // 要素番号を格納する配列
-        var indexArray = [Int]()
-        for (index, element) in enumerated() {
-            if includeElement(element) {
-                indexArray.append(index)
-            }
-        }
-        return indexArray
-    }
-}

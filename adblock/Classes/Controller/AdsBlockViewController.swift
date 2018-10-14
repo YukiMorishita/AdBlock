@@ -20,6 +20,9 @@ class AdsBlockViewController: UIViewController {
     fileprivate var tableSwitch: UISwitch!
     fileprivate var tabBar: UITabBar!
     
+    // AppGroups ID
+    private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +40,7 @@ class AdsBlockViewController: UIViewController {
         
         // UINavigationItem
         let navigationItem = UINavigationItem()
-        navigationItem.title = "Test"
+        navigationItem.title = "Ads Block"
         
         // LeftButton
         let leftNavBtn = UIBarButtonItem(image: UIImage(named: "menuIcon")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(leftBtnTaped(sender:)))
@@ -77,9 +80,9 @@ class AdsBlockViewController: UIViewController {
         tabBar.tintColor = UIColor.blue
         
         // TabButton
-        let homeTab = UITabBarItem(title: "Home", image: UIImage(named: "switchIcon2")?.withRenderingMode(.alwaysOriginal), tag: 0)
+        let homeTab = UITabBarItem(title: "Home", image: UIImage(named: "menuIcon")?.withRenderingMode(.alwaysOriginal), tag: 0)
         let adsBlockTab = UITabBarItem(title: "Ads Block", image: UIImage(named: "menuIcon"), tag: 1)
-        let trackingsBlockTab = UITabBarItem(title: "Trackings Block", image: UIImage(named: "menuIcon"), tag: 2)
+        let trackingsBlockTab = UITabBarItem(title: "Others Block", image: UIImage(named: "menuIcon"), tag: 2)
         let eachSiteTab = UITabBarItem(title: "Each Site", image: UIImage(named: "menuIcon"), tag: 3)
         
         // TabButtonを設定
@@ -93,18 +96,28 @@ class AdsBlockViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // adList生成
-        let defaults = UserDefaults.standard
+        let defaults = UserDefaults(suiteName: groupID)
         // 保存したAdListを取得
-        if (defaults.object(forKey: "adList") != nil) {
+        if (defaults?.object(forKey: "adList") != nil) {
             print("二回目以降の起動")
-            // 最後に保存したAdListを生成
+            
+            // 保存していたadListを取得
+            dataSource.defaultsLoadAdList()
             dataSource.loadList()
+            
+            // 共有ファイルに書き込み
+            jsonManager.createJsonFile(adList: dataSource.getAdList())
             
         } else {
             print("初回起動")
-            // 初期のAdListを生成
-            dataSource.createDefaultAdList()
+            
+            // adListを生成
+            dataSource.defaultsAdList()
+            // adListを表示用adListと統一
+            dataSource.unionAdList()
         }
+        
+        /// ShareDataの処理
         
         // テーブルビューを更新
         tableView.reloadData()
@@ -130,8 +143,10 @@ class AdsBlockViewController: UIViewController {
     // スイッチの状態を一括変更する処理
     func switchsDidChangeState() {
         
+        // 保存用adList
         var adList = [AdList]()
-        let domainList = self.dataSource.getDomain()
+        // ドメインリストを保持
+        let domainList = self.dataSource.getAdList().map { $0.domain }
         
         // UIAleartController
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -141,9 +156,26 @@ class AdsBlockViewController: UIViewController {
         {
             (action: UIAlertAction) in
             
+            // 全スイッチをONに変更
             for domain in domainList {
                 adList.append(AdList(domain: domain, state: true))
             }
+            
+            // データの保存
+            self.dataSource.defaultsSaveAdList(adList: adList)
+            // データ読み込み
+            self.dataSource.defaultsLoadAdList()
+            // 表示用データと統一
+            self.dataSource.unionAdList()
+            
+            // 共有ファイル生成
+            self.jsonManager.createJsonFile(adList: self.dataSource.getAdList())
+            
+            // Content Blocker Extensionを更新
+            self.blockerManager.reloadContentBlocker()
+            
+            // テーブルビューの更新
+            self.tableView.reloadData()
         }
         
         // 全スイッチOFF
@@ -151,22 +183,27 @@ class AdsBlockViewController: UIViewController {
         {
             (action: UIAlertAction) in
             
+            // 全スイッチをOFFに変更
             for domain in domainList {
                 adList.append(AdList(domain: domain, state: false))
             }
+            
+            // データの保存
+            self.dataSource.defaultsSaveAdList(adList: adList)
+            // データの読み込み
+            self.dataSource.defaultsLoadAdList()
+            // 表示用データと統一
+            self.dataSource.unionAdList()
+            
+            // 共有ファイル生成
+            self.jsonManager.createJsonFile(adList: self.dataSource.getAdList())
+            
+            // Content Blocker Extensionを更新
+            self.blockerManager.reloadContentBlocker()
+            
+            // テーブルビューの更新
+            self.tableView.reloadData()
         }
-        
-        self.dataSource.saveList(adList: adList)
-        
-        // 表示データを更新
-        self.dataSource.loadList()
-        self.tableView.reloadData()
-        
-        // JSONファイルを生成
-        ///jsonManager.createJSONFile(adList: <#T##[(text: String, switchs: Bool)]#>)
-        
-        // Content Blockerを更新
-        self.blockerManager.reloadContentBlocker()
         
         // キャンセル
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -176,6 +213,7 @@ class AdsBlockViewController: UIViewController {
         alert.addAction(actionDisableAll)
         alert.addAction(actionCancel)
         
+        // アラートを表示
         present(alert, animated: true, completion: nil)
     }
     
@@ -199,52 +237,69 @@ class AdsBlockViewController: UIViewController {
 // MARK - UISearchBar
 extension AdsBlockViewController: UISearchBarDelegate {
     
+    // 検索文字が変更された時の処理
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        var adList = [(domain: String, state: Bool)]()
-        var searchAdList = [(domain: String, state: Bool)]()
-        for ad in dataSource.getAdList() { adList.append((domain: ad.domain, state: ad.state)) }
+        // データを読み込む
+        dataSource.defaultsLoadAdList()
+        // 表示用adListとデータ統一
+        dataSource.unionAdList()
         
-        // 検索文字が空
-        if searchText == "" {
-            print("文字なし")
-            // すべてを表示する
-            dataSource.adListUni()
-            dataSource.loadList()
-            print("全件表示")
-            print(dataSource.getAdList())
-        } else {
-            print("文字あり")
+        // 表示用adListの全要素を削除
+        dataSource.removeAllAdList()
+        
+        // 文字列が入力された場合
+        if searchText != "" {
+            // 大文字・小文字を区別せずフィルタリング
+            let adList = dataSource.getList().filter { $0.domain.lowercased().contains(self.searchBar.text!.lowercased()) }.map { AdList(domain: $0.domain, state: $0.state) }
             
-            searchAdList = adList.filter { $0.domain.lowercased().contains(searchBar.text!.lowercased()) }
+            // データの保存
+            dataSource.saveList(adList: adList)
+            // adListSrcを読み込み
+            dataSource.defaultsLoadAdList()
+            // 検索後のadListを読み込む
+            dataSource.loadList()
+        } else {
+            // adListSrcを読み込み
+            dataSource.defaultsLoadAdList()
+            // 文字列が空の場合は全て表示
+            dataSource.unionAdList() // 表示用adListとデータ統一
         }
         
-        for ad in searchAdList {
-            dataSource.saveList(adList: [AdList(domain: ad.domain, state: ad.state)])
-        }
-        // 表示データ更新
-        dataSource.loadList()
-        self.tableView.reloadData()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        searchBar.endEditing(true)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        searchBar.showsCancelButton = false
-        self.view.endEditing(true)
-        searchBar.text = ""
-        
-        dataSource.adListUni()
-        dataSource.loadList()
+        // テーブルビューを更新
         tableView.reloadData()
     }
     
+    // 検索ボタンをタップした時の処理
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // キーボードを下げる
+        searchBar.endEditing(true)
+    }
+    
+    // キャンセルボタンをタップした時の処理
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        // キャンセルボタン非表示
+        searchBar.showsCancelButton = false
+        // キーボードを下げる
+        self.view.endEditing(true)
+        
+        // UISearchBarの検索文字を空に設定
+        searchBar.text = ""
+        // adListSrcを読み込み
+        dataSource.defaultsLoadAdList()
+        // 文字列が空の場合は全て表示
+        dataSource.unionAdList() // 表示用adListとデータ統一
+        
+        // テーブルビューの更新
+        tableView.reloadData()
+    }
+    
+    // UiSearchBarタップ時の処理
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         
+        // キャンセルボタン表示
         searchBar.showsCancelButton = true
         return true
     }
@@ -268,9 +323,6 @@ extension AdsBlockViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // 保存したAdListを取得 (スイッチの状態を更新するため)
-        dataSource.loadList()
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AdListCell
         cell.adList = dataSource.data(at: indexPath.row)
         
@@ -290,7 +342,7 @@ extension AdsBlockViewController: UITabBarDelegate {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ABlock")
             present(nextVC!, animated: false, completion: nil)
         case 2:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "TBlock")
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OBlock")
             present(nextVC!, animated: false, completion: nil)
         case 3:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EachSite")

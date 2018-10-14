@@ -16,5 +16,15 @@
             "url-filter": "a8.net",
             "load-type": ["third-party"]
         }
+    },
+    {
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": "abc.jp",
+            "load-type": ["third-party"]
+        }
     }
 ]
+

@@ -68,7 +68,7 @@ final class JSONManager: NSObject {
     }
     
     // 共有ファイルに書き込む文字列を生成する処理
-    func createJsonRule(adList: [AdList]) -> String {
+    func createJsonFile(adList: [AdList]) {
         
         // ファイル名
         let fileName = "blockerList.json"
@@ -95,15 +95,15 @@ final class JSONManager: NSObject {
                 // ドメインごとにブロックルールを生成
                 writeStr +=
                 """
-                    {
-                        "action": {
-                            "type": "block"
-                        },
-                        "trigger": {
-                            "url-filter": "\(domain)",
-                            "load-type": ["third-party"]
-                        }
-                    }
+                {
+                "action": {
+                "type": "block"
+                },
+                "trigger": {
+                "url-filter": "\(domain)",
+                "load-type": ["third-party"]
+                }
+                }
                 """
                 
                 // domainListが最後の場合 ] を記述する
@@ -128,17 +128,17 @@ final class JSONManager: NSObject {
             // ブロックルール生成
             writeStr =
             """
-                [
-                    {
-                        "aciton": {
-                            "type": "block"
-                        },
-                        "trigger": {
-                            "url-filter": ".*",
-                            "if-domain": [".*"]
-                        }
-                    }
-                ]
+            [
+            {
+            "aciton": {
+            "type": "block"
+            },
+            "trigger": {
+            "url-filter": ".*",
+            "if-domain": [".*"]
+            }
+            }
+            ]
             """
             
             // 共有ファイルへの書き込み
@@ -158,7 +158,6 @@ final class JSONManager: NSObject {
             
             print("not created shared file")
         }
-        
-        return writeStr
     }
+    
 }

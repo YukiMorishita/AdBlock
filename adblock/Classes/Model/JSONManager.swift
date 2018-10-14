@@ -95,15 +95,15 @@ final class JSONManager: NSObject {
                 // ドメインごとにブロックルールを生成
                 writeStr +=
                 """
-                {
-                "action": {
-                "type": "block"
-                },
-                "trigger": {
-                "url-filter": "\(domain)",
-                "load-type": ["third-party"]
-                }
-                }
+                    {
+                        "action": {
+                            "type": "block"
+                        },
+                        "trigger": {
+                            "url-filter": "\(domain)",
+                            "load-type": ["third-party"]
+                        }
+                    }
                 """
                 
                 // domainListが最後の場合 ] を記述する
@@ -128,17 +128,17 @@ final class JSONManager: NSObject {
             // ブロックルール生成
             writeStr =
             """
-            [
-            {
-            "aciton": {
-            "type": "block"
-            },
-            "trigger": {
-            "url-filter": ".*",
-            "if-domain": [".*"]
-            }
-            }
-            ]
+                [
+                    {
+                        "aciton": {
+                            "type": "block"
+                        },
+                        "trigger": {
+                            "url-filter": ".*",
+                            "if-domain": [".*"]
+                        }
+                    }
+                ]
             """
             
             // 共有ファイルへの書き込み

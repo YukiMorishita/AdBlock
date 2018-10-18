@@ -22,6 +22,12 @@ final class AdListDataSource: NSObject {
     // UITableViewに表示するadList (インスタンスサーチ用)
     private var adList = [AdList]()
     
+    // adListSrcを返す
+    func getList() -> [AdList] {
+        
+        return self.adListSrc
+    }
+    
     // adListを返す
     func getAdList() -> [AdList] {
         
@@ -125,6 +131,7 @@ final class AdListDataSource: NSObject {
         return nil
     }
     
+    // 指定したindexに対応するadListSrcのメンバstateのBool値を変更する
     func changeSwitchState(at index: Int) {
         
         // adListSrcを読み込み
@@ -145,12 +152,6 @@ final class AdListDataSource: NSObject {
         defaultsLoadAdList()
         // 表示用データを統一
         unionAdList()
-    }
-    
-    /// Test メソッド
-    func getList() -> [AdList] {
-        
-        return self.adListSrc
     }
     
 }

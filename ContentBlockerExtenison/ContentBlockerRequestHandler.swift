@@ -28,11 +28,11 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
         /* ファイルマネージャー */
         let fileManager = FileManager.default
         let containerURL: URL = (fileManager.containerURL(forSecurityApplicationGroupIdentifier: suiteName)?.appendingPathComponent(jsonFileName))!
-        // ファイルの有無
+        // ファイルの存在確認
         let fileExists: Bool = fileManager.fileExists(atPath: containerURL.path)
         
         // ファイルが存在する場合
-        if fileExists == true {
+        if fileExists {
             let attachment = NSItemProvider(contentsOf: containerURL)
             
             let item = NSExtensionItem()

@@ -1,28 +1,25 @@
 //
-//  AdListCell.swift
-//  adblock
+//  GetAdCell.swift
+//  ActionExtension
 //
-//  Created by admin on 2018/10/03.
+//  Created by admin on 2018/10/15.
 //  Copyright © 2018 admin. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-final class AdListCell: UITableViewCell {
+final class GetAdCell: UITableViewCell {
     
-    fileprivate var dataSource: AdListDataSource!
-    fileprivate var jsonManager: JSONManager!
-    fileprivate var blockerManager: ContentBlockerManager!
-    
+    // UI
     private var domainLabel: UILabel!
     private var tableSwitch: UISwitch!
     
-    var adList: AdList? {
+    var getAd: GetAd? {
         
         didSet {
             
-            guard let ad = adList else { return }
+            guard let ad = getAd else { return }
             
             // UILabelの文字列を設定
             domainLabel.text = ad.domain
@@ -63,28 +60,7 @@ final class AdListCell: UITableViewCell {
     
     @objc private func trigger(sender: UISwitch) {
         
-        // インスタンス生成
-        dataSource = AdListDataSource()
-        jsonManager = JSONManager()
-        blockerManager = ContentBlockerManager()
-        
-        // adListを読み込み
-        //dataSource.loadList()
-        // adListSrcを読み込み
-        dataSource.defaultsLoadAdList()
-        
-        // ドメインリスト生成
-        let domainList = dataSource.getList().map { $0.domain }
-        // domainList内から検索ドメインの要素番号を取得
-        let index = domainList.findIndex(includeElement: { $0 == domainLabel.text })
-        // スイッチの状態を変更して保存
-        dataSource.changeSwitchState(at: index[0])
-        
-        // 共有ファイルを生成
-        jsonManager.createJsonFile(adList: dataSource.getAdList())
-        
-        // Content Blockerを更新
-        blockerManager.reloadContentBlocker()
+        print( "tapped switch")
     }
     
 }

@@ -14,6 +14,7 @@ class AdsBlockViewController: UIViewController {
     fileprivate var jsonManager: JSONManager!
     fileprivate var blockerManager: ContentBlockerManager!
     
+    // UI
     fileprivate var navigationBar: UINavigationBar!
     fileprivate var searchBar: UISearchBar!
     fileprivate var tableView: UITableView!
@@ -70,6 +71,7 @@ class AdsBlockViewController: UIViewController {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(AdListCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
         
@@ -127,7 +129,7 @@ class AdsBlockViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // UIViewの上下サイズ
+        // UIViewの縦横サイズ
         let viewWidth = self.view.frame.size.width
         let viewHeight = self.view.frame.size.height
         
@@ -273,6 +275,8 @@ extension AdsBlockViewController: UISearchBarDelegate {
     // 検索ボタンをタップした時の処理
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        // キャンセルボタン非表示
+        searchBar.showsCancelButton = false
         // キーボードを下げる
         searchBar.endEditing(true)
     }

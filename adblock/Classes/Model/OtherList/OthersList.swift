@@ -8,13 +8,13 @@
 
 import Foundation
 
-final class SelectorList {
+final class OthersList {
     
-    var selector: String
+    var text: String
     var state : Bool
     
-    init(selector: String, state: Bool) {
-        self.selector = selector
+    init(text: String, state: Bool) {
+        self.text = text
         self.state = state
     }
     

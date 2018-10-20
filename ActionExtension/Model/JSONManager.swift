@@ -22,7 +22,7 @@ final class JSONManager: NSObject {
         
         // 共有JSONファイルのパスを設定
         let containerURL = (fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupID)?.appendingPathComponent(fileName))!.path
-        let fileExits = fileManager.fileExists(atPath: containerURL)
+        let fileExists = fileManager.fileExists(atPath: containerURL)
         // リソースJSONファイルのパスを設定
         let resourcePath = Bundle.main.path(forResource: fileName, ofType: nil)
         
@@ -30,13 +30,13 @@ final class JSONManager: NSObject {
         var json = ""
         
         // 共有ファイルへのパスが存在した場合
-        if fileExits {
+        if fileExists {
             let jsonData = try? String(contentsOfFile: containerURL, encoding: String.Encoding.utf8)
             json = JSON(parseJSON: jsonData!).rawString()!
         }
         
         // 共有ファイルへのパスが存在しない場合
-        if !fileExits {
+        if !fileExists {
             let jsonData = try? String(contentsOfFile: resourcePath!, encoding: String.Encoding.utf8)
             json = JSON(parseJSON: jsonData!).rawString()!
         }

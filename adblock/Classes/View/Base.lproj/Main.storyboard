@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="560.79999999999995" y="-36.431784107946029"/>
         </scene>
-        <!--TrackingsBlockViewController-->
+        <!--OthersBlockViewController-->
         <scene sceneID="0H7-fP-gDr">
             <objects>
-                <viewController storyboardIdentifier="OBlock" title="TrackingsBlockViewController" hidesBottomBarWhenPushed="YES" id="VII-40-aCo" customClass="OthersBlockViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OBlock" title="OthersBlockViewController" hidesBottomBarWhenPushed="YES" id="VII-40-aCo" customClass="OthersBlockViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DRj-O2-Oby">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

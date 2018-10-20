@@ -10,19 +10,19 @@ import UIKit
 
 class OthersBlockViewController: UIViewController {
     
-    fileprivate var dataSource: AdListDataSource!
+    fileprivate var dataSource: OthersListDataSource!
     fileprivate var jsonManager: JSONManager!
     fileprivate var blockerManager: ContentBlockerManager!
     
+    // UI
     fileprivate var navigationBar: UINavigationBar!
     fileprivate var tableView: UITableView!
-    fileprivate var tableSwitch: UISwitch!
     fileprivate var tabBar: UITabBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = AdListDataSource()
+        dataSource = OthersListDataSource()
         jsonManager = JSONManager()
         blockerManager = ContentBlockerManager()
         
@@ -50,6 +50,7 @@ class OthersBlockViewController: UIViewController {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(OthersListCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
@@ -75,6 +76,13 @@ class OthersBlockViewController: UIViewController {
     // Viewを表示した時の処理
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // 表示するリストを設定
+        dataSource.setTableData()
+        // リストを読み込み
+        dataSource.loadList()
+        // テーブルビューを更新
+        tableView.reloadData()
     }
     
     // SubViewのレイアウトを設定
@@ -85,9 +93,7 @@ class OthersBlockViewController: UIViewController {
         let viewHeight = self.view.frame.size.height
         
         navigationBar.frame = CGRect(x: 0, y: 22, width: viewWidth, height: 40)
-        
         tableView.frame = CGRect(x: 0, y: 67, width: viewWidth, height: 546)
-        
         tabBar.frame = CGRect(x: 0, y: viewHeight - 49, width: viewWidth, height: 49)
     }
     
@@ -106,23 +112,50 @@ class OthersBlockViewController: UIViewController {
 // MARK: - UITableView
 extension OthersBlockViewController: UITableViewDelegate {
     
+    // テーブルセルの高さを返す
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 44
+    }
+    
+    // セクションヘッダーの高さを返す
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 35
+    }
+    
+    // セクションヘッダーの状態を設定
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
+        view.tintColor = #colorLiteral(red: 0.8878365549, green: 0.8878365549, blue: 0.8878365549, alpha: 1)
+    }
+    
+    // セクション数を返す
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return dataSource.sectionTitleCount()
+    }
+    
+    // セクションのタイトルを返す
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return dataSource.sectionTitleData(at: section)
     }
 }
 
 extension OthersBlockViewController: UITableViewDataSource {
     
+    // セクションごとの行数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return dataSource.adListCount()
+        return dataSource.sectionDataCount(at: section)
     }
     
+    // Cellごとのデータを返す
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AdListCell
-        cell.adList = dataSource.data(at: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OthersListCell
+        cell.othersList = dataSource.data(at: indexPath.section, at: indexPath.row)
         
         return cell
     }
@@ -132,6 +165,7 @@ extension OthersBlockViewController: UITableViewDataSource {
 extension OthersBlockViewController: UITabBarDelegate {
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
         switch item.tag {
         case 0:
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Home")

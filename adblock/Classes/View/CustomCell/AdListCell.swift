@@ -68,8 +68,6 @@ final class AdListCell: UITableViewCell {
         jsonManager = JSONManager()
         blockerManager = ContentBlockerManager()
         
-        // adListを読み込み
-        //dataSource.loadList()
         // adListSrcを読み込み
         dataSource.defaultsLoadAdList()
         

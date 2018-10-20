@@ -11,6 +11,8 @@ import UIKit
 
 final class GetAdCell: UITableViewCell {
     
+    fileprivate var dataSource: GetAdDataSource!
+    
     // UI
     private var domainLabel: UILabel!
     private var tableSwitch: UISwitch!
@@ -61,22 +63,15 @@ final class GetAdCell: UITableViewCell {
     @objc private func trigger(sender: UISwitch) {
         
         print( "tapped switch")
-    }
-    
-}
-
-extension Array {
-    
-    // 配列内の要素番号を取得するメソッド
-    func findIndex(includeElement: (Element) -> Bool) -> [Int] {
         
-        // 要素番号を格納する配列
-        var indexArray = [Int]()
-        for (index, element) in enumerated() {
-            if includeElement(element) {
-                indexArray.append(index)
-            }
-        }
-        return indexArray
+        // インスタンスの生成
+        dataSource = GetAdDataSource()
+        
+        // リストを読み込み
+        dataSource.load()
+        
+        // スイッチの状態を変更して保存
+        dataSource.changeSwitchState(at: 0)
     }
+    
 }

@@ -71,6 +71,7 @@ class AdsBlockViewController: UIViewController {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(AdListCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
@@ -107,8 +108,20 @@ class AdsBlockViewController: UIViewController {
             dataSource.defaultsLoadAdList()
             dataSource.loadList()
             
+            /// Action Extensionの処理
+            if defaults?.object(forKey: "share") != nil {
+                // 共有された広告ドメインをadListに追加
+                dataSource.shareDomain()
+                // adListを表示用adListと統一
+                dataSource.unionAdList()
+            } else {
+                print("not share domain")
+            }
+            
             // 共有ファイルに書き込み
             jsonManager.createJsonFile(adList: dataSource.getAdList())
+            // Content Blocker Extensionを更新
+            blockerManager.reloadContentBlocker()
             
         } else {
             print("初回起動")
@@ -118,8 +131,6 @@ class AdsBlockViewController: UIViewController {
             // adListを表示用adListと統一
             dataSource.unionAdList()
         }
-        
-        /// ShareDataの処理
         
         // テーブルビューを更新
         tableView.reloadData()
@@ -134,11 +145,8 @@ class AdsBlockViewController: UIViewController {
         let viewHeight = self.view.frame.size.height
         
         navigationBar.frame = CGRect(x: 0, y: 22, width: viewWidth, height: 40)
-        
         searchBar.frame = CGRect(x: 0, y: 67, width: viewWidth, height: 50)
-        
         tableView.frame = CGRect(x: 0, y: 116, width: viewWidth, height: 496)
-        
         tabBar.frame = CGRect(x: 0, y: viewHeight - 49, width: viewWidth, height: 49)
     }
     

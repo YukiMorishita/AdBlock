@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		844F0D43217378180039E393 /* OthersBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D42217378180039E393 /* OthersBlockViewController.swift */; };
 		844F0D45217387830039E393 /* OthersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D44217387830039E393 /* OthersListCell.swift */; };
-		844F0D4A2173FFC90039E393 /* SelectorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D492173FFC90039E393 /* SelectorList.swift */; };
-		844F0D4C217400880039E393 /* SelectorListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D4B217400880039E393 /* SelectorListDataSource.swift */; };
+		844F0D4A2173FFC90039E393 /* OthersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D492173FFC90039E393 /* OthersList.swift */; };
+		844F0D4C217400880039E393 /* OthersListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D4B217400880039E393 /* OthersListDataSource.swift */; };
 		844F0D56217485D70039E393 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D55217485D70039E393 /* ActionViewController.swift */; };
 		844F0D59217485D70039E393 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844F0D57217485D70039E393 /* MainInterface.storyboard */; };
 		844F0D5D217485D70039E393 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 844F0D53217485D70039E393 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -29,7 +29,6 @@
 		849C08D52164A260005CEDD6 /* AdList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C08D42164A260005CEDD6 /* AdList.swift */; };
 		849C08D72164A291005CEDD6 /* AdListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C08D62164A291005CEDD6 /* AdListDataSource.swift */; };
 		849C08E02164A4F2005CEDD6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C08DF2164A4F2005CEDD6 /* HomeViewController.swift */; };
-		849C08E42164A628005CEDD6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C08E32164A628005CEDD6 /* HomeView.swift */; };
 		849C08E92164B0FF005CEDD6 /* AdsBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C08E82164B0FF005CEDD6 /* AdsBlockViewController.swift */; };
 		849C08F12164C188005CEDD6 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 849C08F02164C188005CEDD6 /* blockerList.json */; };
 		849C08F32164C188005CEDD6 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C08F22164C188005CEDD6 /* ContentBlockerRequestHandler.swift */; };
@@ -89,8 +88,8 @@
 /* Begin PBXFileReference section */
 		844F0D42217378180039E393 /* OthersBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersBlockViewController.swift; sourceTree = "<group>"; };
 		844F0D44217387830039E393 /* OthersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersListCell.swift; sourceTree = "<group>"; };
-		844F0D492173FFC90039E393 /* SelectorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorList.swift; sourceTree = "<group>"; };
-		844F0D4B217400880039E393 /* SelectorListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorListDataSource.swift; sourceTree = "<group>"; };
+		844F0D492173FFC90039E393 /* OthersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersList.swift; sourceTree = "<group>"; };
+		844F0D4B217400880039E393 /* OthersListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersListDataSource.swift; sourceTree = "<group>"; };
 		844F0D53217485D70039E393 /* ActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		844F0D55217485D70039E393 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		844F0D58217485D70039E393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -117,7 +116,6 @@
 		849C08D42164A260005CEDD6 /* AdList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdList.swift; sourceTree = "<group>"; };
 		849C08D62164A291005CEDD6 /* AdListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListDataSource.swift; sourceTree = "<group>"; };
 		849C08DF2164A4F2005CEDD6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		849C08E32164A628005CEDD6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		849C08E82164B0FF005CEDD6 /* AdsBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsBlockViewController.swift; sourceTree = "<group>"; };
 		849C08EE2164C188005CEDD6 /* ContentBlockerExtenison.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlockerExtenison.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		849C08F02164C188005CEDD6 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
@@ -188,13 +186,13 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		844F0D482173FF7B0039E393 /* SelectorList */ = {
+		844F0D482173FF7B0039E393 /* OtherList */ = {
 			isa = PBXGroup;
 			children = (
-				844F0D492173FFC90039E393 /* SelectorList.swift */,
-				844F0D4B217400880039E393 /* SelectorListDataSource.swift */,
+				844F0D492173FFC90039E393 /* OthersList.swift */,
+				844F0D4B217400880039E393 /* OthersListDataSource.swift */,
 			);
-			path = SelectorList;
+			path = OtherList;
 			sourceTree = "<group>";
 		};
 		844F0D54217485D70039E393 /* ActionExtension */ = {
@@ -264,6 +262,7 @@
 		846A5A7521649B83007B4231 /* adblock */ = {
 			isa = PBXGroup;
 			children = (
+				846A5A7621649B83007B4231 /* AppDelegate.swift */,
 				849C08CF2164A1B7005CEDD6 /* Classes */,
 				849C08D02164A1DB005CEDD6 /* Resources */,
 				846A5A8221649B84007B4231 /* Info.plist */,
@@ -290,13 +289,21 @@
 			path = adblockUITests;
 			sourceTree = "<group>";
 		};
+		8497DB52217B590D001E4044 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				84B758762164D030007DEB94 /* AdListCell.swift */,
+				844F0D44217387830039E393 /* OthersListCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		849C08CF2164A1B7005CEDD6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				849C08D32164A229005CEDD6 /* Controller */,
 				849C08D12164A21D005CEDD6 /* Model */,
 				849C08D22164A222005CEDD6 /* View */,
-				846A5A7621649B83007B4231 /* AppDelegate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -313,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				844F0D462173FF4C0039E393 /* AdList */,
+				844F0D482173FF7B0039E393 /* OtherList */,
 				844F0D472173FF5C0039E393 /* Library */,
-				844F0D482173FF7B0039E393 /* SelectorList */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,11 +329,9 @@
 		849C08D22164A222005CEDD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				84B758762164D030007DEB94 /* AdListCell.swift */,
-				849C08E32164A628005CEDD6 /* HomeView.swift */,
+				8497DB52217B590D001E4044 /* CustomCell */,
 				846A5A7F21649B84007B4231 /* LaunchScreen.storyboard */,
 				846A5A7A21649B83007B4231 /* Main.storyboard */,
-				844F0D44217387830039E393 /* OthersListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,8 +339,8 @@
 		849C08D32164A229005CEDD6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				849C08E82164B0FF005CEDD6 /* AdsBlockViewController.swift */,
 				849C08DF2164A4F2005CEDD6 /* HomeViewController.swift */,
+				849C08E82164B0FF005CEDD6 /* AdsBlockViewController.swift */,
 				844F0D42217378180039E393 /* OthersBlockViewController.swift */,
 			);
 			path = Controller;
@@ -589,13 +594,12 @@
 				849C08D52164A260005CEDD6 /* AdList.swift in Sources */,
 				8455A8772178C3D2003B3C97 /* SwiftyJSON.swift in Sources */,
 				849C08E92164B0FF005CEDD6 /* AdsBlockViewController.swift in Sources */,
-				849C08E42164A628005CEDD6 /* HomeView.swift in Sources */,
 				846A5A7721649B83007B4231 /* AppDelegate.swift in Sources */,
-				844F0D4A2173FFC90039E393 /* SelectorList.swift in Sources */,
+				844F0D4A2173FFC90039E393 /* OthersList.swift in Sources */,
 				849C08D72164A291005CEDD6 /* AdListDataSource.swift in Sources */,
 				849C08E02164A4F2005CEDD6 /* HomeViewController.swift in Sources */,
 				8455A8752178C39C003B3C97 /* JSONManager.swift in Sources */,
-				844F0D4C217400880039E393 /* SelectorListDataSource.swift in Sources */,
+				844F0D4C217400880039E393 /* OthersListDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

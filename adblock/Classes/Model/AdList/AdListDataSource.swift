@@ -16,6 +16,7 @@ final class AdListDataSource: NSObject {
     private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     private let key1 = "adListSrc"
     private let key2 = "adList"
+    private let key3 = "share"
     
     // 初期adListを保持
     private var adListSrc = [AdList]()
@@ -80,6 +81,26 @@ final class AdListDataSource: NSObject {
         saveList(adList: self.adList)
         // adListを読み込み
         loadList()
+    }
+    
+    // Action Extensionｎから送られてきた値をadListに追加
+    func shareDomain() {
+        
+        // データを取得
+        let defaults = UserDefaults(suiteName: groupID)
+        let adDictionary = defaults?.object(forKey: key3) as? [String: Any]
+        guard let adDic = adDictionary else { return }
+        
+        // 取得したデータを追加
+        self.adListSrc.append(AdList(domain: adDic["domain"] as! String , state: adDic["state"] as! Bool))
+        
+        // 保存
+        defaultsSaveAdList(adList: self.adListSrc)
+        // ロード
+        defaultsLoadAdList()
+        
+        // 取得したデータを削除
+        defaults?.removeObject(forKey: key3)
     }
     
     // adListを空にする (UISearchBarの検索用)

@@ -146,6 +146,10 @@ final class AdListDataSource: NSObject {
     // 指定したindexに対応するadListを返す (UITableViewに表示する値)
     func data(at index: Int) -> AdList? {
         
+        // adListSrcとadListを読み込み (CustomCell再描画対策)
+        self.defaultsLoadAdList()
+        self.unionAdList()
+        
         if self.adList.count > index {
             return self.adList[index]
         }
@@ -162,7 +166,7 @@ final class AdListDataSource: NSObject {
         if self.adListSrc[index].state == false {
             self.adListSrc[index].state = true
             
-            // index番目の要素がtrueの場合
+        // index番目の要素がtrueの場合
         } else {
             self.adListSrc[index].state = false
         }

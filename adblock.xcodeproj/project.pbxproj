@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8421F7BE217D6C6700D115AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8421F7BD217D6C6700D115AE /* GoogleService-Info.plist */; };
 		844F0D43217378180039E393 /* OthersBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D42217378180039E393 /* OthersBlockViewController.swift */; };
 		844F0D45217387830039E393 /* OthersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D44217387830039E393 /* OthersListCell.swift */; };
 		844F0D4A2173FFC90039E393 /* OthersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F0D492173FFC90039E393 /* OthersList.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8421F7BD217D6C6700D115AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		844F0D42217378180039E393 /* OthersBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersBlockViewController.swift; sourceTree = "<group>"; };
 		844F0D44217387830039E393 /* OthersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersListCell.swift; sourceTree = "<group>"; };
 		844F0D492173FFC90039E393 /* OthersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersList.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				846A5A7621649B83007B4231 /* AppDelegate.swift */,
+				8421F7BD217D6C6700D115AE /* GoogleService-Info.plist */,
 				849C08CF2164A1B7005CEDD6 /* Classes */,
 				849C08D02164A1DB005CEDD6 /* Resources */,
 				846A5A8221649B84007B4231 /* Info.plist */,
@@ -329,9 +332,9 @@
 		849C08D22164A222005CEDD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8497DB52217B590D001E4044 /* CustomCell */,
 				846A5A7F21649B84007B4231 /* LaunchScreen.storyboard */,
 				846A5A7A21649B83007B4231 /* Main.storyboard */,
+				8497DB52217B590D001E4044 /* CustomCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			files = (
 				849C08FC2164C199005CEDD6 /* blockerList.json in Resources */,
 				846A5A8121649B84007B4231 /* LaunchScreen.storyboard in Resources */,
+				8421F7BE217D6C6700D115AE /* GoogleService-Info.plist in Resources */,
 				846A5A7E21649B84007B4231 /* Assets.xcassets in Resources */,
 				846A5A7C21649B83007B4231 /* Main.storyboard in Resources */,
 			);

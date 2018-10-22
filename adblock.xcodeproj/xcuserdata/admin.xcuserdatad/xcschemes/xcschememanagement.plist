@@ -7,7 +7,7 @@
 		<key>ActionExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>ContentBlockerExtenison.xcscheme</key>
 		<dict>
@@ -17,7 +17,7 @@
 		<key>adblock.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 </dict>

@@ -10,6 +10,10 @@ import UIKit
 
 class OthersBlockViewController: UIViewController {
     
+    // App Groups
+    private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
+    private let key = "otherList"
+    
     fileprivate var dataSource: OthersListDataSource!
     fileprivate var jsonManager: JSONManager!
     fileprivate var blockerManager: ContentBlockerManager!
@@ -25,6 +29,14 @@ class OthersBlockViewController: UIViewController {
         dataSource = OthersListDataSource()
         jsonManager = JSONManager()
         blockerManager = ContentBlockerManager()
+        
+        let defaults = UserDefaults(suiteName: groupID)
+        if defaults?.object(forKey: key) != nil {
+            dataSource.loadList()
+        } else {
+            // 表示するリストを設定
+            dataSource.setOthersList()
+        }
         
         // UINavigationBar
         navigationBar = UINavigationBar()
@@ -77,9 +89,6 @@ class OthersBlockViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 表示するリストを設定
-        dataSource.setTableData()
-        // リストを読み込み
         dataSource.loadList()
         // テーブルビューを更新
         tableView.reloadData()

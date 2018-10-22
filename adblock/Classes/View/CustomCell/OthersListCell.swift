@@ -64,30 +64,39 @@ final class OthersListCell: UITableViewCell {
     
     @objc private func trigger(sender: UISwitch) {
         
-        print("Taped Switch")
-        print(tableLabel.text!)
-        print(tableSwitch.isOn)
-        
         // インスタンス生成
         dataSource = OthersListDataSource()
         jsonManager = JSONManager()
         blockerManager = ContentBlockerManager()
         
-//        // adListSrcを読み込み
-//        dataSource.defaultsLoadAdList()
-//
-//        // ドメインリスト生成
-//        let domainList = dataSource.getList().map { $0.domain }
-//        // domainList内から検索ドメインの要素番号を取得
-//        let index = domainList.findIndex(includeElement: { $0 == domainLabel.text })
-//        // スイッチの状態を変更して保存
-//        dataSource.changeSwitchState(at: index[0])
-//
-//        // 共有ファイルを生成
-//        jsonManager.createJsonFile(adList: dataSource.getAdList())
-//
-//        // Content Blockerを更新
-//        blockerManager.reloadContentBlocker()
+        // リストを読み込む
+        dataSource.loadList()
+        
+        // othersListを保持
+        let othersLists = dataSource.getOthersList()
+        // タップしたtableSwitchのsection番号を保持 (section0からスタート)
+        var sectionIndex: Int = -1
+        // タップしたtableSwitchの要素番号を保持
+        var switchIndex: Int?
+        
+        // sectionとタップしたtableSwitchの番号を取得
+        for list in othersLists! {
+            // 要素がnilならば
+            if switchIndex == nil {
+                // リストからタップしたラベルの文字列を検索し、その要素番号を取得
+                switchIndex = list.findIndex(includeElement: { $0.text == tableLabel.text } ).filter { $0 >= 0 }.first
+                // リストを数えることで、section番号を取得
+                sectionIndex += 1
+            }
+        }
+        
+        // tableSwitchの状態を変更し、保存
+        dataSource.changeSwitchState(at: sectionIndex, at: switchIndex!)
+        
+        // 共有ファイルの生成
+        
+        // Content Blocker Extensionの更新
+        //blockerManager.reloadContentBlocker()
     }
     
 }

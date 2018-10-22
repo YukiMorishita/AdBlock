@@ -26,17 +26,25 @@ final class OthersListDataSource: NSObject {
                             OthersList(text: "Youtube", state: false), OthersList(text: "Google+", state: false),
                             OthersList(text: "LINE", state: false), OthersList(text: "Gree", state: false)]
     // アナリスティック解析のリストを保持
-    private let section2 = [OthersList(text: "Google", state: false), OthersList(text: "Twitter", state: false),
-                            OthersList(text: "FC2", state: false)]
+    private let section2 = [OthersList(text: "Google Analystic", state: false),
+                            OthersList(text: "Twitter Analystic", state: false),
+                            OthersList(text: "FC2 Access Analyzer", state: false)]
     
     // UITableViewに表示する値を保持
     private var othersList = [[OthersList]]()
     
     // テーブルビューに表示する値を設定する (UITableView用)
-    func setTableData() {
+    func setOthersList() {
         
         self.othersList = [self.section0, self.section1, self.section2]
         saveList(list: self.othersList)
+        loadList()
+    }
+    
+    // othersListを返す
+    func getOthersList() -> [[OthersList]]? {
+        
+        return self.othersList
     }
     
     // othersListを読み込む
@@ -76,19 +84,42 @@ final class OthersListDataSource: NSObject {
     // othersListの総数を返す (UITableView用)
     func sectionDataCount(at section: Int) -> Int {
         
-        // othersList読み込み
+        // othersList読み込み (CustomCell再描画対策)
         loadList()
         
         let sectionData = self.othersList[section]
+        
         return sectionData.count
     }
     
     // 指定したsectionとindexに対応するothersListを返す (UITableViewに表示する値)
     func data(at section: Int, at index: Int) -> OthersList? {
         
+        // othersList読み込み
+        loadList()
+        
         let sectionData = self.othersList[section]
         let cellData = sectionData[index]
         
         return cellData
     }
+    
+    // 指定したindexに対応するothersListのメンバstateのBool値を変更する
+    func changeSwitchState(at section: Int, at index: Int) {
+        
+        // othersListを読み込む
+        loadList()
+        
+        // スイッチの状態を変更
+        if self.othersList[section][index].state == false {
+            self.othersList[section][index].state = true
+            
+        } else {
+            self.othersList[section][index].state = false
+        }
+        
+        // 保存
+        saveList(list: self.othersList)
+    }
+    
 }

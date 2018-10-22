@@ -73,7 +73,7 @@ final class AdListCell: UITableViewCell {
         
         // ドメインリスト生成
         let domainList = dataSource.getList().map { $0.domain }
-        // domainList内から検索ドメインの要素番号を取得
+        // domainList内から検索ドメインの要素番号を設定
         let index = domainList.findIndex(includeElement: { $0 == domainLabel.text })
         // スイッチの状態を変更して保存
         dataSource.changeSwitchState(at: index[0])

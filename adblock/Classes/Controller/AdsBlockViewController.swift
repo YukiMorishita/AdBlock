@@ -261,20 +261,21 @@ extension AdsBlockViewController: UISearchBarDelegate {
         // 文字列が入力された場合
         if searchText != "" {
             // 大文字・小文字を区別せずフィルタリング
-            let adList = dataSource.getList().filter { $0.domain.lowercased().contains(self.searchBar.text!.lowercased()) }.map { AdList(domain: $0.domain, state: $0.state) }
+            let adList = dataSource.getList().filter { $0.domain.lowercased().contains(searchBar.text!.lowercased()) }.map { AdList(domain: $0.domain, state: $0.state) }
             
-            // データの保存
+            // 検索後のデータを保存
             dataSource.saveList(adList: adList)
-            // adListSrcを読み込み
-            dataSource.defaultsLoadAdList()
             // 検索後のadListを読み込む
             dataSource.loadList()
+            
         } else {
             // adListSrcを読み込み
             dataSource.defaultsLoadAdList()
             // 文字列が空の場合は全て表示
             dataSource.unionAdList() // 表示用adListとデータ統一
         }
+        
+        print(dataSource.getAdList().map { $0.domain })
         
         // テーブルビューを更新
         tableView.reloadData()

@@ -250,32 +250,38 @@ extension AdsBlockViewController: UISearchBarDelegate {
     // 検索文字が変更された時の処理
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        // データを読み込む
+        print("tap search bar")
+        // adListSrcを読み込む
         dataSource.defaultsLoadAdList()
-        // 表示用adListとデータ統一
-        dataSource.unionAdList()
         
         // 表示用adListの全要素を削除
         dataSource.removeAllAdList()
         
         // 文字列が入力された場合
         if searchText != "" {
-            // 大文字・小文字を区別せずフィルタリング
-            let adList = dataSource.getList().filter { $0.domain.lowercased().contains(searchBar.text!.lowercased()) }.map { AdList(domain: $0.domain, state: $0.state) }
             
+            print(" 文字列が入力されました ")
+            // 大文字・小文字を区別せずフィルタリング
+            let adList = dataSource.getList().filter { $0.domain.lowercased().contains(searchText.lowercased()) }//.map { AdList(domain: $0.domain, state: $0.state) }
+
             // 検索後のデータを保存
             dataSource.saveList(adList: adList)
             // 検索後のadListを読み込む
             dataSource.loadList()
             
-        } else {
+            print(dataSource.getAdList().map { $0.domain })
+        }
+        
+        // 文字列が末入力の場合
+        if searchText == "" {
+            
+            print(searchText)
+            print(" 文字列が未入力です ")
             // adListSrcを読み込み
             dataSource.defaultsLoadAdList()
             // 文字列が空の場合は全て表示
             dataSource.unionAdList() // 表示用adListとデータ統一
         }
-        
-        print(dataSource.getAdList().map { $0.domain })
         
         // テーブルビューを更新
         tableView.reloadData()

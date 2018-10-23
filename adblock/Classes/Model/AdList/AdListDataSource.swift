@@ -147,8 +147,9 @@ final class AdListDataSource: NSObject {
     func data(at index: Int) -> AdList? {
         
         // adListSrcとadListを読み込み (CustomCell再描画対策)
-        self.defaultsLoadAdList()
-        self.unionAdList()
+//        self.defaultsLoadAdList()
+//        self.unionAdList()
+        //loadList()
         
         if self.adList.count > index {
             return self.adList[index]
@@ -176,7 +177,8 @@ final class AdListDataSource: NSObject {
         // adListSrcを読み込み
         defaultsLoadAdList()
         // 表示用データを統一
-        unionAdList()
+        //unionAdList()
+        loadList()
     }
     
 }

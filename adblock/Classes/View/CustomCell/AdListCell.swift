@@ -68,6 +68,8 @@ final class AdListCell: UITableViewCell {
         jsonManager = JSONManager()
         blockerManager = ContentBlockerManager()
         
+        let notificationCenter = NotificationCenter.default
+        
         // adListSrcを読み込み
         dataSource.defaultsLoadAdList()
         
@@ -77,6 +79,9 @@ final class AdListCell: UITableViewCell {
         let index = domainList.findIndex(includeElement: { $0 == domainLabel.text })
         // スイッチの状態を変更して保存
         dataSource.changeSwitchState(at: index[0])
+        
+        // テーブルビューを更新
+        notificationCenter.post(name: .tableViewReload, object: nil)
         
         // 共有ファイルを生成
         jsonManager.createJsonFile(adList: dataSource.getAdList())
@@ -101,4 +106,9 @@ extension Array {
         }
         return indexArray
     }
+}
+
+extension Notification.Name {
+    
+    static let tableViewReload = Notification.Name("TableViewReload")
 }

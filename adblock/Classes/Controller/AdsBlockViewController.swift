@@ -91,6 +91,12 @@ class AdsBlockViewController: UIViewController {
         tabBar.items = [homeTab, adsBlockTab, trackingsBlockTab, eachSiteTab]
         tabBar.delegate = self
         view.addSubview(tabBar)
+        
+        
+        // NotificationCenter
+        let notificationCenter = NotificationCenter.default
+        // テーブルの更新通知
+        notificationCenter.addObserver(self, selector: #selector(tableViewReload), name: .tableViewReload, object: nil)
     }
     
     // Viewを表示したときの処理
@@ -103,8 +109,11 @@ class AdsBlockViewController: UIViewController {
         if (defaults?.object(forKey: "adList") != nil) {
             print("二回目以降の起動")
             
-            // 保存していたadListを取得
+            // 保存していたadListSrcを取得
             dataSource.defaultsLoadAdList()
+            // adListをadListSrcと同期
+            dataSource.unionAdList()
+            // adListを更新
             dataSource.loadList()
             
             /// Action Extensionの処理
@@ -207,6 +216,7 @@ class AdsBlockViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
     // UINavigationBar LeftButton タップ時の処理
     @objc func leftBtnTaped(sender: UIButton) {
         
@@ -221,6 +231,20 @@ class AdsBlockViewController: UIViewController {
         switchsDidChangeState()
     }
     
+    // テーブルビューを更新する処理 (AdListCell用)
+    @objc func tableViewReload() {
+        
+        // adListSrcを読み込み
+        dataSource.defaultsLoadAdList()
+        // adListとadListSrcを同期
+        dataSource.unionAdList()
+        // adListを更新
+        dataSource.loadList()
+        
+        // テーブルビューを更新
+        tableView.reloadData()
+    }
+    
 }
 
 // MARK - UISearchBar
@@ -230,7 +254,7 @@ extension AdsBlockViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         print("tap search bar")
-
+        
         // 検索文字列が含まれるデータを表示して保存
         dataSource.searchAdList(searchText: searchText)
         
@@ -293,13 +317,6 @@ extension AdsBlockViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // adListSrcを更新
-        dataSource.defaultsLoadAdList()
-        // adListをadListSrcと同期
-        dataSource.unionAdList()
-        // adListを更新
-        dataSource.loadList()
         
         // セルを参照し、値を設定
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AdListCell

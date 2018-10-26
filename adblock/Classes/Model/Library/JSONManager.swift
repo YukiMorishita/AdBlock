@@ -40,6 +40,7 @@ final class JSONManager: NSObject {
             let jsonData = try? String(contentsOfFile: resourcePath!, encoding: String.Encoding.utf8)
             json = JSON(parseJSON: jsonData!).rawString()!
         }
+        
         return json
     }
     

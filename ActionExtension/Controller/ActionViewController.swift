@@ -16,7 +16,6 @@ class ActionViewController: UIViewController {
     private let key = "share"
     
     fileprivate var dataSource: GetAdDataSource!
-    fileprivate var jsonManager: JSONManager!
     
     // UI
     fileprivate var navigationBar: UINavigationBar!
@@ -28,7 +27,6 @@ class ActionViewController: UIViewController {
         
         // インスタンスの生成
         dataSource = GetAdDataSource()
-        jsonManager = JSONManager()
         
         // UI
         // 背景食

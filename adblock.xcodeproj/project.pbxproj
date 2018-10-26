@@ -40,8 +40,6 @@
 		849C08F72164C188005CEDD6 /* ContentBlockerExtenison.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 849C08EE2164C188005CEDD6 /* ContentBlockerExtenison.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		849C08FC2164C199005CEDD6 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 849C08F02164C188005CEDD6 /* blockerList.json */; };
 		84B758772164D030007DEB94 /* AdListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B758762164D030007DEB94 /* AdListCell.swift */; };
-		84D776F62178C530001FA17F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D776F42178C530001FA17F /* SwiftyJSON.swift */; };
-		84D776F72178C530001FA17F /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D776F52178C530001FA17F /* JSONManager.swift */; };
 		F1A92C6B4E12078337842510 /* Pods_adblock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B2E2C5DEE5DDCD0F77AF2A /* Pods_adblock.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,8 +140,6 @@
 		849C08FD2164C19E005CEDD6 /* adblock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = adblock.entitlements; sourceTree = "<group>"; };
 		84B758752164C27C007DEB94 /* ContentBlockerExtenison.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContentBlockerExtenison.entitlements; sourceTree = "<group>"; };
 		84B758762164D030007DEB94 /* AdListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdListCell.swift; sourceTree = "<group>"; };
-		84D776F42178C530001FA17F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		84D776F52178C530001FA17F /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		AE36153E4896F90A8E897CE6 /* Pods-adblockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4C4555ED3F56F0238F47320 /* Pods-adblockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C59E9D575A65A28910F37DD4 /* Pods-ActionExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionExtension/Pods-ActionExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -285,8 +281,6 @@
 			children = (
 				844F0D6421748AD50039E393 /* GetAd.swift */,
 				844F0D6821748E250039E393 /* GetAdDataSource.swift */,
-				84D776F52178C530001FA17F /* JSONManager.swift */,
-				84D776F42178C530001FA17F /* SwiftyJSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -754,10 +748,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				844F0D6921748E250039E393 /* GetAdDataSource.swift in Sources */,
-				84D776F72178C530001FA17F /* JSONManager.swift in Sources */,
 				844F0D6721748C5D0039E393 /* GetAdCell.swift in Sources */,
 				844F0D56217485D70039E393 /* ActionViewController.swift in Sources */,
-				84D776F62178C530001FA17F /* SwiftyJSON.swift in Sources */,
 				844F0D6521748AD50039E393 /* GetAd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

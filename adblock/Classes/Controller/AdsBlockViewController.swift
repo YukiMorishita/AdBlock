@@ -111,10 +111,10 @@ class AdsBlockViewController: UIViewController {
             
             // 保存していたadListSrcを取得
             dataSource.defaultsLoadAdList()
-            // adListをadListSrcと同期
-            dataSource.unionAdList()
             // adListを更新
             dataSource.loadList()
+            // adListをadListSrcと同期
+            dataSource.unionAdList()
             
             /// Action Extensionの処理
             if defaults?.object(forKey: "share") != nil {
@@ -135,9 +135,7 @@ class AdsBlockViewController: UIViewController {
             print("初回起動")
             
             // adListを生成
-            dataSource.defaultsAdList()
-            // adListをadListSrcと同期
-            dataSource.unionAdList()
+            dataSource.createAdList()
         }
         
         // テーブルビューを更新

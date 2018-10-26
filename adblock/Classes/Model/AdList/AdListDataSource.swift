@@ -30,24 +30,30 @@ final class AdListDataSource: NSObject {
     }
     
     // adListを返す
-    func getAdList()    -> [AdList] {
+    func getAdList() -> [AdList] {
         
         return self.adList
     }
     
     // 初期のadListを生成
-    func defaultsAdList() {
+    func createAdList() {
         
         // インスタンスの生成
         let jsonManager = JSONManager()
         
-        // adList生成
+        // adListSrc生成
         for domain in jsonManager.createDomainList() {
             let ad = AdList(domain: domain, state: false)
             self.adListSrc.append(ad)
         }
+        
+        // adListSrcをadListに代入
+        self.adList = self.adListSrc
+        
         // adListSrcを保存
         defaultsSaveAdList(adList: self.adListSrc)
+        // adListを保存
+        saveList(adList: self.adList)
     }
     
     // adListSrcを読み込む
@@ -75,9 +81,14 @@ final class AdListDataSource: NSObject {
     // adListSrcとadListの要素を同期する (インスタンスサーチ用)
     func unionAdList() {
         
-        // adListがadListと同じ要素数、または、adListが空の場合
-        if self.adList.count == self.adListSrc.count || self.adList.count == 0 {
-            
+        // adListが空の場合
+        if self.adList.count == 0 {
+
+            print("状態を変更できるUISwitchがありません")
+        }
+        
+        // adListがadListと同じ要素数
+        if self.adList.count == self.adListSrc.count {
             // データを統一
             self.adList = self.adListSrc
         }

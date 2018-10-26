@@ -388,9 +388,9 @@
 		849C08D22164A222005CEDD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8497DB52217B590D001E4044 /* CustomCell */,
 				846A5A7F21649B84007B4231 /* LaunchScreen.storyboard */,
 				846A5A7A21649B83007B4231 /* Main.storyboard */,
-				8497DB52217B590D001E4044 /* CustomCell */,
 			);
 			path = View;
 			sourceTree = "<group>";

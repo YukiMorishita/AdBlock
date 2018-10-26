@@ -30,7 +30,7 @@ final class AdListDataSource: NSObject {
     }
     
     // adListを返す
-    func getAdList() -> [AdList] {
+    func getAdList()    -> [AdList] {
         
         return self.adList
     }
@@ -72,15 +72,40 @@ final class AdListDataSource: NSObject {
         defaults?.set(adListDictionaries, forKey: key1)
     }
     
-    // adListSrcとadListを統一する (インスタンスサーチ用)
+    // adListSrcとadListの要素を同期する (インスタンスサーチ用)
     func unionAdList() {
         
-        // Listを統一
-        self.adList = self.adListSrc
-        // adList保存
+        // adListがadListと同じ要素数、または、adListが空の場合
+        if self.adList.count == self.adListSrc.count || self.adList.count == 0 {
+            
+            // データを統一
+            self.adList = self.adListSrc
+        }
+        
+        // 表示用adListが管理用adListと異なる要素数、または、adListが1要素以上なら (UISearchBar利用時の要素同期)
+        if self.adList.count != self.adListSrc.count || self.adList.count > 0 {
+            
+            // 検索対象と同一のadListSrcを保持
+            var searchAdList = [AdList]()
+            
+            // adListSrc内からadListと同じ要素を取得
+            for ad in self.adList {
+                
+                let index = self.adListSrc.findIndex(includeElement: { $0.domain == ad.domain })
+                
+                // マッチした要素をsearchAdListに追加
+                for i in index {
+                    
+                    searchAdList.append(self.adListSrc[i])
+                }
+            }
+            
+            // 要素を同期
+            self.adList = searchAdList
+        }
+        
+        // adListの変更を保存
         saveList(adList: self.adList)
-        // adListを読み込み
-        loadList()
     }
     
     // Action Extensionｎから送られてきた値をadListに追加
@@ -103,15 +128,28 @@ final class AdListDataSource: NSObject {
         defaults?.removeObject(forKey: key3)
     }
     
-    // adListを空にする (UISearchBarの検索用)
-    func removeAllAdList() {
+    // 検索文字列に応じて表示データを変更する処理 (UISearchBar用)
+    func searchAdList(searchText: String) {
         
-        // 全ての要素を削除
+        // adListを全データ削除
         self.adList.removeAll()
-        // adList保存
+        
+        // UISearchBarが未入力の場合
+        if searchText == "" {
+            
+            // 表示用adListを管理用adListで上書き (UITableView全データ表示)
+            self.adList = self.adListSrc
+        }
+        
+        // UISearchBarに文字列が入力された場合
+        if searchText != "" {
+            
+            // 表示用adListを管理用adListで上書き (UITableView検索文字列にマッチしたデータを表示)
+            self.adList = self.adListSrc.filter { $0.domain.lowercased().contains(searchText.lowercased()) }
+        }
+        
+        // adListの変更を保存
         saveList(adList: self.adList)
-        // adListを読み込み
-        loadList()
     }
     
     // adListを読み込む
@@ -146,14 +184,10 @@ final class AdListDataSource: NSObject {
     // 指定したindexに対応するadListを返す (UITableViewに表示する値)
     func data(at index: Int) -> AdList? {
         
-        // adListSrcとadListを読み込み (CustomCell再描画対策)
-//        self.defaultsLoadAdList()
-//        self.unionAdList()
-        //loadList()
-        
         if self.adList.count > index {
             return self.adList[index]
         }
+        
         return nil
     }
     
@@ -161,7 +195,7 @@ final class AdListDataSource: NSObject {
     func changeSwitchState(at index: Int) {
         
         // adListSrcを読み込み
-        defaultsLoadAdList()
+        //defaultsLoadAdList()
         
         // index番目の要素がfalseの場合
         if self.adListSrc[index].state == false {
@@ -174,12 +208,35 @@ final class AdListDataSource: NSObject {
         
         // adListSrcを保存
         defaultsSaveAdList(adList: self.adListSrc)
-        // adListSrcを読み込み
-        defaultsLoadAdList()
-        // 表示用データを統一
-        //unionAdList()
-        loadList()
     }
     
+    // 全てのUISwitchの状態を変更する
+    func changeAllSwitchState(state: Bool) {
+        
+        // 表示されているadListのメンバdomainを設定
+        let domainList = self.adList.map { $0.domain }
+        
+        // adListSrcからadListと同じ要素を取得
+        for domain in domainList {
+            // 要素番号を設定
+            let index = self.adListSrc.findIndex(includeElement: { $0.domain == domain })
+            
+            // 引数stateがtrueの時
+            if state == true {
+                // 表示されている要素のUISwitchをONに変更
+                self.adListSrc[index[0]].state = state
+            }
+            
+            // 引数stateがfalseの時
+            if state == false {
+                // 表示されている要素のUISwitchをOFFに設定
+                self.adListSrc[index[0]].state = state
+            }
+        }
+        
+        // adListSrcの変更を保存
+        defaultsSaveAdList(adList: self.adListSrc)
+    }
+    
+    
 }
-

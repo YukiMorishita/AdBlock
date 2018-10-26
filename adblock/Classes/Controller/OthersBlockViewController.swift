@@ -22,7 +22,7 @@ class OthersBlockViewController: UIViewController {
     fileprivate var navigationBar: UINavigationBar!
     fileprivate var tableView: UITableView!
     fileprivate var tabBar: UITabBar!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,6 +89,7 @@ class OthersBlockViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // 表示データ更新
         dataSource.loadList()
         // テーブルビューを更新
         tableView.reloadData()
@@ -106,90 +107,148 @@ class OthersBlockViewController: UIViewController {
         tabBar.frame = CGRect(x: 0, y: viewHeight - 49, width: viewWidth, height: 49)
     }
     
+    // スイッチの状態を一括変更する処理
+    func switchsDidChangeState() {
+
+        // UIAleartController
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        // 全スイッチON
+        let actionEnableAll = UIAlertAction(title: "Enable All", style: .default)
+        {
+            (action: UIAlertAction) in
+
+            // 全てのUISwitchの状態をONに変更する
+            self.dataSource.changeAllSwitchState(state: true)
+
+            // 共有ファイル生成
+
+            // Content Blocker Extensionを更新
+            self.blockerManager.reloadContentBlocker()
+
+            // テーブルビューの更新
+            self.tableView.reloadData()
+        }
+
+        // 全スイッチOFF
+        let actionDisableAll = UIAlertAction(title: "Disable All", style: .default)
+        {
+            (action: UIAlertAction) in
+
+            // 全てのUISwitchの状態をOFFに変更する
+            self.dataSource.changeAllSwitchState(state: false)
+
+            // 共有ファイル生成
+
+            // Content Blocker Extensionを更新
+            self.blockerManager.reloadContentBlocker()
+
+            // テーブルビューの更新
+            self.tableView.reloadData()
+        }
+
+        // キャンセル
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        // アラートを設定
+        alert.addAction(actionEnableAll)
+        alert.addAction(actionDisableAll)
+        alert.addAction(actionCancel)
+
+        // アラートを表示
+        present(alert, animated: true, completion: nil)
+    }
+    
     @objc func leftBtnTaped(sender: UIButton) {
         
-        print("Left Button Taped")
+        print("Left NaviButton Taped")
     }
     
     @objc func rightBtnTaped(sender: UIButton) {
         
-        print("Rihgt Button Taped")
+        print("Rihgt NaviButton Taped")
+        // 全UISwitchの状態を変更
+        switchsDidChangeState()
     }
-
+    
 }
-
-// MARK: - UITableView
-extension OthersBlockViewController: UITableViewDelegate {
     
-    // テーブルセルの高さを返す
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 44
-    }
     
-    // セクションヘッダーの高さを返す
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    // MARK: - UITableView
+    extension OthersBlockViewController: UITableViewDelegate {
         
-        return 35
-    }
-    
-    // セクションヘッダーの状態を設定
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // テーブルセルの高さを返す
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            
+            return 44
+        }
         
-        view.tintColor = #colorLiteral(red: 0.8878365549, green: 0.8878365549, blue: 0.8878365549, alpha: 1)
-    }
-    
-    // セクション数を返す
-    func numberOfSections(in tableView: UITableView) -> Int {
+        // セクションヘッダーの高さを返す
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            
+            return 35
+        }
         
-        return dataSource.sectionTitleCount()
-    }
-    
-    // セクションのタイトルを返す
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // セクションヘッダーの状態を設定
+        func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+            
+            view.tintColor = #colorLiteral(red: 0.8878365549, green: 0.8878365549, blue: 0.8878365549, alpha: 1)
+        }
         
-        return dataSource.sectionTitleData(at: section)
-    }
-}
-
-extension OthersBlockViewController: UITableViewDataSource {
-    
-    // セクションごとの行数を返す
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // セクション数を返す
+        func numberOfSections(in tableView: UITableView) -> Int {
+            
+            return dataSource.sectionTitleCount()
+        }
         
-        return dataSource.sectionDataCount(at: section)
-    }
-    
-    // Cellごとのデータを返す
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OthersListCell
-        cell.othersList = dataSource.data(at: indexPath.section, at: indexPath.row)
-        
-        return cell
-    }
-}
-
-// MARK: - UITabBar
-extension OthersBlockViewController: UITabBarDelegate {
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
-        switch item.tag {
-        case 0:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            present(nextVC!, animated: false, completion: nil)
-        case 1:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ABlock")
-            present(nextVC!, animated: false, completion: nil)
-        case 2:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OBlock")
-            present(nextVC!, animated: false, completion: nil)
-        case 3:
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EachSite")
-            present(nextVC!, animated: false, completion: nil)
-        default:
-            return
+        // セクションのタイトルを返す
+        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            
+            return dataSource.sectionTitleData(at: section)
         }
     }
+    
+    extension OthersBlockViewController: UITableViewDataSource {
+        
+        // セクションごとの行数を返す
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+            return dataSource.sectionDataCount(at: section)
+        }
+        
+        // Cellごとのデータを返す
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            // 表示データ更新
+            dataSource.loadList()
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OthersListCell
+            cell.othersList = dataSource.data(at: indexPath.section, at: indexPath.row)
+            
+            return cell
+        }
+    }
+    
+    // MARK: - UITabBar
+    extension OthersBlockViewController: UITabBarDelegate {
+        
+        func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            
+            switch item.tag {
+            case 0:
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                present(nextVC!, animated: false, completion: nil)
+            case 1:
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "ABlock")
+                present(nextVC!, animated: false, completion: nil)
+            case 2:
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "OBlock")
+                present(nextVC!, animated: false, completion: nil)
+            case 3:
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "EachSite")
+                present(nextVC!, animated: false, completion: nil)
+            default:
+                return
+            }
+        }
 }

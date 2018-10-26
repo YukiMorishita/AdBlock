@@ -84,9 +84,6 @@ final class OthersListDataSource: NSObject {
     // othersListの総数を返す (UITableView用)
     func sectionDataCount(at section: Int) -> Int {
         
-        // othersList読み込み (CustomCell再描画対策)
-        loadList()
-        
         let sectionData = self.othersList[section]
         
         return sectionData.count
@@ -94,9 +91,6 @@ final class OthersListDataSource: NSObject {
     
     // 指定したsectionとindexに対応するothersListを返す (UITableViewに表示する値)
     func data(at section: Int, at index: Int) -> OthersList? {
-        
-        // othersList読み込み
-        loadList()
         
         let sectionData = self.othersList[section]
         let cellData = sectionData[index]
@@ -108,7 +102,7 @@ final class OthersListDataSource: NSObject {
     func changeSwitchState(at section: Int, at index: Int) {
         
         // othersListを読み込む
-        loadList()
+        //loadList()
         
         // スイッチの状態を変更
         if self.othersList[section][index].state == false {
@@ -121,5 +115,48 @@ final class OthersListDataSource: NSObject {
         // 保存
         saveList(list: self.othersList)
     }
+    
+    // 全てのUISwitchの状態を変更する
+    func changeAllSwitchState(state: Bool) {
+        
+        // section数
+        let section = self.othersList.count
+        
+        // 引数stateがtrueの時
+        if state == true {
+            
+            for s in 0..<section {
+                // 各セクション内の要素数
+                let index = self.othersList[s].count
+                
+                // 表示されている要素のUISwitchをONに変更
+                for i in 0..<index {
+                    
+                    self.othersList[s][i].state = state
+                    print(self.othersList[s][i].state)
+                }
+            }
+        }
+        
+        // 引数stateがfalseの時
+        if state == false {
+            
+            for s in 0..<section {
+                // 各セクション内の要素数
+                let index = self.othersList[s].count
+                
+                // 表示されている要素のUISwitchをOFFに変更
+                for i in 0..<index {
+                    
+                    self.othersList[s][i].state = state
+                    print(self.othersList[s][i].state)
+                }
+            }
+        }
+        
+        // othersListの変更を保存
+        saveList(list: self.othersList)
+    }
+    
     
 }

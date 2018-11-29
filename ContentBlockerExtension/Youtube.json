@@ -1,0 +1,27 @@
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "div[class*='yt']"
+        },
+        "trigger": {
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "li[class*='youtube']"
+        },
+        "trigger": {
+            "url-filter": ".*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "li[class*='single-footer-share-item']"
+        },
+        "trigger": {
+            "url-filter": ".*"
+        }
+    },

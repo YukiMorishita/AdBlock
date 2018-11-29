@@ -31,17 +31,29 @@
 		8403E04721B08B430067CA82 /* Sub3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04421B08B420067CA82 /* Sub3TableViewController.swift */; };
 		8403E04821B08B430067CA82 /* Sub3DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04521B08B420067CA82 /* Sub3DataSource.swift */; };
 		8403E04921B08B430067CA82 /* Sub3CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04621B08B430067CA82 /* Sub3CustomCell.swift */; };
-		8403E05221B08D290067CA82 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8403E05121B08D290067CA82 /* Media.xcassets */; };
-		8403E05421B08D290067CA82 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E05321B08D290067CA82 /* ActionViewController.swift */; };
-		8403E05721B08D290067CA82 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403E05521B08D290067CA82 /* MainInterface.storyboard */; };
 		8403E05B21B08D290067CA82 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8403E04F21B08D290067CA82 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8403E06721B08D3F0067CA82 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8403E06621B08D3F0067CA82 /* Media.xcassets */; };
 		8403E06921B08D3F0067CA82 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E06821B08D3F0067CA82 /* ActionViewController.swift */; };
 		8403E06C21B08D3F0067CA82 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403E06A21B08D3F0067CA82 /* MainInterface.storyboard */; };
 		8403E07021B08D3F0067CA82 /* ActionExtension2.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8403E06421B08D3F0067CA82 /* ActionExtension2.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8403E07B21B08D520067CA82 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E07A21B08D520067CA82 /* blockerList.json */; };
 		8403E07D21B08D520067CA82 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E07C21B08D520067CA82 /* ContentBlockerRequestHandler.swift */; };
 		8403E08121B08D520067CA82 /* ContentBlockerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8403E07821B08D520067CA82 /* ContentBlockerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8403E08C21B08E2F0067CA82 /* AdDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E08921B08E2F0067CA82 /* AdDataSource.swift */; };
+		8403E08D21B08E2F0067CA82 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E08A21B08E2F0067CA82 /* ActionViewController.swift */; };
+		8403E08E21B08E2F0067CA82 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E08B21B08E2F0067CA82 /* Ad.swift */; };
+		8403E09021B08E400067CA82 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E08F21B08E400067CA82 /* CustomCell.swift */; };
+		8403E09321B08E570067CA82 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09121B08E570067CA82 /* MainInterface.storyboard */; };
+		8403E0A121B0905A0067CA82 /* Facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09621B090590067CA82 /* Facebook.json */; };
+		8403E0A221B0905A0067CA82 /* LINE.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09721B090590067CA82 /* LINE.json */; };
+		8403E0A321B0905A0067CA82 /* Google Ads.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09821B090590067CA82 /* Google Ads.json */; };
+		8403E0A421B0905A0067CA82 /* Google Analystic.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09921B090590067CA82 /* Google Analystic.json */; };
+		8403E0A521B0905A0067CA82 /* Youtube.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09A21B090590067CA82 /* Youtube.json */; };
+		8403E0A621B0905A0067CA82 /* css-display-none.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09B21B090590067CA82 /* css-display-none.json */; };
+		8403E0A721B0905A0067CA82 /* Twitter.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09C21B090590067CA82 /* Twitter.json */; };
+		8403E0A821B0905A0067CA82 /* FC2 Access Analyzer.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09D21B0905A0067CA82 /* FC2 Access Analyzer.json */; };
+		8403E0A921B0905A0067CA82 /* Twitter Analystic.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09E21B0905A0067CA82 /* Twitter Analystic.json */; };
+		8403E0AA21B0905A0067CA82 /* Google+.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09F21B0905A0067CA82 /* Google+.json */; };
+		8403E0AB21B0905A0067CA82 /* Gree.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E0A021B0905A0067CA82 /* Gree.json */; };
 		9AE81EF79DCCBD6A52741BCB /* Pods_adblock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84E707CBD761459EB37139B /* Pods_adblock.framework */; };
 		EDD4E948CB50D168FEA621CC /* Pods_adblockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A05E2B5DE391A3AB3D1C51 /* Pods_adblockTests.framework */; };
 		FAB77F87DF3BACF47F68E79F /* Pods_adblockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E432CF49E9DD3D5E77B27E2 /* Pods_adblockUITests.framework */; };
@@ -140,12 +152,8 @@
 		8403E04621B08B430067CA82 /* Sub3CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3CustomCell.swift; sourceTree = "<group>"; };
 		8403E04A21B08D0A0067CA82 /* adblock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = adblock.entitlements; sourceTree = "<group>"; };
 		8403E04F21B08D290067CA82 /* ActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		8403E05121B08D290067CA82 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		8403E05321B08D290067CA82 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
-		8403E05621B08D290067CA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8403E05821B08D290067CA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8403E06421B08D3F0067CA82 /* ActionExtension2.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension2.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		8403E06621B08D3F0067CA82 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		8403E06821B08D3F0067CA82 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		8403E06B21B08D3F0067CA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8403E06D21B08D3F0067CA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +164,23 @@
 		8403E08521B08D570067CA82 /* ActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ActionExtension.entitlements; sourceTree = "<group>"; };
 		8403E08621B08D600067CA82 /* ActionExtension2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ActionExtension2.entitlements; sourceTree = "<group>"; };
 		8403E08721B08D6A0067CA82 /* ContentBlockerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContentBlockerExtension.entitlements; sourceTree = "<group>"; };
+		8403E08921B08E2F0067CA82 /* AdDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdDataSource.swift; path = "../../../../Desktop/adblock-test/ActionExtension/AdDataSource.swift"; sourceTree = "<group>"; };
+		8403E08A21B08E2F0067CA82 /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionViewController.swift; path = "../../../../Desktop/adblock-test/ActionExtension/ActionViewController.swift"; sourceTree = "<group>"; };
+		8403E08B21B08E2F0067CA82 /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ad.swift; path = "../../../../Desktop/adblock-test/ActionExtension/Ad.swift"; sourceTree = "<group>"; };
+		8403E08F21B08E400067CA82 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = "../../../../Desktop/adblock-test/ActionExtension/CustomCell.swift"; sourceTree = "<group>"; };
+		8403E09221B08E570067CA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../../Desktop/adblock-test/ActionExtension/Base.lproj/MainInterface.storyboard"; sourceTree = "<group>"; };
+		8403E09521B08F830067CA82 /* ActionExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ActionExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		8403E09621B090590067CA82 /* Facebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Facebook.json; sourceTree = "<group>"; };
+		8403E09721B090590067CA82 /* LINE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LINE.json; sourceTree = "<group>"; };
+		8403E09821B090590067CA82 /* Google Ads.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Google Ads.json"; sourceTree = "<group>"; };
+		8403E09921B090590067CA82 /* Google Analystic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Google Analystic.json"; sourceTree = "<group>"; };
+		8403E09A21B090590067CA82 /* Youtube.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Youtube.json; sourceTree = "<group>"; };
+		8403E09B21B090590067CA82 /* css-display-none.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "css-display-none.json"; sourceTree = "<group>"; };
+		8403E09C21B090590067CA82 /* Twitter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Twitter.json; sourceTree = "<group>"; };
+		8403E09D21B0905A0067CA82 /* FC2 Access Analyzer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "FC2 Access Analyzer.json"; sourceTree = "<group>"; };
+		8403E09E21B0905A0067CA82 /* Twitter Analystic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Twitter Analystic.json"; sourceTree = "<group>"; };
+		8403E09F21B0905A0067CA82 /* Google+.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Google+.json"; sourceTree = "<group>"; };
+		8403E0A021B0905A0067CA82 /* Gree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Gree.json; sourceTree = "<group>"; };
 		94314237E570AB4ED6F033EE /* Pods-adblockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E78A0ABBE98886C52074A864 /* Pods-adblock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.release.xcconfig"; sourceTree = "<group>"; };
 		F84E707CBD761459EB37139B /* Pods_adblock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,9 +377,12 @@
 			isa = PBXGroup;
 			children = (
 				8403E08521B08D570067CA82 /* ActionExtension.entitlements */,
-				8403E05121B08D290067CA82 /* Media.xcassets */,
-				8403E05321B08D290067CA82 /* ActionViewController.swift */,
-				8403E05521B08D290067CA82 /* MainInterface.storyboard */,
+				8403E08A21B08E2F0067CA82 /* ActionViewController.swift */,
+				8403E08B21B08E2F0067CA82 /* Ad.swift */,
+				8403E08921B08E2F0067CA82 /* AdDataSource.swift */,
+				8403E08F21B08E400067CA82 /* CustomCell.swift */,
+				8403E09121B08E570067CA82 /* MainInterface.storyboard */,
+				8403E09521B08F830067CA82 /* ActionExtension-Bridging-Header.h */,
 				8403E05821B08D290067CA82 /* Info.plist */,
 			);
 			path = ActionExtension;
@@ -364,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				8403E08621B08D600067CA82 /* ActionExtension2.entitlements */,
-				8403E06621B08D3F0067CA82 /* Media.xcassets */,
 				8403E06821B08D3F0067CA82 /* ActionViewController.swift */,
 				8403E06A21B08D3F0067CA82 /* MainInterface.storyboard */,
 				8403E06D21B08D3F0067CA82 /* Info.plist */,
@@ -377,6 +404,17 @@
 			children = (
 				8403E08721B08D6A0067CA82 /* ContentBlockerExtension.entitlements */,
 				8403E07A21B08D520067CA82 /* blockerList.json */,
+				8403E09B21B090590067CA82 /* css-display-none.json */,
+				8403E09621B090590067CA82 /* Facebook.json */,
+				8403E09D21B0905A0067CA82 /* FC2 Access Analyzer.json */,
+				8403E09821B090590067CA82 /* Google Ads.json */,
+				8403E09921B090590067CA82 /* Google Analystic.json */,
+				8403E09F21B0905A0067CA82 /* Google+.json */,
+				8403E0A021B0905A0067CA82 /* Gree.json */,
+				8403E09721B090590067CA82 /* LINE.json */,
+				8403E09E21B0905A0067CA82 /* Twitter Analystic.json */,
+				8403E09C21B090590067CA82 /* Twitter.json */,
+				8403E09A21B090590067CA82 /* Youtube.json */,
 				8403E07C21B08D520067CA82 /* ContentBlockerRequestHandler.swift */,
 				8403E07E21B08D520067CA82 /* Info.plist */,
 			);
@@ -538,6 +576,7 @@
 					};
 					8403E04E21B08D290067CA82 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -623,8 +662,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8403E05221B08D290067CA82 /* Media.xcassets in Resources */,
-				8403E05721B08D290067CA82 /* MainInterface.storyboard in Resources */,
+				8403E09321B08E570067CA82 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +670,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8403E06721B08D3F0067CA82 /* Media.xcassets in Resources */,
 				8403E06C21B08D3F0067CA82 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,7 +678,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8403E0A321B0905A0067CA82 /* Google Ads.json in Resources */,
+				8403E0A821B0905A0067CA82 /* FC2 Access Analyzer.json in Resources */,
+				8403E0A621B0905A0067CA82 /* css-display-none.json in Resources */,
+				8403E0A921B0905A0067CA82 /* Twitter Analystic.json in Resources */,
+				8403E0AB21B0905A0067CA82 /* Gree.json in Resources */,
+				8403E0A521B0905A0067CA82 /* Youtube.json in Resources */,
+				8403E0AA21B0905A0067CA82 /* Google+.json in Resources */,
+				8403E0A421B0905A0067CA82 /* Google Analystic.json in Resources */,
 				8403E07B21B08D520067CA82 /* blockerList.json in Resources */,
+				8403E0A221B0905A0067CA82 /* LINE.json in Resources */,
+				8403E0A121B0905A0067CA82 /* Facebook.json in Resources */,
+				8403E0A721B0905A0067CA82 /* Twitter.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,7 +799,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8403E05421B08D290067CA82 /* ActionViewController.swift in Sources */,
+				8403E08D21B08E2F0067CA82 /* ActionViewController.swift in Sources */,
+				8403E08C21B08E2F0067CA82 /* AdDataSource.swift in Sources */,
+				8403E09021B08E400067CA82 /* CustomCell.swift in Sources */,
+				8403E08E21B08E2F0067CA82 /* Ad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,18 +869,18 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		8403E05521B08D290067CA82 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8403E05621B08D290067CA82 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		8403E06A21B08D3F0067CA82 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8403E06B21B08D3F0067CA82 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		8403E09121B08E570067CA82 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8403E09221B08E570067CA82 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1086,6 +1137,7 @@
 		8403E05D21B08D290067CA82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF4TM3GVMC;
@@ -1098,6 +1150,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.ActionExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ActionExtension/ActionExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1106,6 +1160,7 @@
 		8403E05E21B08D290067CA82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DF4TM3GVMC;
@@ -1118,6 +1173,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.osakac.cs.hisalab.adblock.ActionExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ActionExtension/ActionExtension-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

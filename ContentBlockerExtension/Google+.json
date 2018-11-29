@@ -1,0 +1,9 @@
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "li[class*='google']"
+        },
+        "trigger": {
+            "url-filter": ".*"
+        }
+    },

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8403DFDF21B087B30067CA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DFDE21B087B30067CA82 /* AppDelegate.swift */; };
-		8403DFE121B087B30067CA82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DFE021B087B30067CA82 /* ViewController.swift */; };
 		8403DFE421B087B30067CA82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403DFE221B087B30067CA82 /* Main.storyboard */; };
 		8403DFE621B087B40067CA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8403DFE521B087B40067CA82 /* Assets.xcassets */; };
 		8403DFE921B087B40067CA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403DFE721B087B40067CA82 /* LaunchScreen.storyboard */; };
@@ -54,7 +53,6 @@
 /* Begin PBXFileReference section */
 		8403DFDB21B087B30067CA82 /* adblock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adblock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8403DFDE21B087B30067CA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8403DFE021B087B30067CA82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8403DFE321B087B30067CA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8403DFE521B087B40067CA82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8403DFE821B087B40067CA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				8403E00C21B089C20067CA82 /* Classes */,
 				8403E00D21B089CD0067CA82 /* Resources */,
 				8403DFDE21B087B30067CA82 /* AppDelegate.swift */,
-				8403DFE021B087B30067CA82 /* ViewController.swift */,
 				8403DFE221B087B30067CA82 /* Main.storyboard */,
 				8403DFE721B087B40067CA82 /* LaunchScreen.storyboard */,
 				8403DFEA21B087B40067CA82 /* Info.plist */,
@@ -361,7 +358,6 @@
 				8403E04321B08B3B0067CA82 /* Sub2DataSource.swift in Sources */,
 				8403E01521B08A450067CA82 /* JsonManager.swift in Sources */,
 				8403E04721B08B430067CA82 /* Sub3TableViewController.swift in Sources */,
-				8403DFE121B087B30067CA82 /* ViewController.swift in Sources */,
 				8403E03121B08B2B0067CA82 /* Ad.swift in Sources */,
 				8403E03021B08B2B0067CA82 /* RootViewController.swift in Sources */,
 				8403E01621B08A450067CA82 /* ContentBlockerManager.swift in Sources */,

@@ -31,6 +31,9 @@
 		8403E04721B08B430067CA82 /* Sub3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04421B08B420067CA82 /* Sub3TableViewController.swift */; };
 		8403E04821B08B430067CA82 /* Sub3DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04521B08B420067CA82 /* Sub3DataSource.swift */; };
 		8403E04921B08B430067CA82 /* Sub3CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04621B08B430067CA82 /* Sub3CustomCell.swift */; };
+		9AE81EF79DCCBD6A52741BCB /* Pods_adblock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84E707CBD761459EB37139B /* Pods_adblock.framework */; };
+		EDD4E948CB50D168FEA621CC /* Pods_adblockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A05E2B5DE391A3AB3D1C51 /* Pods_adblockTests.framework */; };
+		FAB77F87DF3BACF47F68E79F /* Pods_adblockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E432CF49E9DD3D5E77B27E2 /* Pods_adblockUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2283435C496A6E0C9D0182 /* Pods-adblockUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		126F6F2A6CF4F2C330E9746B /* Pods-adblockTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.release.xcconfig"; sourceTree = "<group>"; };
+		1E432CF49E9DD3D5E77B27E2 /* Pods_adblockUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblockUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A05E2B5DE391A3AB3D1C51 /* Pods_adblockTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblockTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40D752771FA3FE1DC073A9EC /* Pods-adblock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.debug.xcconfig"; sourceTree = "<group>"; };
+		50F95E8DF256C6B003410C77 /* Pods-adblockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblockUITests/Pods-adblockUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8403DFDB21B087B30067CA82 /* adblock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adblock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8403DFDE21B087B30067CA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8403DFE321B087B30067CA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +90,9 @@
 		8403E04421B08B420067CA82 /* Sub3TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3TableViewController.swift; sourceTree = "<group>"; };
 		8403E04521B08B420067CA82 /* Sub3DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3DataSource.swift; sourceTree = "<group>"; };
 		8403E04621B08B430067CA82 /* Sub3CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3CustomCell.swift; sourceTree = "<group>"; };
+		94314237E570AB4ED6F033EE /* Pods-adblockTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblockTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-adblockTests/Pods-adblockTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E78A0ABBE98886C52074A864 /* Pods-adblock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adblock.release.xcconfig"; path = "Pods/Target Support Files/Pods-adblock/Pods-adblock.release.xcconfig"; sourceTree = "<group>"; };
+		F84E707CBD761459EB37139B /* Pods_adblock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adblock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE81EF79DCCBD6A52741BCB /* Pods_adblock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD4E948CB50D168FEA621CC /* Pods_adblockTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,12 +116,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB77F87DF3BACF47F68E79F /* Pods_adblockUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A75C98C4ABF65DEDB45AA2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40D752771FA3FE1DC073A9EC /* Pods-adblock.debug.xcconfig */,
+				E78A0ABBE98886C52074A864 /* Pods-adblock.release.xcconfig */,
+				94314237E570AB4ED6F033EE /* Pods-adblockTests.debug.xcconfig */,
+				126F6F2A6CF4F2C330E9746B /* Pods-adblockTests.release.xcconfig */,
+				0F2283435C496A6E0C9D0182 /* Pods-adblockUITests.debug.xcconfig */,
+				50F95E8DF256C6B003410C77 /* Pods-adblockUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8403DFD221B087B30067CA82 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +143,8 @@
 				8403DFF221B087B40067CA82 /* adblockTests */,
 				8403DFFD21B087B40067CA82 /* adblockUITests */,
 				8403DFDC21B087B30067CA82 /* Products */,
+				4A75C98C4ABF65DEDB45AA2E /* Pods */,
+				8E4F89B391C455F2FE454150 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,6 +254,16 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		8E4F89B391C455F2FE454150 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F84E707CBD761459EB37139B /* Pods_adblock.framework */,
+				34A05E2B5DE391A3AB3D1C51 /* Pods_adblockTests.framework */,
+				1E432CF49E9DD3D5E77B27E2 /* Pods_adblockUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,6 +271,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8403E00321B087B40067CA82 /* Build configuration list for PBXNativeTarget "adblock" */;
 			buildPhases = (
+				DA22E9436C563B5B0D0EC091 /* [CP] Check Pods Manifest.lock */,
 				8403DFD721B087B30067CA82 /* Sources */,
 				8403DFD821B087B30067CA82 /* Frameworks */,
 				8403DFD921B087B30067CA82 /* Resources */,
@@ -248,6 +289,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8403E00621B087B40067CA82 /* Build configuration list for PBXNativeTarget "adblockTests" */;
 			buildPhases = (
+				061481A08BE57536418B7327 /* [CP] Check Pods Manifest.lock */,
 				8403DFEB21B087B40067CA82 /* Sources */,
 				8403DFEC21B087B40067CA82 /* Frameworks */,
 				8403DFED21B087B40067CA82 /* Resources */,
@@ -266,6 +308,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8403E00921B087B40067CA82 /* Build configuration list for PBXNativeTarget "adblockUITests" */;
 			buildPhases = (
+				78CAF54C7B458202689C9694 /* [CP] Check Pods Manifest.lock */,
 				8403DFF621B087B40067CA82 /* Sources */,
 				8403DFF721B087B40067CA82 /* Frameworks */,
 				8403DFF821B087B40067CA82 /* Resources */,
@@ -349,6 +392,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		061481A08BE57536418B7327 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adblockTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78CAF54C7B458202689C9694 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adblockUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA22E9436C563B5B0D0EC091 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adblock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8403DFD721B087B30067CA82 /* Sources */ = {
@@ -546,6 +646,7 @@
 		};
 		8403E00421B087B40067CA82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40D752771FA3FE1DC073A9EC /* Pods-adblock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -565,6 +666,7 @@
 		};
 		8403E00521B087B40067CA82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E78A0ABBE98886C52074A864 /* Pods-adblock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -584,6 +686,7 @@
 		};
 		8403E00721B087B40067CA82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94314237E570AB4ED6F033EE /* Pods-adblockTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -605,6 +708,7 @@
 		};
 		8403E00821B087B40067CA82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 126F6F2A6CF4F2C330E9746B /* Pods-adblockTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -626,6 +730,7 @@
 		};
 		8403E00A21B087B40067CA82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F2283435C496A6E0C9D0182 /* Pods-adblockUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -646,6 +751,7 @@
 		};
 		8403E00B21B087B40067CA82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50F95E8DF256C6B003410C77 /* Pods-adblockUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

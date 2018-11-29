@@ -14,6 +14,24 @@
 		8403DFE921B087B40067CA82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403DFE721B087B40067CA82 /* LaunchScreen.storyboard */; };
 		8403DFF421B087B40067CA82 /* adblockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DFF321B087B40067CA82 /* adblockTests.swift */; };
 		8403DFFF21B087B40067CA82 /* adblockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DFFE21B087B40067CA82 /* adblockUITests.swift */; };
+		8403E01521B08A450067CA82 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E00E21B08A440067CA82 /* JsonManager.swift */; };
+		8403E01621B08A450067CA82 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E00F21B08A440067CA82 /* ContentBlockerManager.swift */; };
+		8403E01921B08A450067CA82 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E01221B08A440067CA82 /* SwiftyJSON.swift */; };
+		8403E03021B08B2B0067CA82 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E02C21B08B2B0067CA82 /* RootViewController.swift */; };
+		8403E03121B08B2B0067CA82 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E02D21B08B2B0067CA82 /* Ad.swift */; };
+		8403E03221B08B2B0067CA82 /* RootDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E02E21B08B2B0067CA82 /* RootDataSource.swift */; };
+		8403E03321B08B2B0067CA82 /* RootCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E02F21B08B2B0067CA82 /* RootCustomCell.swift */; };
+		8403E03821B08B340067CA82 /* Advance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03421B08B340067CA82 /* Advance.swift */; };
+		8403E03921B08B340067CA82 /* Sub1DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03521B08B340067CA82 /* Sub1DataSource.swift */; };
+		8403E03A21B08B340067CA82 /* Sub1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03621B08B340067CA82 /* Sub1TableViewController.swift */; };
+		8403E03B21B08B340067CA82 /* Sub1CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03721B08B340067CA82 /* Sub1CustomCell.swift */; };
+		8403E04021B08B3B0067CA82 /* Sub2CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03C21B08B3A0067CA82 /* Sub2CustomCell.swift */; };
+		8403E04121B08B3B0067CA82 /* Sub2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03D21B08B3A0067CA82 /* Sub2ViewController.swift */; };
+		8403E04221B08B3B0067CA82 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03E21B08B3B0067CA82 /* Domain.swift */; };
+		8403E04321B08B3B0067CA82 /* Sub2DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E03F21B08B3B0067CA82 /* Sub2DataSource.swift */; };
+		8403E04721B08B430067CA82 /* Sub3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04421B08B420067CA82 /* Sub3TableViewController.swift */; };
+		8403E04821B08B430067CA82 /* Sub3DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04521B08B420067CA82 /* Sub3DataSource.swift */; };
+		8403E04921B08B430067CA82 /* Sub3CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403E04621B08B430067CA82 /* Sub3CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +65,24 @@
 		8403DFFA21B087B40067CA82 /* adblockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = adblockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8403DFFE21B087B40067CA82 /* adblockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adblockUITests.swift; sourceTree = "<group>"; };
 		8403E00021B087B40067CA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8403E00E21B08A440067CA82 /* JsonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
+		8403E00F21B08A440067CA82 /* ContentBlockerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
+		8403E01221B08A440067CA82 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		8403E02C21B08B2B0067CA82 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		8403E02D21B08B2B0067CA82 /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		8403E02E21B08B2B0067CA82 /* RootDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDataSource.swift; sourceTree = "<group>"; };
+		8403E02F21B08B2B0067CA82 /* RootCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootCustomCell.swift; sourceTree = "<group>"; };
+		8403E03421B08B340067CA82 /* Advance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advance.swift; sourceTree = "<group>"; };
+		8403E03521B08B340067CA82 /* Sub1DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub1DataSource.swift; sourceTree = "<group>"; };
+		8403E03621B08B340067CA82 /* Sub1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub1TableViewController.swift; sourceTree = "<group>"; };
+		8403E03721B08B340067CA82 /* Sub1CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub1CustomCell.swift; sourceTree = "<group>"; };
+		8403E03C21B08B3A0067CA82 /* Sub2CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub2CustomCell.swift; sourceTree = "<group>"; };
+		8403E03D21B08B3A0067CA82 /* Sub2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub2ViewController.swift; sourceTree = "<group>"; };
+		8403E03E21B08B3B0067CA82 /* Domain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
+		8403E03F21B08B3B0067CA82 /* Sub2DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub2DataSource.swift; sourceTree = "<group>"; };
+		8403E04421B08B420067CA82 /* Sub3TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3TableViewController.swift; sourceTree = "<group>"; };
+		8403E04521B08B420067CA82 /* Sub3DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3DataSource.swift; sourceTree = "<group>"; };
+		8403E04621B08B430067CA82 /* Sub3CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub3CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +133,11 @@
 		8403DFDD21B087B30067CA82 /* adblock */ = {
 			isa = PBXGroup;
 			children = (
+				8403E00C21B089C20067CA82 /* Classes */,
+				8403E00D21B089CD0067CA82 /* Resources */,
 				8403DFDE21B087B30067CA82 /* AppDelegate.swift */,
 				8403DFE021B087B30067CA82 /* ViewController.swift */,
 				8403DFE221B087B30067CA82 /* Main.storyboard */,
-				8403DFE521B087B40067CA82 /* Assets.xcassets */,
 				8403DFE721B087B40067CA82 /* LaunchScreen.storyboard */,
 				8403DFEA21B087B40067CA82 /* Info.plist */,
 			);
@@ -123,6 +160,71 @@
 				8403E00021B087B40067CA82 /* Info.plist */,
 			);
 			path = adblockUITests;
+			sourceTree = "<group>";
+		};
+		8403E00C21B089C20067CA82 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8403E02B21B08AB40067CA82 /* Root */,
+				8403E02A21B08AAF0067CA82 /* Sub1 */,
+				8403E02921B08AAA0067CA82 /* Sub2 */,
+				8403E02821B08AA40067CA82 /* Sub3 */,
+				8403E00F21B08A440067CA82 /* ContentBlockerManager.swift */,
+				8403E00E21B08A440067CA82 /* JsonManager.swift */,
+				8403E01221B08A440067CA82 /* SwiftyJSON.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8403E00D21B089CD0067CA82 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8403DFE521B087B40067CA82 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8403E02821B08AA40067CA82 /* Sub3 */ = {
+			isa = PBXGroup;
+			children = (
+				8403E04621B08B430067CA82 /* Sub3CustomCell.swift */,
+				8403E04521B08B420067CA82 /* Sub3DataSource.swift */,
+				8403E04421B08B420067CA82 /* Sub3TableViewController.swift */,
+			);
+			path = Sub3;
+			sourceTree = "<group>";
+		};
+		8403E02921B08AAA0067CA82 /* Sub2 */ = {
+			isa = PBXGroup;
+			children = (
+				8403E03E21B08B3B0067CA82 /* Domain.swift */,
+				8403E03C21B08B3A0067CA82 /* Sub2CustomCell.swift */,
+				8403E03F21B08B3B0067CA82 /* Sub2DataSource.swift */,
+				8403E03D21B08B3A0067CA82 /* Sub2ViewController.swift */,
+			);
+			path = Sub2;
+			sourceTree = "<group>";
+		};
+		8403E02A21B08AAF0067CA82 /* Sub1 */ = {
+			isa = PBXGroup;
+			children = (
+				8403E03421B08B340067CA82 /* Advance.swift */,
+				8403E03721B08B340067CA82 /* Sub1CustomCell.swift */,
+				8403E03521B08B340067CA82 /* Sub1DataSource.swift */,
+				8403E03621B08B340067CA82 /* Sub1TableViewController.swift */,
+			);
+			path = Sub1;
+			sourceTree = "<group>";
+		};
+		8403E02B21B08AB40067CA82 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				8403E02D21B08B2B0067CA82 /* Ad.swift */,
+				8403E02F21B08B2B0067CA82 /* RootCustomCell.swift */,
+				8403E02E21B08B2B0067CA82 /* RootDataSource.swift */,
+				8403E02C21B08B2B0067CA82 /* RootViewController.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +358,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8403E04321B08B3B0067CA82 /* Sub2DataSource.swift in Sources */,
+				8403E01521B08A450067CA82 /* JsonManager.swift in Sources */,
+				8403E04721B08B430067CA82 /* Sub3TableViewController.swift in Sources */,
 				8403DFE121B087B30067CA82 /* ViewController.swift in Sources */,
+				8403E03121B08B2B0067CA82 /* Ad.swift in Sources */,
+				8403E03021B08B2B0067CA82 /* RootViewController.swift in Sources */,
+				8403E01621B08A450067CA82 /* ContentBlockerManager.swift in Sources */,
+				8403E01921B08A450067CA82 /* SwiftyJSON.swift in Sources */,
+				8403E04021B08B3B0067CA82 /* Sub2CustomCell.swift in Sources */,
+				8403E03821B08B340067CA82 /* Advance.swift in Sources */,
+				8403E03221B08B2B0067CA82 /* RootDataSource.swift in Sources */,
+				8403E04921B08B430067CA82 /* Sub3CustomCell.swift in Sources */,
+				8403E04121B08B3B0067CA82 /* Sub2ViewController.swift in Sources */,
+				8403E03321B08B2B0067CA82 /* RootCustomCell.swift in Sources */,
+				8403E03B21B08B340067CA82 /* Sub1CustomCell.swift in Sources */,
 				8403DFDF21B087B30067CA82 /* AppDelegate.swift in Sources */,
+				8403E03A21B08B340067CA82 /* Sub1TableViewController.swift in Sources */,
+				8403E03921B08B340067CA82 /* Sub1DataSource.swift in Sources */,
+				8403E04221B08B3B0067CA82 /* Domain.swift in Sources */,
+				8403E04821B08B430067CA82 /* Sub3DataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

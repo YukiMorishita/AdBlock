@@ -1,6 +1,0 @@
-framework module Pods_adblock_test {
-  umbrella header "Pods-adblock-test-umbrella.h"
-
-  export *
-  module * { export * }
-}

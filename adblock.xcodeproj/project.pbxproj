@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38E8DA1621B0C67D00661360 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E07A21B08D520067CA82 /* blockerList.json */; };
 		8403DFDF21B087B30067CA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403DFDE21B087B30067CA82 /* AppDelegate.swift */; };
 		8403DFE421B087B30067CA82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8403DFE221B087B30067CA82 /* Main.storyboard */; };
 		8403DFE621B087B40067CA82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8403DFE521B087B40067CA82 /* Assets.xcassets */; };
@@ -54,6 +55,17 @@
 		8403E0A921B0905A0067CA82 /* Twitter Analystic.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09E21B0905A0067CA82 /* Twitter Analystic.json */; };
 		8403E0AA21B0905A0067CA82 /* Google+.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09F21B0905A0067CA82 /* Google+.json */; };
 		8403E0AB21B0905A0067CA82 /* Gree.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E0A021B0905A0067CA82 /* Gree.json */; };
+		8403E0AC21B091B20067CA82 /* css-display-none.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09B21B090590067CA82 /* css-display-none.json */; };
+		8403E0AD21B091B20067CA82 /* Facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09621B090590067CA82 /* Facebook.json */; };
+		8403E0AE21B091B20067CA82 /* FC2 Access Analyzer.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09D21B0905A0067CA82 /* FC2 Access Analyzer.json */; };
+		8403E0AF21B091B20067CA82 /* Google Ads.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09821B090590067CA82 /* Google Ads.json */; };
+		8403E0B021B091B20067CA82 /* Google Analystic.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09921B090590067CA82 /* Google Analystic.json */; };
+		8403E0B121B091B20067CA82 /* Google+.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09F21B0905A0067CA82 /* Google+.json */; };
+		8403E0B221B091B20067CA82 /* Gree.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E0A021B0905A0067CA82 /* Gree.json */; };
+		8403E0B321B091B20067CA82 /* LINE.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09721B090590067CA82 /* LINE.json */; };
+		8403E0B421B091B20067CA82 /* Twitter Analystic.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09E21B0905A0067CA82 /* Twitter Analystic.json */; };
+		8403E0B521B091B20067CA82 /* Twitter.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09C21B090590067CA82 /* Twitter.json */; };
+		8403E0B621B091B20067CA82 /* Youtube.json in Resources */ = {isa = PBXBuildFile; fileRef = 8403E09A21B090590067CA82 /* Youtube.json */; };
 		9AE81EF79DCCBD6A52741BCB /* Pods_adblock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84E707CBD761459EB37139B /* Pods_adblock.framework */; };
 		EDD4E948CB50D168FEA621CC /* Pods_adblockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A05E2B5DE391A3AB3D1C51 /* Pods_adblockTests.framework */; };
 		FAB77F87DF3BACF47F68E79F /* Pods_adblockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E432CF49E9DD3D5E77B27E2 /* Pods_adblockUITests.framework */; };
@@ -315,9 +327,9 @@
 				8403E02A21B08AAF0067CA82 /* Sub1 */,
 				8403E02921B08AAA0067CA82 /* Sub2 */,
 				8403E02821B08AA40067CA82 /* Sub3 */,
-				8403E00F21B08A440067CA82 /* ContentBlockerManager.swift */,
 				8403E00E21B08A440067CA82 /* JsonManager.swift */,
 				8403E01221B08A440067CA82 /* SwiftyJSON.swift */,
+				8403E00F21B08A440067CA82 /* ContentBlockerManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -333,9 +345,9 @@
 		8403E02821B08AA40067CA82 /* Sub3 */ = {
 			isa = PBXGroup;
 			children = (
-				8403E04621B08B430067CA82 /* Sub3CustomCell.swift */,
-				8403E04521B08B420067CA82 /* Sub3DataSource.swift */,
 				8403E04421B08B420067CA82 /* Sub3TableViewController.swift */,
+				8403E04521B08B420067CA82 /* Sub3DataSource.swift */,
+				8403E04621B08B430067CA82 /* Sub3CustomCell.swift */,
 			);
 			path = Sub3;
 			sourceTree = "<group>";
@@ -344,9 +356,9 @@
 			isa = PBXGroup;
 			children = (
 				8403E03E21B08B3B0067CA82 /* Domain.swift */,
-				8403E03C21B08B3A0067CA82 /* Sub2CustomCell.swift */,
-				8403E03F21B08B3B0067CA82 /* Sub2DataSource.swift */,
 				8403E03D21B08B3A0067CA82 /* Sub2ViewController.swift */,
+				8403E03F21B08B3B0067CA82 /* Sub2DataSource.swift */,
+				8403E03C21B08B3A0067CA82 /* Sub2CustomCell.swift */,
 			);
 			path = Sub2;
 			sourceTree = "<group>";
@@ -355,9 +367,9 @@
 			isa = PBXGroup;
 			children = (
 				8403E03421B08B340067CA82 /* Advance.swift */,
-				8403E03721B08B340067CA82 /* Sub1CustomCell.swift */,
-				8403E03521B08B340067CA82 /* Sub1DataSource.swift */,
 				8403E03621B08B340067CA82 /* Sub1TableViewController.swift */,
+				8403E03521B08B340067CA82 /* Sub1DataSource.swift */,
+				8403E03721B08B340067CA82 /* Sub1CustomCell.swift */,
 			);
 			path = Sub1;
 			sourceTree = "<group>";
@@ -366,9 +378,9 @@
 			isa = PBXGroup;
 			children = (
 				8403E02D21B08B2B0067CA82 /* Ad.swift */,
-				8403E02F21B08B2B0067CA82 /* RootCustomCell.swift */,
-				8403E02E21B08B2B0067CA82 /* RootDataSource.swift */,
 				8403E02C21B08B2B0067CA82 /* RootViewController.swift */,
+				8403E02E21B08B2B0067CA82 /* RootDataSource.swift */,
+				8403E02F21B08B2B0067CA82 /* RootCustomCell.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -377,8 +389,8 @@
 			isa = PBXGroup;
 			children = (
 				8403E08521B08D570067CA82 /* ActionExtension.entitlements */,
-				8403E08A21B08E2F0067CA82 /* ActionViewController.swift */,
 				8403E08B21B08E2F0067CA82 /* Ad.swift */,
+				8403E08A21B08E2F0067CA82 /* ActionViewController.swift */,
 				8403E08921B08E2F0067CA82 /* AdDataSource.swift */,
 				8403E08F21B08E400067CA82 /* CustomCell.swift */,
 				8403E09121B08E570067CA82 /* MainInterface.storyboard */,
@@ -638,6 +650,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E8DA1621B0C67D00661360 /* blockerList.json in Resources */,
+				8403E0AC21B091B20067CA82 /* css-display-none.json in Resources */,
+				8403E0AD21B091B20067CA82 /* Facebook.json in Resources */,
+				8403E0AE21B091B20067CA82 /* FC2 Access Analyzer.json in Resources */,
+				8403E0AF21B091B20067CA82 /* Google Ads.json in Resources */,
+				8403E0B021B091B20067CA82 /* Google Analystic.json in Resources */,
+				8403E0B121B091B20067CA82 /* Google+.json in Resources */,
+				8403E0B221B091B20067CA82 /* Gree.json in Resources */,
+				8403E0B321B091B20067CA82 /* LINE.json in Resources */,
+				8403E0B421B091B20067CA82 /* Twitter Analystic.json in Resources */,
+				8403E0B521B091B20067CA82 /* Twitter.json in Resources */,
+				8403E0B621B091B20067CA82 /* Youtube.json in Resources */,
 				8403DFE921B087B40067CA82 /* LaunchScreen.storyboard in Resources */,
 				8403DFE621B087B40067CA82 /* Assets.xcassets in Resources */,
 				8403DFE421B087B30067CA82 /* Main.storyboard in Resources */,

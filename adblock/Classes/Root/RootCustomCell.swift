@@ -39,7 +39,7 @@ class RootCustomCell: UITableViewCell {
         
         // UISwitch
         tableSwitch = UISwitch()
-        tableSwitch.onTintColor = .blue
+        tableSwitch.onTintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         tableSwitch.addTarget(self, action: #selector(switchButtonTaped(sender:)), for: .valueChanged)
         self.contentView.addSubview(tableSwitch)
     }

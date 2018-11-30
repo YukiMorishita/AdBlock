@@ -12,7 +12,7 @@ import SafariServices
 final class ContentBlockerManager: NSObject {
     
     // ContentBlocker BundleID
-    private let contentBlockerID = "jp.ac.osakac.cs.hisalab.adblock-test.ContentBlockerExtension"
+    private let contentBlockerID = "jp.ac.osakac.cs.hisalab.adblock.ContentBlockerExtension"
     
     // ContentBlockerの更新メソッド
     func reloadContentBlocker() {

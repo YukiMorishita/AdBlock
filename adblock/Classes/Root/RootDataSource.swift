@@ -58,6 +58,8 @@ final class RootDataSource: NSObject {
         
         self.adList.append(Ad(domain: ads["domain"] as! String, state: ads["state"] as! Bool))
         
+        self.adTableList = self.adList
+        
         defaults?.removeObject(forKey: exKey)
     }
     

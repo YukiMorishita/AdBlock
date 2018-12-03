@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 final class Sub3DataSource: NSObject {
     
@@ -105,6 +107,27 @@ final class Sub3DataSource: NSObject {
         
         return nil
     }
+    
+    /// FireBase DataBaseG
+    private var dbRootRef: DatabaseReference!
+    private var dbThisRef: DatabaseReference?
+    private var dbTableData: [DataSnapshot] = [DataSnapshot]()
+    
+    private let dbPath = "documents"
+    private let dbKey1 = "fileName"
+    private let dbKey2 = "rate"
+    private let dbKey3 = "domains"
+    
+    func databaseObserver() {
+        
+        if let _ = Auth.auth().currentUser {
+            
+            self.dbThisRef = self.dbRootRef.child(dbPath)
+        }
+    }
+    
+    /// Firebase Cloud Storage
+    private var storageRef: StorageReference!
     
     
 }

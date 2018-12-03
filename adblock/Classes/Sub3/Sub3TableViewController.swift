@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class Sub3TableViewController: UITableViewController {
+class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
     
     private var dataSource: Sub3DataSource!
     private var jsonManager: JsonManager!
@@ -21,6 +22,8 @@ class Sub3TableViewController: UITableViewController {
         
         dataSource = Sub3DataSource()
         jsonManager = JsonManager()
+        
+        GIDSignIn.sharedInstance()?.uiDelegate = self
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,12 +38,39 @@ class Sub3TableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    @IBAction func test(_ sender: UIBarButtonItem) {
+    
+    @IBAction func authButtonTaped(_ sender: UIBarButtonItem) {
         
-        //dataSource.setMyList()
-        let jsonFileName = jsonManager.getJsonFileName()
-        print(jsonFileName)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // Google SignIn
+        let signIn = UIAlertAction(title: "Sign In", style: .default, handler:
+        {
+            (action: UIAlertAction) in
+            
+            // Sign In
+            GIDSignIn.sharedInstance()?.signIn()
+            print("Google アカウントで、サインインしました。")
+        })
+        
+        let signOut = UIAlertAction(title: "Sign Out", style: .default, handler:
+        {
+            (action: UIAlertAction) in
+            
+            // Sign Out
+            GIDSignIn.sharedInstance()?.signOut()
+            print("Google アカウントで、サインアウトしました。")
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(signIn)
+        alert.addAction(signOut)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
+    
     
     // MARK: - Table view data source
     

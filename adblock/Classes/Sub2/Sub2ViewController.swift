@@ -16,6 +16,7 @@ class Sub2ViewController: UIViewController {
     
     private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     private let key = "TableList3"
+    private let exKey = "ActionExtension2"
     
     fileprivate var searchBar: UISearchBar!
     fileprivate var tableView: UITableView!
@@ -57,9 +58,21 @@ class Sub2ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         
-        // 二回目以降の起動
         let defaults = UserDefaults(suiteName: groupID)
+        
+        // ActionExtensionからデータを取得・保存
+        if defaults?.object(forKey: exKey) != nil {
+            
+            print("ActionExtension")
+            dataSource.load()
+            dataSource.getShareDomainToExtension()
+            dataSource.save()
+        }
+        
+        // 二回目以降の起動
         if defaults?.object(forKey: key) != nil {
+            
+            print("二回目以降の起動")
             // テーブルデータを取得
             dataSource.load()
             dataSource.unionTableData()

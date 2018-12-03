@@ -13,7 +13,7 @@
         <!--RootViewController-->
         <scene sceneID="RqX-2l-m4a">
             <objects>
-                <viewController storyboardIdentifier="Root" id="njx-Zo-ceQ" customClass="RootViewController" customModule="adblock_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Root" id="njx-Zo-ceQ" customClass="RootViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8WR-Qt-FTz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,7 +52,7 @@
         <!--SubViewController1-->
         <scene sceneID="UbL-Kj-HX4">
             <objects>
-                <tableViewController id="B36-Ht-EUO" customClass="Sub1TableViewController" customModule="adblock_test" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="B36-Ht-EUO" customClass="Sub1TableViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="r7P-lB-Txs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,7 +159,7 @@
         <!--SubViewController2-->
         <scene sceneID="pQH-uC-ACj">
             <objects>
-                <viewController id="4IS-g3-T80" customClass="Sub2ViewController" customModule="adblock_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4IS-g3-T80" customClass="Sub2ViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWL-Tt-H0f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,7 +188,7 @@
         <!--SubViewController3-->
         <scene sceneID="yVR-St-qnd">
             <objects>
-                <tableViewController id="hID-7V-Tk7" customClass="Sub3TableViewController" customModule="adblock_test" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hID-7V-Tk7" customClass="Sub3TableViewController" customModule="adblock" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dVd-3U-Om8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
                     <navigationItem key="navigationItem" title="SubViewController3" id="Ofb-SA-IAN">
                         <barButtonItem key="leftBarButtonItem" image="auth-icon" style="done" id="dra-Aq-RBi">
                             <connections>
-                                <action selector="test:" destination="hID-7V-Tk7" id="2kP-Nu-pZn"/>
+                                <action selector="authButtonTaped:" destination="hID-7V-Tk7" id="Ixg-hi-8hg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -6,6 +6,10 @@ target 'adblock' do
   use_frameworks!
 
   # Pods for adblock
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 
   target 'adblockTests' do
     inherit! :search_paths

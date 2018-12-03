@@ -28,11 +28,6 @@ class RootViewController: UIViewController {
         jsonManager = JsonManager()
         contentBlockerManager = ContentBlockerManager()
         
-//        let d = UserDefaults(suiteName: groupID)
-//        d?.removeObject(forKey: Key)
-//
-//        jsonManager.removeJsonFile(fileName: "blockerList")
-        
         // NotificationCenter (通知を登録)
         let notificationCenter = NotificationCenter.default
         // 通知の監視

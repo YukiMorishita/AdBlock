@@ -61,6 +61,19 @@ final class Sub2DataSource: NSObject {
         }
     }
     
+    func getShareDomainToExtension() {
+        
+        let defaults = UserDefaults(suiteName: groupID)
+        let adListDic = defaults?.object(forKey: exKey) as? [String: Any]
+        guard let ads = adListDic else { return }
+        
+        self.domainList.append(Domain(domain: ads["domain"] as! String, state: ads["state"] as! Bool))
+        
+        self.tableList = self.domainList
+        
+        defaults?.removeObject(forKey: exKey)
+    }
+    
     func getEachSiteList() -> [Domain] {
         
         return self.domainList

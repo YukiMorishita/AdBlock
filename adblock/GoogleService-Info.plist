@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>373416280234-osj2fsucqo44831p14nvo31uq5t94omp.apps.googleusercontent.com</string>
+	<string>831865688309-afnrb3d8cnghpeuqgj87mgcp9b3970np.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.373416280234-osj2fsucqo44831p14nvo31uq5t94omp</string>
+	<string>com.googleusercontent.apps.831865688309-afnrb3d8cnghpeuqgj87mgcp9b3970np</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAb_orNxbI34OEhYIVPUp7F1z398onK5oc</string>
+	<string>AIzaSyAZqew2VdaNZOy1TCUwXkfA-9nmdHumFZg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>373416280234</string>
+	<string>831865688309</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>jp.ac.osakac.cs.hisalab.adblock</string>
 	<key>PROJECT_ID</key>
-	<string>adblock-b7f94</string>
+	<string>adblock-342dd</string>
 	<key>STORAGE_BUCKET</key>
-	<string>adblock-b7f94.appspot.com</string>
+	<string>adblock-342dd.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:373416280234:ios:eda0247d1fd12fa0</string>
+	<string>1:831865688309:ios:eda0247d1fd12fa0</string>
 	<key>DATABASE_URL</key>
-	<string>https://adblock-b7f94.firebaseio.com</string>
+	<string>https://adblock-342dd.firebaseio.com</string>
 </dict>
 </plist>

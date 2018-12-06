@@ -17,113 +17,53 @@ final class Sub3DataSource: NSObject {
     private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     private let key = "TableList4"
     
-    private let sectionTitle = ["MY DomainList", "Share DomainLists "]
-    private let myList = [Domain]()
-    private var shareList = [Domain]()
-    private var tableList = [[Domain]]()
-    
-    func setMyList() {
-        
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupID)// [plist, Library, blockerList.json] ブロックリストのディレクトリを作成する必要がある。
-        
-        do {
-            let contentUrls = try FileManager.default.contentsOfDirectory(at: url!, includingPropertiesForKeys: nil)
-            let files = contentUrls.map{$0.lastPathComponent}
-            print(files) //-> ["test1.txt", "test2.txt"]
-//            let jsonFile = files.filter { $0.contains(".json") }
-//            print(jsonFile)
-        } catch {
-            print(error)
-        }
-        
-        // 自分のドメインリスト名を取得
-        
-        // 配列に追加
-    }
-    
-    func setShareList() {
-        
-        // データベースからデータを取得
-        
-        // 配列に追加
-    }
+    private var tableList = [Share]()
+    private var tableData = [DataSnapshot]()
     
     func createTableList() {
         
-        self.tableList = [self.myList + self.shareList]
+        jsonManager = JsonManager()
+        
+        let fileName = jsonManager.getJsonFileName()
+        print(fileName)
     }
     
     func load() {
         
         let defaults = UserDefaults(suiteName: groupID)
-        let tableListDic = defaults?.object(forKey: key) as? [[[String: Any]]]
+        let tableListDic = defaults?.object(forKey: key) as? [[String: Any]]
         guard let tables = tableListDic else { return }
         
         // 取得したothersListを設定
-        self.tableList = tables.map { $0.map { Domain(domain: $0["domain"] as! String, state: $0["state"] as! Bool) } }
+        self.tableList = tables.map { Share(name: $0["name"] as! String, rate: $0["rate"] as! Int) }
     }
     
     func save() {
         
         let defaults = UserDefaults(suiteName: groupID)
-        let tableListDic = self.tableList.map { $0.map { ["domain": $0.domain, "state": $0.state] } }
+        let tableListDic = self.tableList.map { ["name": $0.name, "rate": $0.rate] }
         
         defaults?.set(tableListDic, forKey: key)
     }
     
-    func sectionTitleCount() -> Int {
+    func tableDataCount() -> Int {
         
-        return self.sectionTitle.count
+        return self.tableData.count
     }
     
-    func sectionTitleData(at section: Int) -> String {
+    func data(at index: Int) -> DataSnapshot? {
         
-        if self.sectionTitle.count > section {
+        if self.tableData.count > index {
             
-            return self.sectionTitle[section]
-        }
-        
-        return ""
-    }
-    
-    func sectionDataCount(at section: Int) -> Int {
-        
-        if self.tableList.count > section {
-            
-            let sectionData = self.tableList[section]
-            return sectionData.count
-        }
-        
-        return 0
-    }
-    
-    func data(at section: Int, at index: Int) -> Domain? {
-        
-        if self.tableList.count > section {
-            let sectionData = self.tableList[section]
-            let cellData = sectionData[index]
-            return cellData
+            return self.tableData[index]
         }
         
         return nil
     }
     
-    /// FireBase DataBaseG
-    private var dbRootRef: DatabaseReference!
-    private var dbThisRef: DatabaseReference?
-    private var dbTableData: [DataSnapshot] = [DataSnapshot]()
-    
-    private let dbPath = "documents"
-    private let dbKey1 = "fileName"
-    private let dbKey2 = "rate"
-    private let dbKey3 = "domains"
-    
-    func databaseObserver() {
+    func setTableData(tableD: [DataSnapshot]) {
         
-        if let _ = Auth.auth().currentUser {
-            
-            self.dbThisRef = self.dbRootRef.child(dbPath)
-        }
+        self.tableData = tableD
     }
     
     /// Firebase Cloud Storage
@@ -131,3 +71,5 @@ final class Sub3DataSource: NSObject {
     
     
 }
+
+

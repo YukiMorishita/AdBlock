@@ -92,4 +92,6 @@ extension Notification.Name {
     static let tableDataReload2 = Notification.Name("Sub1TableDataReload")
     static let tableDataReload3 = Notification.Name("Sub2TableDataReload")
     static let tableDataReload4 = Notification.Name("Sub3TableDataReload")
+    static let databaseObserver = Notification.Name("DatabaseObserver")
+    static let starButtonTapedAlert = Notification.Name("starButtonTapedAlert")
 }

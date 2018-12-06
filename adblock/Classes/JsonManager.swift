@@ -32,11 +32,24 @@ final class JsonManager: NSObject {
             if dir.isEmpty == true {
                 jsonFileName = "blockerList.json"
             }
+            
         } catch let error as NSError{
             print("failed to json file: \(error)")
         }
         
         return jsonFileName
+    }
+    
+    func getDomains() -> [String] {
+        
+        var adList = [String]()
+        
+        let defaults = UserDefaults(suiteName: groupID)
+        let adListDic = defaults?.object(forKey: tableKey1) as? [[String: Any]]
+        guard let ads = adListDic else { return [""] }
+        
+        adList = ads.map { Ad(domain: $0["domain"] as! String, state: $0["state"] as! Bool) }.map { $0.domain }
+        return adList
     }
     
     func readJsonFile(fileName: String = "blockerList") -> String {
@@ -55,6 +68,7 @@ final class JsonManager: NSObject {
             print("read container file")
             do {
                 jsonText = try String(contentsOf: containerURL!, encoding: String.Encoding.utf8)
+                
             } catch let error as NSError {
                 print("failed to read: \(error)")
             }
@@ -64,6 +78,7 @@ final class JsonManager: NSObject {
             print("read resource file")
             do {
                 jsonText = try String(contentsOf: resourceURL, encoding: String.Encoding.utf8)
+                
             } catch let error as NSError {
                 print("failed to read: \(error)")
             }
@@ -103,11 +118,10 @@ final class JsonManager: NSObject {
         do {
             print("create and write file")
             try writeJsonText.write(to: containerURL!, atomically: true, encoding: String.Encoding.utf8)
+            
         } catch let error as NSError {
             print("failed to write: \(error)")
         }
-        
-        print(writeJsonText)
         
     }
     
@@ -120,6 +134,7 @@ final class JsonManager: NSObject {
         
         do {
             try FileManager.default.moveItem(at: ContainerURL!, to: changeContainerURL!)
+            
         } catch let error as NSError {
             print("failed to cahnge file name: \(error)")
         }
@@ -152,7 +167,6 @@ final class JsonManager: NSObject {
         let domainList = adList.filter { $0.state == true }.map { $0.domain }
         
         if domainList.isEmpty == false {
-            
             // ドメインごとにブロックルールを作成
             for domain in domainList {
                 jsonText +=
@@ -252,7 +266,6 @@ final class JsonManager: NSObject {
         } catch let error as NSError {
             print(error)
         }
-        
     }
 
 }

@@ -80,7 +80,6 @@ class ActionViewController2: UIViewController {
         
         // 登録済み広告ドメインを保持
         let addedList = dataSource.retrieveAcquiredAd()
-        print(addedList.last!)
         
         // 取得した広告ドメインを読み込み
         dataSource.load()
@@ -104,12 +103,13 @@ class ActionViewController2: UIViewController {
         // 登録済みでない場合 (登録アラート)
         if !addedList.contains(getDomain!) {
             
-            // 取得した広告ドメインをホストアプリに共有する
-            self.dataSource.shareDomainToHostApp()
-            
             let alert = UIAlertController(title: getDomain!, message: "Saved Successfully", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler:
-                { action in
+                {
+                    action in
+                    
+                    // 取得した広告ドメインをホストアプリに共有する
+                    self.dataSource.shareDomainToHostApp()
                     
                     self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
             }))

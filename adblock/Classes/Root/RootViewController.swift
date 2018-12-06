@@ -84,7 +84,6 @@ class RootViewController: UIViewController {
         if defaults?.object(forKey: Key) == nil {
             
             print("初回の起動")
-            
             // テーブルデータ作成・保存
             let domainList = jsonManager.createDomainList()
             dataSource.createAdList(domainList: domainList)

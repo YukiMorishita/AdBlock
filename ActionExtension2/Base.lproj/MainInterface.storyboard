@@ -52,7 +52,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveButtonTaped:" destination="2b5-Sg-1hN" eventType="touchUpInside" id="caR-mz-oWv"/>
+                                    <action selector="saveButtonTaped:" destination="2b5-Sg-1hN" eventType="touchUpInside" id="wnO-KM-rJW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evJ-uc-eYA">
@@ -89,7 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="evJ-uc-eYA" id="rjX-cg-yCj"/>
-                        <outlet property="saveButton" destination="9YH-SO-dfv" id="es5-o9-aSC"/>
+                        <outlet property="saveButton" destination="9YH-SO-dfv" id="Zhv-rK-cfY"/>
                         <outlet property="tableView" destination="I2L-kC-ijv" id="6uY-uW-Q91"/>
                     </connections>
                 </viewController>

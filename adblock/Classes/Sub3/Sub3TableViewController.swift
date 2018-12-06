@@ -206,7 +206,7 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
                 let domains = self.dbTableData[index.row].childSnapshot(forPath: self.dbKey3).value
                 //let comments = self.dbTableData[index.row].childSnapshot(forPath: )
                 
-                let nextVC = segue.destination as! DetailTableViewController
+                let nextVC = segue.destination as! DetailViewController
                 nextVC.EXTRA_Label = label as? String
                 nextVC.EXTRA_Rate = rate as? [Int]
                 nextVC.EXTRA_Domains = domains as? [String]

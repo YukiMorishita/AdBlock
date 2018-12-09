@@ -78,13 +78,15 @@ final class RootDataSource: NSObject {
     
     func unionTableData() {
         
+        // 全てのデータを統合
         if self.adList.count == self.adTableList.count || self.adTableList.count == 0 {
-            print("全件統合")
+
             self.adTableList = self.adList
         }
         
+        // UISwitchのデータを統合
         if self.adList.count > self.adTableList.count && self.adTableList.count >= 0 {
-            print("2")
+            
             var searchAdList = [Ad]()
             
             for ad in self.adTableList {
@@ -100,6 +102,7 @@ final class RootDataSource: NSObject {
             self.adTableList = searchAdList
         }
         
+        // 全てのデータを統合
         if self.adList.count > self.adTableList.count || self.adList.count < self.adTableList.count {
             
             self.adTableList = self.adList
@@ -200,7 +203,6 @@ final class RootDataSource: NSObject {
         }
         
         self.adList = adList
-        save()
     }
     
 }

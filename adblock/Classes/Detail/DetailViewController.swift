@@ -307,10 +307,6 @@ class DetailViewController: UIViewController {
         
         // ダウンロード
         downloadAlert()
-        
-//        // UItableViewの更新を通知
-//        let notiCenter = NotificationCenter.default
-//        notiCenter.post(name: .downloadAlert, object: nil)
     }
     
 }

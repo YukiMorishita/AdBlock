@@ -208,9 +208,19 @@ class RootViewController: UIViewController {
     // テーブルビューを更新 (AdListCell用)
     @objc func tableDataReload() {
         
+        print("reload table")
+        
         // テーブルデータ取得
         dataSource.load()
         dataSource.unionTableData()
+        
+        // UITableViewを更新
+        tableView.reloadData()
+    }
+    
+    @objc func downloadToUpdate() {
+        
+        
         
         // UITableViewを更新
         tableView.reloadData()

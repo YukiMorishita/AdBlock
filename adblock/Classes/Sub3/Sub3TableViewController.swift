@@ -16,15 +16,17 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
     private var dataSource: Sub3DataSource!
     private var jsonManager: JsonManager!
     
-    private let groupID = "jp.ac.osakac.cs.hisalab.adblock"
+    private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     private let key = "TableList4"
+    
+    private var ratingAvg = [(avg: Int, name: String)]()
     
     /// FireBase DataBaseG
     private var dbRootRef: DatabaseReference!
     private var dbThisRef: DatabaseReference?
     private var dbTableData: [DataSnapshot] = [DataSnapshot]()
     
-    private let randomKey = "-LSswgLbGSb6PkNDkBEn"
+    private let groupid = "-LSswgLbGSb6PkNDkBEn"
     
     private let group = "group"
     private let groups = "groups"
@@ -33,7 +35,8 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
     
     private let dbKey1 = "name"
     private let dbKey2 = "rates"
-    private let dbKey3 = "domains"
+    private let dbKey3 = "comment"
+    private let dbKey4 = "domains"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +44,14 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
         dataSource = Sub3DataSource()
         jsonManager = JsonManager()
         
+        
         GIDSignIn.sharedInstance()?.uiDelegate = self
         
         // NotificationCenter (通知を登録)
         let notificationCenter = NotificationCenter.default
         // 通知の監視
         notificationCenter.addObserver(self, selector: #selector(observerPass), name: .databaseObserver, object: nil)
-        // 通知の監視
-        notificationCenter.addObserver(self, selector: #selector(starButtonTapedAlert), name: .starButtonTapedAlert, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(downloadAlert), name: .downloadAlert, object: nil)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -61,14 +64,12 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
         
         self.dbRootRef = Database.database().reference()
         databaseObserver()
-    }
-    
-    @objc func observerPass() {
         
-        dataSource.setTableData(tableD: self.dbTableData)
     }
     
     func databaseObserver() {
+        
+        print("change database data")
         
         if let _ = Auth.auth().currentUser {
             
@@ -96,25 +97,60 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
         
     }
     
-    // データベースの更新
-    func databaseWrite(name: String, rates: [Int], domains: [String], comment: [String]) {
+    func ratingAverage() {
         
-        let uid = "-" + (Auth.auth().currentUser?.uid)!
-        let relation = [uid: true as AnyObject]
-        let _relation  = [randomKey: true as AnyObject]
-        let rates = rates.filter { $0 > 0 }
+        let groups = self.dbTableData.map { $0.key }
+        var names = [String]()
+        let rates = "rates"
+        var index = 0
+        var childDocument = [DataSnapshot]()
         
-        self.dbRootRef = Database.database().reference()
-        self.dbThisRef = self.dbRootRef.child(group).child(randomKey).child(documents)
+        // 平均レートをリセット
+        self.ratingAvg.removeAll()
         
-        // リレーションの構築
-        let _data: Dictionary<String, AnyObject> = relation
-        self.dbThisRef?.updateChildValues(_data)
+        for i in 0..<groups.count {
+            
+            names.append(self.dbTableData[i].childSnapshot(forPath: "name").value as! String)
+        }
         
-        // 新規ファイルの追加
-        self.dbThisRef = dbRootRef.child(document).child(uid)
-        let _newData: Dictionary<String, AnyObject> = [dbKey1: name as AnyObject, dbKey2: rates as AnyObject, dbKey3: domains as AnyObject, groups: _relation as AnyObject]
-        self.dbThisRef?.updateChildValues(_newData)
+        // database のデータを取得
+        for i in 0..<groups.count {
+            
+            childDocument.append( dataSource.data(at: i)! )
+        }
+        
+        // database のratesを取得
+        for document in childDocument {
+            
+            var rateList = [Int]()
+            // ratesのデータ数
+            let childCount = document.childSnapshot(forPath: rates).childrenCount
+            
+            for i in 0..<childCount {
+                
+                let rates = document.childSnapshot(forPath: rates).childSnapshot(forPath: groups[Int(i)]).value
+                rateList.append(rates as! Int)
+            }
+            
+            var total = 0
+            
+            // 各、rateの合計
+            for rate in rateList {
+                
+                total += rate
+            }
+            
+            // 各、平均を取得
+            let avg = total / rateList.count
+            ratingAvg.append((avg: avg, name: names[index]))
+            
+            index += 1
+        }
+        
+        // 平均データを保存
+        let defaults = UserDefaults(suiteName: groupID)
+        let rateAvgDic = ratingAvg.map { ["avg": $0.avg, "name": $0.name] }
+        defaults?.set(rateAvgDic, forKey: "ratingAvg")
     }
     
     @IBAction func authButtonTaped(_ sender: UIBarButtonItem) {
@@ -149,31 +185,6 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func uploadButtonTaped(_ sender: UIBarButtonItem) {
-        
-        let alert = UIAlertController(title: "Upload", message: "upload", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:
-        {
-                (action) in
-                
-                print("cancel")
-        }))
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:
-        {
-                (action) in
-                
-                print("upload")
-                
-                let fileName = self.jsonManager.getJsonFileName()
-                let domains = self.jsonManager.getDomains()
-                
-                self.databaseWrite(name: fileName, rates: [0], domains: domains, comment: [""])
-        }))
-        
-        // アラート表示
-        self.present(alert, animated: true, completion: nil)
-    }
     
     // MARK: - Table view data source
     
@@ -203,23 +214,44 @@ class Sub3TableViewController: UITableViewController, GIDSignInUIDelegate {
                 
                 let label = self.dbTableData[index.row].childSnapshot(forPath: self.dbKey1).value
                 let rate = self.dbTableData[index.row].childSnapshot(forPath: self.dbKey2).value
-                let domains = self.dbTableData[index.row].childSnapshot(forPath: self.dbKey3).value
-                //let comments = self.dbTableData[index.row].childSnapshot(forPath: )
+                let rateAvg = self.ratingAvg[index.row].avg
+                let comment = self.dbTableData[index.row].childSnapshot(forPath: self.dbKey3).value
+                let domains = self.dbTableData[index.row].childSnapshot(forPath: self.dbKey4).value
+                
+                let documentID = self.dbTableData[index.row].key
                 
                 let nextVC = segue.destination as! DetailViewController
                 nextVC.EXTRA_Label = label as? String
                 nextVC.EXTRA_Rate = rate as? [Int]
+                nextVC.EXTRA_RateAvg = rateAvg
+                nextVC.EXTRA_Comment = comment as? String
                 nextVC.EXTRA_Domains = domains as? [String]
+                nextVC.EXTRA_ID = documentID
             }
         }
     }
     
-    @objc func starButtonTapedAlert() {
+    @objc func downloadAlert() {
         
-        let alert = UIAlertController(title: "Submitted", message: "Thanks for your feedback.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: "Download", message: "Download complete", preferredStyle: .alert)
         
-        present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+            
+            print("download")
+            
+//            // UITableViewを更新 (通知を送る)
+//            let notiCenter = NotificationCenter.default
+//            notiCenter.post(name: .tableDataReload, object: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // 非同期処理のコールバック
+    @objc func observerPass() {
+        
+        dataSource.setTableData(tableD: self.dbTableData)
+        ratingAverage()
     }
     
 }

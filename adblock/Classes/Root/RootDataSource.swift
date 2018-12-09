@@ -79,12 +79,12 @@ final class RootDataSource: NSObject {
     func unionTableData() {
         
         if self.adList.count == self.adTableList.count || self.adTableList.count == 0 {
-            
+            print("全件統合")
             self.adTableList = self.adList
         }
         
-        if self.adList.count > self.adTableList.count {
-            
+        if self.adList.count > self.adTableList.count && self.adTableList.count >= 0 {
+            print("2")
             var searchAdList = [Ad]()
             
             for ad in self.adTableList {
@@ -99,6 +99,12 @@ final class RootDataSource: NSObject {
             
             self.adTableList = searchAdList
         }
+        
+        if self.adList.count > self.adTableList.count || self.adList.count < self.adTableList.count {
+            
+            self.adTableList = self.adList
+        }
+        
     }
     
     func deleteAd(at index: Int) {
@@ -179,6 +185,22 @@ final class RootDataSource: NSObject {
                 self.adList[index[0]].state = state
             }
         }
+    }
+    
+    func downloadToUpdateAdList(domains: [String]) {
+        
+        self.adList.removeAll()
+        self.adTableList.removeAll()
+        
+        var adList = [Ad]()
+        
+        for domain in domains {
+            
+            adList.append(Ad(domain: domain, state: false))
+        }
+        
+        self.adList = adList
+        save()
     }
     
 }

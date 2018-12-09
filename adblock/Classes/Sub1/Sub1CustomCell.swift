@@ -69,6 +69,7 @@ class Sub1CustomCell: UITableViewCell {
         
         let label = tableLabel.text!
         let state = tableSwitch.isOn
+        
         // UISwitchの状態を変更
         dataSource.changeSwitchState(label: label, state: state)
         dataSource.save()

@@ -17,33 +17,39 @@ final class Sub3DataSource: NSObject {
     private let groupID = "group.jp.ac.osakac.cs.hisalab.adblock"
     private let key = "TableList4"
     
-    private var tableList = [Share]()
+    /// FireBase DataBaseG
+    private var dbRootRef: DatabaseReference!
+    private var dbThisRef: DatabaseReference?
+    private var dbTableData: [DataSnapshot] = [DataSnapshot]()
+    
+    private let groupid = "-LSswgLbGSb6PkNDkBEn"
+    
+    private let group = "group"
+    private let groups = "groups"
+    private let document = "document"
+    private let documents = "documents"
+    
+    private let dbKey1 = "name"
+    private let dbKey2 = "rates"
+    private let dbKey3 = "domains"
+    
     private var tableData = [DataSnapshot]()
     
-    func createTableList() {
+    func getTableData() -> [DataSnapshot]? {
         
-        jsonManager = JsonManager()
-        
-        let fileName = jsonManager.getJsonFileName()
-        print(fileName)
+        return self.tableData
     }
     
-    func load() {
+    func ratingAverage() -> String {
         
-        let defaults = UserDefaults(suiteName: groupID)
-        let tableListDic = defaults?.object(forKey: key) as? [[String: Any]]
-        guard let tables = tableListDic else { return }
+        let group = self.tableData.map { $0.childSnapshot(forPath: "group").key }
+        print(group)
+
+//        let rates = self.tableData.map { $0.childSnapshot(forPath: "rates") }
+//
+//        print(rates)
         
-        // 取得したothersListを設定
-        self.tableList = tables.map { Share(name: $0["name"] as! String, rate: $0["rate"] as! Int) }
-    }
-    
-    func save() {
-        
-        let defaults = UserDefaults(suiteName: groupID)
-        let tableListDic = self.tableList.map { ["name": $0.name, "rate": $0.rate] }
-        
-        defaults?.set(tableListDic, forKey: key)
+        return "3"
     }
     
     func tableDataCount() -> Int {
